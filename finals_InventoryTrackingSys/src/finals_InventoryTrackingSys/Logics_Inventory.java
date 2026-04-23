@@ -241,9 +241,6 @@ public class Logics_Inventory implements InventoryVars{
 						}
 						br.close();
             		}
-	    		
-	            
-	    	
 
 	    	catch(IOException e) {
 	    		System.out.println("\t | SOMETHING WENT WRONG: "+ e.getMessage());
