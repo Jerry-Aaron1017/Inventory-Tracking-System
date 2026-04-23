@@ -16,7 +16,4 @@ public enum Enums_Constants {
     public String getOptTypeS() {
 		return this.optionTypeS;
 	}
-    
-    
-
 }
