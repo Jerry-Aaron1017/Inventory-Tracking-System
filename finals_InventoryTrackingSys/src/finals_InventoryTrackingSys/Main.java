@@ -9,7 +9,6 @@ public class Main {
         String c_Red = "\u001B[31m";
         String c_Green = "\u001B[32m";
         String c_Reset = "\u001B[0m";
-        String c_Orange = "\u001B[35m";
 
         try{
         	// Instance Variables
