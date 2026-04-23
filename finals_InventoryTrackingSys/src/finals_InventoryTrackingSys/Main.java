@@ -10,7 +10,7 @@ public class Main {
         String c_Green = "\u001B[32m";
         String c_Reset = "\u001B[0m";
         String c_Orange = "\u001B[35m";
-        
+
         try{
         	// Instance Variables
         	boolean ContinueOpt = true;
@@ -46,6 +46,9 @@ public class Main {
         	         ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝""" + " ".repeat(121) + "|" +
         	        """
         	        """;
+        	
+        	String inventoryHeader;
+        	
         	print.println(welcome);
         	print.println("\t" + "—".repeat(300));
         	print.println("\t"+ "█".repeat(300));
