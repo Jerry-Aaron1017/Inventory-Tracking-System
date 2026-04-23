@@ -300,8 +300,4 @@ public class Logics_Inventory implements InventoryVars{
     public void setThirdDecision(String thirdChoice) {
         this.thirdChoice = thirdChoice;
     }
-    
-    
-    
-    
 }
