@@ -10,7 +10,7 @@ import static java.nio.file.AccessMode.*;
 
 public class Logics_Inventory implements InventoryVars{
 	
-	private static final File filePath = new File ("D:\\Java Programs Activites\\New folder\\finals_InventoryTrackingSys\\src\\InventoryData");
+	private static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryData");
 	
 	// VARIABLES FOR COLOR OUTPUT
 	static String c_Red = "\u001B[31m";
