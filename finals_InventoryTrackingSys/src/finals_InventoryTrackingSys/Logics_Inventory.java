@@ -155,9 +155,12 @@ public class Logics_Inventory implements InventoryVars{
 			NumberFormat currency = NumberFormat.getCurrencyInstance();
 			
 				while(true) {
+					Date now = new Date();
+					mths.writer.write(now + " ;");
+					
 					System.out.println("\t | ");
 					System.out.print("\t | Item: ");
-					String item =  mths.scan.nextLine();
+					String item = mths.scan.nextLine();
 					mths.writer.write(item + ";");
 					
 					System.out.print("\t | Quantity: ");
@@ -167,9 +170,6 @@ public class Logics_Inventory implements InventoryVars{
 					System.out.print("\t | Price: ");
 					double price =  mths.scan.nextDouble();
 					mths.writer.write(currency.format(price) + ";");
-					
-					Date now = new Date();
-					mths.writer.write(now + ";");
 					
 					mths.scan.nextLine();
 					System.out.print("\t | Group: ");
@@ -230,13 +230,15 @@ public class Logics_Inventory implements InventoryVars{
 	            
 	            	while ((LINE = br.readLine()) != null) {
 		            	String[] val = LINE.split(";");
-		            	System.out.println("\t | ");
-		            	System.out.println("\t | Item: " + c_Green + val[0] + c_Reset);
-		            	System.out.println("\t | Quantity: " + c_Green + val [1] + c_Reset);
-		            	System.out.println("\t | Price: " + c_Green + val [2] + c_Reset);
-		            	System.out.println("\t | Group: " + c_Green + val [4] + c_Reset);
-		            	System.out.println("\t | Time Log: " + c_Green + val [3] + c_Reset + "");
+		            	String[] wB = LINE.split(" ");
 		            	
+		            	System.out.println("\t | ");
+		            	System.out.println("\t | Item: " + c_Green + val[1] + c_Reset);
+		            	System.out.println("\t | Quantity: " + c_Green + val [2] + c_Reset);
+		            	System.out.println("\t | Price: " + c_Green + val [3] + c_Reset);
+		            	System.out.println("\t | Group: " + c_Green + val [4] + c_Reset);
+		            	System.out.println("\t | Time Log: " + c_Green + wB [3] + c_Reset);
+		            	System.out.println("\t | Date Log: " + c_Green + wB [0] + " " + wB [1] + " " + wB [2] + ", " + wB [5] + c_Reset);
 		    
 						}
 						br.close();
