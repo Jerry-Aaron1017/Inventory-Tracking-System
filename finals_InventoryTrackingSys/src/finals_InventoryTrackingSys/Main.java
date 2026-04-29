@@ -15,8 +15,6 @@ public class Main {
         try{
         	// Instance Variables
         	boolean ContinueOpt = true;
-        	int loopChoice;
-        	
         	
         	// Method
         	PrintWriter print = new PrintWriter(System.out);
@@ -28,8 +26,8 @@ public class Main {
         	int countFormat = 53;
         	print.println("\n");
         	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
-        	final String repetition57 = " ".repeat(54);
-        	final String repetition59 = " ".repeat(56);
+        	final String repetition54 = " ".repeat(54);
+        	final String repetition56 = " ".repeat(56);
         	final String centerRepeat = " ".repeat(75);
         	final String subCenterRepeat = " ".repeat(55);
 
@@ -38,22 +36,22 @@ public class Main {
         	final String tabLine = "\t | ";
         	String welcome = 
         			"\t | " + " ".repeat(countFormat) + """
-        			██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗""" + repetition57 + "| \n"  
+        			██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗""" + repetition54 + "| \n"  
         			
         	        + "\t | " + " ".repeat(countFormat) + """
-        			██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝""" + repetition57 + "| \n" 
+        			██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝""" + repetition54 + "| \n" 
         	        
         			+ "\t | " + " ".repeat(countFormat) + """
-        	        ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗""" + repetition59 + "| \n" 
+        	        ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗""" + repetition56 + "| \n" 
         			
         	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝""" + repetition59 + "| \n" 
+        	        ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝""" + repetition56 + "| \n" 
         	        
         	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗""" + repetition57 + "| \n" 
+        	        ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗""" + repetition54 + "| \n" 
         	        
         	        + "\t | " +  " ".repeat(countFormat + 1) + """
-        	         ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝""" + repetition57 + "|" +
+        	         ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝""" + repetition54 + "|" +
         	        """
         	        """;
         	
@@ -82,16 +80,22 @@ public class Main {
 	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + "  " + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);
 	            
-	            String firstLineOption = (tabSpace + subCenterRepeat + "[" + b_Texts + "1" + c_Reset +  "] " + b_Texts + "Inventory " + c_Reset);
-	            String secondtLineOption = (tabSpace + " ".repeat(25) + "[" + b_Texts + "2" + c_Reset +  "] " + b_Texts + "Item " + c_Reset);
-	            String thirdtLineOption = (tabSpace + subCenterRepeat + "[" + b_Texts + "3" + c_Reset +  "] " + b_Texts + "Group or Category " + c_Reset);
-	            String fourthtLineOption = (tabSpace + " ".repeat(17) + "[" + b_Texts + "4" + c_Reset +  "] " + b_Texts + "Exit the Program " + c_Reset);
-	            String fifthLineScan = (tabSpace + subCenterRepeat + b_Texts +  "—> " + c_Reset);
+	            String firstLineOption = (tabSpace + subCenterRepeat + "| [" + b_Texts + "1" + c_Reset +  "] " + b_Texts + "Inventory " + c_Reset);
+	            String secondtLineOption = ( tabSpace + " ".repeat(13) + "|" + " ".repeat(11) + "[" + b_Texts + "2" + c_Reset +  "] " + b_Texts + "Item" + c_Reset + " ".repeat(12) + " | ");
+	            String fillerLine = (tabSpace + subCenterRepeat + b_Texts + "—".repeat(65) + c_Reset);
+	           
+	            String thirdtLineOption = (tabSpace + subCenterRepeat + "| [" + b_Texts + "3" + c_Reset +  "] " + b_Texts + "Group or Category " + c_Reset);
+	            String fourthtLineOption = (tabSpace + " ".repeat(5) + "|"  + " ".repeat(11) + "[" + b_Texts + "4" + c_Reset +  "] " + b_Texts + "Exit the Program" + c_Reset + " | ");
+	            String fifthLineScan = (tabSpace + subCenterRepeat + b_Texts +  " —> " + c_Reset);
 	            
+	            print.println(fillerLine);
 	            print.print(firstLineOption);
 	            print.println(secondtLineOption);
-	            print.print(thirdtLineOption);	            
+	            print.println(fillerLine);
+	            
+	            print.print(thirdtLineOption);	
 	            print.println(fourthtLineOption);
+	            print.println(fillerLine + "\n");
 	            print.print(fifthLineScan);
 	            print.flush();
 	            
