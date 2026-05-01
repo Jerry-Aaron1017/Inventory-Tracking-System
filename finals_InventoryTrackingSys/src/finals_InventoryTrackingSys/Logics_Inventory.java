@@ -11,7 +11,6 @@ import java.util.*;
 import static java.nio.file.AccessMode.*;
 
 public class Logics_Inventory implements InventoryVars{
-	
 	static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryData");
 	
 	// VARIABLES FOR COLOR/UI OUTPUT
@@ -22,6 +21,8 @@ public class Logics_Inventory implements InventoryVars{
     static String c_Reset = "\u001B[0m";
     
     // VARS FOR UI FORMAT
+    final static String counterFormat = " ".repeat(53);
+    final static String halfCF = " ".repeat(27);
     final static String repetition54 = " ".repeat(54);
 	final static String repetition56 = " ".repeat(56);
 	final static String centerRepeat = " ".repeat(75);
@@ -34,12 +35,12 @@ public class Logics_Inventory implements InventoryVars{
 	final static String tabSpace = "\t ";
 	final static String tabLine = "\t | ";
 	
-	// VARIABLE INSTANCES
+	// VARIABLE FOR DECISIONS
 	String firstChoice;
 	static String secondChoice;
     static String thirdChoice;
     
-    // ENUM CLASS INSTANCE
+    // ENUM CLASS
     static Enums_Constants enumShow = null;
     
     // METHODS
@@ -50,6 +51,8 @@ public class Logics_Inventory implements InventoryVars{
 	Path fPath = Paths.get(filePath.getAbsolutePath());
 	FileWriter writer;
 	FileReader fReader;
+	
+	
 	
 	// First Decision == First Level ==
     public void setFirstDecisions(String firstChoice) {
@@ -174,7 +177,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 	    		}
 				
-				else if (secondChoice.equalsIgnoreCase("Add an Item") || secondChoice.equals("3")) {
+				else if (secondChoice.equalsIgnoreCase("Add a Group or Category") || secondChoice.equals("3")) {
 					Logics_Inventory.setGroupInventory();
 					break;
 	    		}
@@ -200,7 +203,6 @@ public class Logics_Inventory implements InventoryVars{
 	    	try {
     			BufferedReader br = new BufferedReader(new FileReader(mths.fPath.toString()));
     			String LINE = " ";
-    			String filePathStr = filePath.getName();
 				Scanner scanLines = new Scanner (filePath); 
 				
 	            	while ((LINE = br.readLine()) != null) {
@@ -259,19 +261,116 @@ public class Logics_Inventory implements InventoryVars{
     
     // ACCESS CHECK/SHOW The Inventory Dashboard
     public static void getDashboardInventory() {
-		
-    	
-    	try {
-    		
-    	}
-    	
-    	catch(Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-		
-    	finally {
-    		System.out.println(" ");
-    	}
+    	//METHODS
+    	Logics_Inventory mths = new Logics_Inventory();
+    	while(true)
+			try {
+				//METHODS
+				BufferedReader br = new BufferedReader(new FileReader(mths.fPath.toString()));
+				int lineCount = (int) Files.lines(Paths.get(mths.fPath.toString())).count();
+				PrintWriter print = new PrintWriter(System.out);
+				
+		    	//VARIABLES
+				final String rep5 = " ".repeat(5);
+		    	final String rep9 = " ".repeat(9);
+		    	final String rep20 = " ".repeat(20);
+		    	final String rep30 = " ".repeat(30);
+		    	final String dashBFormat = " ".repeat(41);
+		    	
+		    	
+		    	print.println("\n");
+	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+		    	final String dashboardHeader = tabLine + dashBFormat + """
+		    			████████╗  ███████╗ ████████╗██╗    ██╗████████╗  ███████╗  ███████╗ ███████╗ ████████╗   """ + " ".repeat(41) + "| \n" +
+		    			tabLine + dashBFormat + """
+		    			██╔════██╗██╔════██╗██╔═════╝██║    ██║██╔════██╗██╔════██║██╔════██╗██╔═══██╗██╔════██╗  """ + " ".repeat(40) + "| \n" +
+		    			tabLine + dashBFormat + """
+		    			██║    ██║█████████║████████╗█████████║████████╔╝██║    ██║█████████║███████╔╝██║    ██║  """ + " ".repeat(40) + "| \n" +
+		    			tabLine + dashBFormat + """ 
+		    			██║    ██║██╔════██║╚═════██║██╔════██║██╔════██╗██║    ██║██╔════██║██╔═══██╗██║    ██║  """ + " ".repeat(40) + "| \n" +
+		    			tabLine + dashBFormat + """
+		    			████████╔╝██║    ██║████████║██║    ██║████████╔╝╚███████╔╝██║    ██║██║   ██║████████╔╝  """ + " ".repeat(40) + "| \n" +
+		    			tabLine + dashBFormat + """
+		    			╚═══════╝ ╚═╝    ╚═╝╚═══════╝╚═╝    ╚═╝╚═══════╝  ╚══════╝ ╚═╝    ╚═╝╚═╝   ╚═╝╚══════╝    """ + " ".repeat(42) + "|" + """
+		    			""";
+	    		print.println(dashboardHeader);
+	    		print.println("\t " + "—".repeat(172));
+	        	print.println("\t " + "█".repeat(172));
+	    		print.flush();
+	    		
+	    		
+	    		// DashBoard Control
+	    		
+	    		String lines = "";
+	    		print.println(tabSpace + centerRepeat + " ".repeat(2) + b_Texts + "ITEM QUANTITY" + c_Reset); 
+	    		while((lines = br.readLine()) != null) {
+		    			String[] val = lines.split(";");
+		    			print.print(tabSpace + " ".repeat(30 - val[1].length()) + val[1] + " | ");
+		    			
+		    			String newQUantity = val [2];
+		            	int doubleVar =((int)(Double.parseDouble(newQUantity)));
+		            	
+		    			if((doubleVar == 1)) {
+		    				print.print("██".repeat(doubleVar));
+		    			}
+		    			
+		    			else if ((doubleVar % 2 == 0)) {
+		    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
+		    					print.print("██");
+		    				}
+		    			}
+		    			
+		    			else if((doubleVar % 2 != 0)) {
+		    				if (doubleVar % 2 == 1) {
+		    					print.print("█");
+		    				}
+		    				else {
+		    				}
+		    				for(int numRepeat = 0; numRepeat < (doubleVar/2); numRepeat++) {
+		    					print.print("██");
+		    				}
+		    			}
+		    			
+		    			else {
+		    				break;
+		    			}
+		    			print.println();
+		    		}
+	    		br.close();
+	    		print.println(tabSpace + rep30 + "_".repeat(59));
+	    		print.println(tabSpace + rep30 + "   0" + rep9 + "10" + rep9 + "20" + rep9 + "30" + rep9 + "40" + rep9 + "50");
+	    		print.flush();
+	    	}
+	    	
+	    	catch(Exception e) {
+	    		System.out.println(e.getMessage());
+	    	}
+			
+	    	finally {
+	    		System.out.println("\t | ");
+				System.out.println("\t | ENTRY ENDED");
+				System.out.println("\t | ");
+				
+				// Internal Decision to repeat or to choose other Action
+				System.out.println("\t | CHOOSE NEXT DECISION: ");
+				System.out.println("\t | [1] Show");
+				System.out.println("\t | [2] Update Again");
+				System.out.println("\t | [3] Exit and go back");
+				System.out.print("\t | -> ");
+				String num = mths.scan.nextLine();
+				
+				if (num.equalsIgnoreCase("update") || num.equals("2")) {
+					continue;
+				}
+				else if (num.equalsIgnoreCase("show") || num.equals("1")) {
+					Logics_Inventory.getWrittenInventory();
+					break;
+				}
+				else if (num.equalsIgnoreCase("exit") || num.equals("3")) {
+					//Main.main(null); Call dire
+					break;
+				}
+	    	}
 	}
 	
 	// ACCES UPDATE/WRITES for Adding an Item 
