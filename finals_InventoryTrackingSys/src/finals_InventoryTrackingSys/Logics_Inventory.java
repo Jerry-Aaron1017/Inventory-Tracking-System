@@ -29,7 +29,7 @@ public class Logics_Inventory implements InventoryVars{
 	final static String subCR65 = " ".repeat(65);
 	final static String subCR55 = " ".repeat(55);
 	final static String subCR50 = " ".repeat(50);
-	final static String minorCR47 = " ".repeat(47);      // MINOR CENTER REPEAT
+	final static String minorCR48 = " ".repeat(48);      // MINOR CENTER REPEAT
 
 	final static String tab = "\t";
 	final static String tabSpace = "\t ";
@@ -144,11 +144,17 @@ public class Logics_Inventory implements InventoryVars{
     	Logics_Inventory mths = new Logics_Inventory();
     	try {
     		System.out.println(tabSpace);
+        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
+
 	    	System.out.println(tabSpace + centerRepeat + "  " + b_Texts + "Acces Inventory to " + c_Reset);
-	    	System.out.print(subCR50 + tabSpace + " [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Inventory List" + c_Reset);
-	        System.out.println(" ".repeat(28) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Show Inventory Dashboard" + c_Reset + "\n");
-	        System.out.print(subCR50 + tabSpace + " [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Add an Item" + c_Reset);
-	        System.out.println(" ".repeat(36) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Add a Group or Category" + c_Reset + "\n");
+            System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+
+	    	System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Inventory List" + c_Reset);
+	        System.out.println(" ".repeat(13) + "|" + " ".repeat(13) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Show Inventory Dashboard |" + c_Reset);
+	        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+	        System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Add an Item" + c_Reset);
+	        System.out.println(" ".repeat(21) + "|" + " ".repeat(13) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Add a Group or Category  |" + c_Reset);
+	        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
 	        System.out.print(subCR50 + tabSpace + b_Texts + " —> " + c_Reset);
 	        Logics_Inventory.secondChoice = mths.scan.nextLine();
     	}
@@ -177,14 +183,14 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 	    		}
 				
-				else if (secondChoice.equalsIgnoreCase("Add a Group or Category") || secondChoice.equals("3")) {
+				else if (secondChoice.equalsIgnoreCase("Add a Group or Category") || secondChoice.equals("4")) {
 					Logics_Inventory.setGroupInventory();
 					break;
 	    		}
 				
 				else {
-					System.out.println("\t | Try Another: ");
-					System.out.println("\t | ");
+					System.out.println(tabSpace + minorCR48 + "Try Another: ");
+					Logics_Inventory.chooseInventoryOption();
 					break;
 				}
 			}
@@ -197,62 +203,125 @@ public class Logics_Inventory implements InventoryVars{
 
 	// ACCESS CHECK/SHOW THE Inventory List
     public static void getWrittenInventory() {
+    	
+    	//METHODS
     	Logics_Inventory mths = new Logics_Inventory();
+    	PrintWriter print = new PrintWriter(System.out);
+    	
+    	//VARIABLES
+		final String rep5 = " ".repeat(5);
+		final String rep8 = " ".repeat(8);
+    	final String rep7 = " ".repeat(7);
+    	final String rep20 = " ".repeat(20);
+    	final String rep35 = " ".repeat(35);
+    	final String rep40 = " ".repeat(40);
+    	final String inventoryFormat = " ".repeat(38);
+    	final String spacerFormat = " ".repeat(3);
     	
     	while(true) {
 	    	try {
-    			BufferedReader br = new BufferedReader(new FileReader(mths.fPath.toString()));
-    			String LINE = " ";
-				Scanner scanLines = new Scanner (filePath); 
+    			FileReader fR = new FileReader(mths.fPath.toString());
+    			BufferedReader br1 = new BufferedReader(fR);
+    			String LINE;
+    			int spaces = 40;
+    			final String b_verticalLine = b_Texts + "|" + c_Reset;
+    			final String b_verticalSpacesLine = b_Texts + " | " + c_Reset;
+    			
+    			print.println("\n");
+	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+    			String inventoryListHeader = tabLine + inventoryFormat + """
+		    			█████████╗█████╗  ███╗███╗   ███╗█████████╗█████╗  ███╗█████████╗ █████████╗ █████████╗ ███╗  ███╗  """ + " ".repeat(33) + "| \n" +
+		    			tabLine + inventoryFormat + spacerFormat + """
+		    			   ███╔══╝██████╗ ███║███║   ███║███╔═════╝██████╗ ███║   ███╔══╝███╔════███║███╔═══███╗███╚══███║                  """ + " ".repeat(33) + "| \n" +
+		    			tabLine + inventoryFormat + spacerFormat + """
+		    			   ███║   ███╔███╗███║ ███╗ ███╔╝███████╗  ███╔███╗███║   ███║   ███║    ███║█████████╔╝ ███████╔╝     """ + " ".repeat(33) + "| \n" +
+		    			tabLine + inventoryFormat + spacerFormat + """    
+		    			   ███║   ███║╚██████║ ███║ ███║ ███╔═══╝  ███║╚██████║   ███║   ███║    ███║███╔═══███╗   ███╔═╝   """ + " ".repeat(34) + "| \n" +
+		    			tabLine + inventoryFormat + """
+		    			█████████╗███║ ╚═████║  ██████╔╝ █████████╗███║ ╚═████║   ███║   ╚█████████╔╝███║   ███║   ███║   """ + " ".repeat(36) + "| \n" +
+		    			tabLine + inventoryFormat + """
+		    			╚════════╝╚══╝   ╚═══╝  ╚═════╝  ╚════════╝╚══╝   ╚═══╝   ╚══╝    ╚════════╝ ╚══╝   ╚══╝   ╚══╝  """ + " ".repeat(36) + "|" + """
+		    			""";
 				
-	            	while ((LINE = br.readLine()) != null) {
-		            	String[] val = LINE.split(";");
-		            	String[] wB = LINE.split(" ");
+    			print.println(inventoryListHeader);
+	    		print.println(tabSpace + "—".repeat(172));
+	        	print.println(tabSpace + "█".repeat(172));
 
-		            	System.out.println(tabSpace);
-		            	System.out.println(tabSpace + minorCR47 + "Item: " + c_Green + val[1] + c_Reset);
-		            	System.out.println(tabSpace + minorCR47 + "Quantity: " + c_Green + val [2] + c_Reset);
-		            	System.out.println(tabSpace + minorCR47 + "Price: " + c_Green + val [3] + c_Reset);
-		            	
-		            	String newQuant = val [2];
-		            	Double nQuantity = Double.parseDouble(newQuant);
-		            	
-		            	String newPrice = val [4];
-		            	Double nPrice = Double.parseDouble(newPrice);
-		            	System.out.println(tabSpace + minorCR47 + "Total Amount: " + c_Green + mths.currency.format(nQuantity * nPrice) + c_Reset);
-
-		            	System.out.println(tabSpace + minorCR47 + "Group: " + c_Green + val [5] + c_Reset);
-		            	System.out.println(tabSpace + minorCR47 + "Time Log: " + c_Green + wB [3] + c_Reset);
-		            	System.out.println(tabSpace + minorCR47 + "Date Log: " + c_Green + wB [0] + " " + wB [1] + " " + wB [2] + ", " + wB [5] + c_Reset);
-						}
-						br.close();
-            		}
+    			print.println("\n");
+				print.println(tabSpace + centerRepeat + " ".repeat(4) + b_Texts + "INVENTORY LIST" + c_Reset); 
+				print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+				String [] label = {"Items", "Quantity", "Price", "Total Amount", "Group or Category"};
+				
+				String blockForCategories = tabLine + rep20 + label[0] + " ".repeat(33 - (label[0].length())) + label[1] + " ".repeat(28 - (label[1].length()))
+						+ label[2] + " ".repeat(20 - (label[2].length())) + label[3] + " ".repeat(36 - (label[3].length())) + label[4];
+				
+				print.println(blockForCategories);
+				print.flush();
+    			while((LINE = br1.readLine()) != null) {
+    				String DATA [] = LINE.split(";");
+    				
+    				
+	    			for (int numHolder = 0; numHolder < 1; numHolder++) {
+	    				System.out.print(tabSpace + b_verticalLine + " ".repeat(8) + " ".repeat(spaces - DATA[1].length()) + DATA [1] + b_verticalSpacesLine);
+	    			}
+	    			for (int numHolder = 0; numHolder < 1; numHolder++) {
+	    				System.out.print(DATA [2] + " ".repeat(20 - DATA[2].length()) + b_verticalSpacesLine);
+	    			}
+	    			
+	    			for (int numHolder = 0; numHolder < 1; numHolder++) {
+	    				System.out.print(DATA [3] + " ".repeat(20 - DATA[3].length()) + b_verticalSpacesLine);
+	    			}
+	    			
+	    			for (int numHolder = 0; numHolder < 1; numHolder++) {
+	    				System.out.print(DATA [4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
+	    			}
+	    			
+	    			for (int numHolder = 0; numHolder < 1; numHolder++) {
+	    				System.out.println(DATA [5] + " ".repeat(50 - DATA[5].length()) + b_verticalSpacesLine);
+	    			}
+    			}
+    			print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+    			print.flush();
+    		}
 
 	    	catch(IOException e) {
 	    		System.out.println("\t | SOMETHING WENT WRONG: "+ e.getLocalizedMessage());
 	    	}
     	
 	    	finally {
-	    		System.out.println(tabSpace);
-				System.out.println(tabSpace + minorCR47 + " ENTRY ENDED");
-				System.out.println(tabSpace);
 				// Internal Decision to repeat or to choose other Action
-				System.out.println(tabSpace + minorCR47 + "CHOOSE NEXT DECISION: ");
-				System.out.println(tabSpace + minorCR47 + "[1] Show Again");
-				System.out.println(tabSpace + minorCR47 + "[2] Update");
-				System.out.println(tabSpace + minorCR47 + "[3] Exit and go back");
-				System.out.print(minorCR47 + " —> ");
-				String num = mths.scan.nextLine();
+				System.out.println(tabSpace);
+	        	System.out.println(centerRepeat +  b_Texts + "============================================" + c_Reset);
+
+		    	System.out.println(tabSpace + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
+	            System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+
+		    	System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Inventory List" + c_Reset);
+		        System.out.println(" ".repeat(13) + "|" + " ".repeat(13) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Show Inventory Dashboard |" + c_Reset);
+		        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+		        System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Add an Item" + c_Reset);
+		        System.out.println(" ".repeat(21) + "|" + " ".repeat(13) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Add a Group or Category  |" + c_Reset);
+		        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+		        System.out.print(subCR50 + tabSpace + b_Texts + " —> " + c_Reset);
+				String numOrStr = mths.scan.nextLine();
 				
-				if (num.equalsIgnoreCase("show") || num.equals("1")) {
+				if (numOrStr.equalsIgnoreCase("Show Inventory List") || numOrStr.equals("1")) {
 					continue;
 				}
-				else if (num.equalsIgnoreCase("update") || num.equals("2")) {
+				else if (numOrStr.equalsIgnoreCase("Show Inventory Dashboard") || numOrStr.equals("2")) {
+					Logics_Inventory.getDashboardInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Add an Item") || numOrStr.equals("3")) {
 					Logics_Inventory.setItemInventory();
 					break;
 				}
-				else if (num.equalsIgnoreCase("exit") || num.equals("3")) {
-					//Main.main(null); Call dire
+				else if (numOrStr.equalsIgnoreCase("Add a Group or Category") || numOrStr.equals("4")) {
+					Logics_Inventory.setGroupInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("5")){
+					System.out.println("\t | ENNNNNNNNNNNNNGKDD");
 					break;
 				}
 	    	}
@@ -260,24 +329,25 @@ public class Logics_Inventory implements InventoryVars{
 	}
     
     // ACCESS CHECK/SHOW The Inventory Dashboard
-    public static void getDashboardInventory() {
+	public static void getDashboardInventory() {
     	//METHODS
     	Logics_Inventory mths = new Logics_Inventory();
+    	PrintWriter print = new PrintWriter(System.out);
+				
+    	//VARIABLES
+		final String rep5 = " ".repeat(5);
+		final String rep8 = " ".repeat(8);
+    	final String rep7 = " ".repeat(7);
+    	final String rep20 = " ".repeat(20);
+    	final String rep35 = " ".repeat(35);
+    	final String rep40 = " ".repeat(40);
+    	final String dashBFormat = " ".repeat(41);
+    	
     	while(true)
 			try {
 				//METHODS
 				BufferedReader br = new BufferedReader(new FileReader(mths.fPath.toString()));
-				int lineCount = (int) Files.lines(Paths.get(mths.fPath.toString())).count();
-				PrintWriter print = new PrintWriter(System.out);
-				
-		    	//VARIABLES
-				final String rep5 = " ".repeat(5);
-		    	final String rep9 = " ".repeat(9);
-		    	final String rep20 = " ".repeat(20);
-		    	final String rep30 = " ".repeat(30);
-		    	final String dashBFormat = " ".repeat(41);
-		    	
-		    	
+
 		    	print.println("\n");
 	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
 		    	final String dashboardHeader = tabLine + dashBFormat + """
@@ -298,47 +368,50 @@ public class Logics_Inventory implements InventoryVars{
 	        	print.println("\t " + "█".repeat(172));
 	    		print.flush();
 	    		
-	    		
-	    		// DashBoard Control
-	    		
+	    		// DASHBOARD CONTROL
 	    		String lines = "";
-	    		print.println(tabSpace + centerRepeat + " ".repeat(2) + b_Texts + "ITEM QUANTITY" + c_Reset); 
+	    		print.println("\n");
+	    		print.println(tabSpace + centerRepeat + " ".repeat(11) + b_Texts + "ITEM QUANTITY" + c_Reset); 
+	    		print.println(tabSpace + " ".repeat(41) + "—".repeat(104));
 	    		while((lines = br.readLine()) != null) {
 		    			String[] val = lines.split(";");
-		    			print.print(tabSpace + " ".repeat(30 - val[1].length()) + val[1] + " | ");
+		    			
+		    			print.print(tabSpace + " ".repeat(40 - val[1].length()) + val[1] + " | ");
 		    			
 		    			String newQUantity = val [2];
 		            	int doubleVar =((int)(Double.parseDouble(newQUantity)));
 		            	
 		    			if((doubleVar == 1)) {
-		    				print.print("██".repeat(doubleVar));
+		    				print.print("█".repeat(doubleVar));
+		    				print.print(" ".repeat(100 - doubleVar) + " |");
 		    			}
 		    			
 		    			else if ((doubleVar % 2 == 0)) {
 		    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
 		    					print.print("██");
-		    				}
+		    					
+		    				}print.print(" ".repeat(100 - (doubleVar)) + " |");
 		    			}
 		    			
 		    			else if((doubleVar % 2 != 0)) {
+		    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
+		    					print.print("██");
+		    					
+		    				}
 		    				if (doubleVar % 2 == 1) {
 		    					print.print("█");
-		    				}
-		    				else {
-		    				}
-		    				for(int numRepeat = 0; numRepeat < (doubleVar/2); numRepeat++) {
-		    					print.print("██");
+		    					print.print(" ".repeat(100 - (doubleVar)) + " |");
 		    				}
 		    			}
-		    			
 		    			else {
 		    				break;
 		    			}
+		    			//print.print(" ".repeat(100 - doubleVar) + " |");
 		    			print.println();
 		    		}
 	    		br.close();
-	    		print.println(tabSpace + rep30 + "_".repeat(59));
-	    		print.println(tabSpace + rep30 + "   0" + rep9 + "10" + rep9 + "20" + rep9 + "30" + rep9 + "40" + rep9 + "50");
+	    		print.println(tabSpace + rep40  + " " + "_".repeat(104));
+	    		print.println(tabSpace + rep40 + "  0" + rep8 + "10" +rep8 + "20" + rep8 + "30" + rep8 + "40" + rep8 + "50" + rep8  + "60" + rep8  + "70" + rep8  + "80" + rep8  + "90" + rep8  + "100");
 	    		print.flush();
 	    	}
 	    	
@@ -347,31 +420,42 @@ public class Logics_Inventory implements InventoryVars{
 	    	}
 			
 	    	finally {
-	    		System.out.println("\t | ");
-				System.out.println("\t | ENTRY ENDED");
-				System.out.println("\t | ");
+	    		// Internal Decision to repeat or to choose other Action
+	    		System.out.println(tabSpace);
+	        	System.out.println(centerRepeat +  b_Texts + "============================================" + c_Reset);
+		    	System.out.println(tabSpace + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
+	            System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+
+		    	System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Inventory List" + c_Reset);
+		        System.out.println(" ".repeat(13) + "|" + " ".repeat(13) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Show Inventory Dashboard |" + c_Reset);
+		        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+		        System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Add an Item" + c_Reset);
+		        System.out.println(" ".repeat(21) + "|" + " ".repeat(13) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Add a Group or Category  |" + c_Reset);
+		        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+		        System.out.print(subCR50 + tabSpace + b_Texts + " —> " + c_Reset);
+				String numOrStr = mths.scan.nextLine();
 				
-				// Internal Decision to repeat or to choose other Action
-				System.out.println("\t | CHOOSE NEXT DECISION: ");
-				System.out.println("\t | [1] Show");
-				System.out.println("\t | [2] Update Again");
-				System.out.println("\t | [3] Exit and go back");
-				System.out.print("\t | -> ");
-				String num = mths.scan.nextLine();
-				
-				if (num.equalsIgnoreCase("update") || num.equals("2")) {
+				if (numOrStr.equalsIgnoreCase("Show Inventory List") || numOrStr.equals("1")) {
 					continue;
 				}
-				else if (num.equalsIgnoreCase("show") || num.equals("1")) {
-					Logics_Inventory.getWrittenInventory();
+				else if (numOrStr.equalsIgnoreCase("Show Inventory Dashboard") || numOrStr.equals("2")) {
+					Logics_Inventory.getDashboardInventory();
 					break;
 				}
-				else if (num.equalsIgnoreCase("exit") || num.equals("3")) {
-					//Main.main(null); Call dire
+				else if (numOrStr.equalsIgnoreCase("Add an Item") || numOrStr.equals("3")) {
+					Logics_Inventory.setItemInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Add a Group or Category") || numOrStr.equals("4")) {
+					Logics_Inventory.setGroupInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("5")){
+					System.out.println("\t | ENNNNNNNNNNNNNGKDD");
 					break;
 				}
 	    	}
-	}
+		}
 	
 	// ACCES UPDATE/WRITES for Adding an Item 
     public static void setItemInventory() {
@@ -415,34 +499,54 @@ public class Logics_Inventory implements InventoryVars{
 				mths.writer.close();
 			}
 			
-			catch (Exception e) {
+			catch (InputMismatchException e) {
 				System.out.println("\t | ");
-				System.out.println("\t | SOMETHING WENT WRONG: " + e.getMessage());
+				if ((e.getMessage() == null)) {
+					System.out.println(e + "INVALID INPUT: Entered String to a supposed Integer/Number");
+				}
+				mths.scan.nextLine();
+			}
+			catch(IOException e) {
+				if ((e.getMessage() == null)) {
+					System.out.println("FILE INPUT ERROR: Something went wrong with the File...");
+				}
 				mths.scan.nextLine();
 			}
 			
 			finally {
-				System.out.println("\t | ");
-				System.out.println("\t | ENTRY ENDED");
-				System.out.println("\t | ");
-				
 				// Internal Decision to repeat or to choose other Action
-				System.out.println("\t | CHOOSE NEXT DECISION: ");
-				System.out.println("\t | [1] Show");
-				System.out.println("\t | [2] Update Again");
-				System.out.println("\t | [3] Exit and go back");
-				System.out.print("\t | -> ");
-				String num = mths.scan.nextLine();
+				System.out.println(tabSpace);
+	        	System.out.println(centerRepeat +  b_Texts + "============================================" + c_Reset);
+
+		    	System.out.println(tabSpace + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
+	            System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+
+		    	System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Inventory List" + c_Reset);
+		        System.out.println(" ".repeat(13) + "|" + " ".repeat(13) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Show Inventory Dashboard |" + c_Reset);
+		        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+		        System.out.print(subCR50 + tabSpace + "| [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Add an Item" + c_Reset);
+		        System.out.println(" ".repeat(21) + "|" + " ".repeat(13) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Add a Group or Category  |" + c_Reset);
+		        System.out.println(tabSpace + minorCR48 + b_Texts + "" +  "—".repeat(82) + "" + c_Reset);
+		        System.out.print(subCR50 + tabSpace + b_Texts + " —> " + c_Reset);
+				String numOrStr = mths.scan.nextLine();
 				
-				if (num.equalsIgnoreCase("update") || num.equals("2")) {
+				if (numOrStr.equalsIgnoreCase("Show Inventory List") || numOrStr.equals("1")) {
 					continue;
 				}
-				else if (num.equalsIgnoreCase("show") || num.equals("1")) {
-					Logics_Inventory.getWrittenInventory();
+				else if (numOrStr.equalsIgnoreCase("Show Inventory Dashboard") || numOrStr.equals("2")) {
+					Logics_Inventory.getDashboardInventory();
 					break;
 				}
-				else if (num.equalsIgnoreCase("exit") || num.equals("3")) {
-					//Main.main(null); Call dire
+				else if (numOrStr.equalsIgnoreCase("Add an Item") || numOrStr.equals("3")) {
+					Logics_Inventory.setItemInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Add a Group or Category") || numOrStr.equals("4")) {
+					Logics_Inventory.setGroupInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("5")){
+					System.out.println("\t | ENNNNNNNNNNNNNGKDD");
 					break;
 				}
 			}
@@ -451,7 +555,9 @@ public class Logics_Inventory implements InventoryVars{
     
     // ACCES UPDATE/WRITES for Adding a Group 
     public static void setGroupInventory() {
+    	//METHODS
     	
+    	//VARIABLES
     	
     	try {
     		
@@ -473,8 +579,4 @@ public class Logics_Inventory implements InventoryVars{
     public void setThirdDecision(String thirdChoice) {
         this.thirdChoice = thirdChoice;
     }
-    
-    
-    
-    
 }
