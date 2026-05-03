@@ -77,7 +77,7 @@ public class Main {
 	            
 	            String firstLineOption = (tabSpace + subCenterRepeat + "│ [" + b_Texts + "1" + c_Reset +  "] " + b_Texts + "Inventory " + c_Reset);
 	            String secondtLineOption = ( tabSpace + " ".repeat(13) + "│" + " ".repeat(8) + "[" + b_Texts + "2" + c_Reset +  "] " + b_Texts + "Item" + c_Reset + " ".repeat(12) + " │ ");
-	            String fillerLine = (tabSpace + subCenterRepeat + b_Texts + "" +  "—".repeat(62) + "" + c_Reset);
+	            String fillerLine = (tab + subCenterRepeat + b_Texts +  "—".repeat(64) + "" + c_Reset);
 	           
 	            String thirdtLineOption = (tabSpace + subCenterRepeat + "│ [" + b_Texts + "3" + c_Reset +  "] " + b_Texts + "Group or Category " + c_Reset);
 	            String fourthtLineOption = (tabSpace + " ".repeat(5) + "│"  + " ".repeat(8) + "[" + b_Texts + "4" + c_Reset +  "] " + b_Texts + "Exit the Program" + c_Reset + " │ ");
