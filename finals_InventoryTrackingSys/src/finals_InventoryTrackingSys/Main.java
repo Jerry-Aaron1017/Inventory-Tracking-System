@@ -94,7 +94,7 @@ public class Main {
 	            print.print(fifthLineScan);
 	            print.flush();
 	            
-	            String switch_Control = scan.nextLine();
+	            String switch_Control = scan.nextLine().trim();
 	            opts.setFirstDecisions(switch_Control);
 	            
                 switch(Logics_Inventory.returnCons()){
@@ -107,6 +107,9 @@ public class Main {
                     	
                     case ITEM:
                     	System.out.println("\t | ACCESS AN ITEM");
+                    	// SECOND DECISION
+                    	Logics_Inventory.chooseItemOption();
+                    	
                     	break;
                     	
                     case GROUP, CATEGORY:
