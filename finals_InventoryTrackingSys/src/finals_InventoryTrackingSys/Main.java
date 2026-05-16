@@ -12,91 +12,14 @@ public class Main {
         String u_Texts = "\u001B[4m";
         String c_Reset = "\u001B[0m";
         
+     // Instance Variables
+    	boolean ContinueOpt = true;
+    	
         try{
-        	// Instance Variables
-        	boolean ContinueOpt = true;
-        	
-        	// Method
-        	PrintWriter print = new PrintWriter(System.out);
-        	
-        	//Logic_Inventory METHOD
-        	Logics_Inventory opts = new Logics_Inventory();
-        	
-        	// UI Format: 
-        	int countFormat = 53;
-        	print.println("\n");
-        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
-        	final String repetition54 = " ".repeat(54);
-        	final String repetition56 = " ".repeat(56);
-        	final String centerRepeat = " ".repeat(75);
-        	final String subCenterRepeat = " ".repeat(55);
-
-        	final String tab = "\t";
-        	final String tabSpace = "\t ";
-        	final String tabLine = "\t | ";
-        	String welcome = 
-        			"\t | " + " ".repeat(countFormat) + """
-        			██╗    ██╗███████╗██╗      ██████╗ ██████╗ ███╗   ███╗███████╗""" + repetition54 + "| \n"  
-        	        + "\t | " + " ".repeat(countFormat) + """
-        			██║    ██║██╔════╝██║     ██╔════╝██╔═══██╗████╗ ████║██╔════╝""" + repetition54 + "| \n" 
-        			+ "\t | " + " ".repeat(countFormat) + """
-        	        ██║ █╗ ██║█████╗  ██║     ██║     ██║   ██║██╔████╔██║█████╗""" + repetition56 + "| \n" 
-        	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ██║███╗██║██╔══╝  ██║     ██║     ██║   ██║██║╚██╔╝██║██╔══╝""" + repetition56 + "| \n" 
-        	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ╚███╔███╔╝███████╗███████╗╚██████╗╚██████╔╝██║ ╚═╝ ██║███████╗""" + repetition54 + "| \n" 
-        	        + "\t | " +  " ".repeat(countFormat + 1) + """
-        	         ╚══╝╚══╝ ╚══════╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚══════╝""" + repetition54 + "|" +
-        	        """
-        	        """;
-        	
-        		/*
-        		 String inventoryHeader =
-        		 "\t | + """ 
-        		 """;
-        		 */
-        	
-        	
-        	print.println(welcome);
-        	print.println("\t " + "—".repeat(172));
-        	print.println("\t " + "█".repeat(172));
-        	
-        	print.flush();
+        	Logics_Inventory.profileUser();
+        	Logics_Inventory.firstDecision();
         	
         	while(ContinueOpt){
-        		 
-        		// SCANNER METHOD
-	        	Scanner scan = new Scanner (System.in);
-	        		        	
-	            // WHAT TO ACCESS, ASKED TO THE USER
-	        	System.out.println("\n");
-	        	System.out.println(tabSpace + " " + "_".repeat(169));
-	        	System.out.println(tabSpace);
-	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
-	            System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);
-	            
-	            String firstLineOption = (tabSpace + subCenterRepeat + "│ [" + b_Texts + "1" + c_Reset +  "] " + b_Texts + "Inventory " + c_Reset);
-	            String secondtLineOption = ( tabSpace + " ".repeat(13) + "│" + " ".repeat(8) + "[" + b_Texts + "2" + c_Reset +  "] " + b_Texts + "Item" + c_Reset + " ".repeat(12) + " │ ");
-	            String fillerLine = (tab + subCenterRepeat + b_Texts +  "—".repeat(64) + "" + c_Reset);
-	           
-	            String thirdtLineOption = (tabSpace + subCenterRepeat + "│ [" + b_Texts + "3" + c_Reset +  "] " + b_Texts + "Group or Category " + c_Reset);
-	            String fourthtLineOption = (tabSpace + " ".repeat(5) + "│"  + " ".repeat(8) + "[" + b_Texts + "4" + c_Reset +  "] " + b_Texts + "Exit the Program" + c_Reset + " │ ");
-	            String fifthLineScan = (tabSpace + subCenterRepeat + b_Texts +  " —> " + c_Reset);
-	            
-	            print.println(fillerLine);
-	            print.print(firstLineOption);
-	            print.println(secondtLineOption);
-	            print.println(fillerLine);
-	            
-	            print.print(thirdtLineOption);	
-	            print.println(fourthtLineOption);
-	            print.println(fillerLine + "\n");
-	            print.print(fifthLineScan);
-	            print.flush();
-	            
-	            String switch_Control = scan.nextLine().trim();
-	            opts.setFirstDecisions(switch_Control);
-	            
                 switch(Logics_Inventory.returnCons()){
                     case INVENTORY:
                     	// SECOND DECISION
@@ -106,9 +29,10 @@ public class Main {
                     	break;
                     	
                     case ITEM:
-                    	System.out.println("\t | ACCESS AN ITEM");
                     	// SECOND DECISION
                     	Logics_Inventory.chooseItemOption();
+                    	// FUNCTION TO BE CALLED DEPENDING ON THE PREVIOUS DECISION
+                    	Logics_Inventory.getThirdDecision();
                     	
                     	break;
                     	
