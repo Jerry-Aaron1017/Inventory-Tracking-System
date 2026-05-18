@@ -41,7 +41,12 @@ public class Main {
                 		break;
             		
                     case EXIT:
-            			System.out.println("\t | EXITING SYSTEM");
+                    	Logics_Inventory.profileUser();
+                    	Logics_Inventory.firstDecision();
+                    	break;
+            			
+                    case DEFAULT:
+                    	System.out.println("\t | EXITING SYSTEM");
             			break;
             			
                     default:
@@ -52,8 +57,9 @@ public class Main {
                 if (Logics_Inventory.returnCons().toString().equalsIgnoreCase("exit")) {
                 	break;
                 }
+                //else if (Logics_Inventory.returnCons().toString().equalsIgnoreCase(""))
                 else {
-                	continue;
+                	break;
                 }
             }      
     	}
