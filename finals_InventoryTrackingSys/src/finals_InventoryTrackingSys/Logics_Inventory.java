@@ -13,6 +13,7 @@ import java.util.regex.*;
 
 import static java.nio.file.AccessMode.*;
 
+
 public class Logics_Inventory implements InventoryVars{
 	static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryData");
 	
@@ -59,7 +60,9 @@ public class Logics_Inventory implements InventoryVars{
     
     // VARIABLES FOR DATA HOLDER
     static String userName;
-    static String userRole;
+    static String userPassword;
+    static boolean passwordHolder;
+    static int retryCount = 0;
     
     // ENUM CLASS
     static Enums_Constants enumShow = null;
@@ -73,11 +76,10 @@ public class Logics_Inventory implements InventoryVars{
 	FileWriter writer;
 	FileReader fReader;
 	
-	
+	// FIRST BReAAAAAAAAAADCRUMBS
 	public static void profileUser() {
 		while(true) {
 			try {
-	        	
 	        	// Method
 	        	PrintWriter print = new PrintWriter(System.out);
 	        	
@@ -99,10 +101,10 @@ public class Logics_Inventory implements InventoryVars{
 	        	        ███║ ██╗ ███║██████╗  ███║     ███║     ███║   ███║███╔█████╔███║██████╗""" + CF2 + "| \n" 
 	        	        + "\t | " +  " ".repeat(countFormat) + """
 	        	        ███║████╗███║███╔══╝  ███║     ███║     ███║   ███║███║╚███╔╝███║███╔══╝""" + CF2 + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormat) + """
+	        	        ╚█████╔████╔╝████████╗████████╗╚███████╗╚████████╔╝███║ ╚══╝ ███║████████╗""" + CF1 + "| \n" 
 	        	        + "\t | " +  " ".repeat(countFormat + 1) + """
-	        	         ╚████╔████╔╝████████╗████████╗╚███████╗╚████████╔╝███║ ╚══╝ ███║████████╗""" + CF1 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat + 2) + """
-	        	          ╚═══╝╚═══╝ ╚═══════╝╚═══════╝ ╚══════╝ ╚═══════╝ ╚══╝      ╚══╝╚═══════╝""" + CF1 + "|" +
+	        	         ╚════╝╚═══╝ ╚═══════╝╚═══════╝ ╚══════╝ ╚═══════╝ ╚══╝      ╚══╝╚═══════╝""" + CF1 + "|" +
 	        	        """
 	        	        """;
         		
@@ -119,10 +121,66 @@ public class Logics_Inventory implements InventoryVars{
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(2) +  b_Texts + "ENTER YOUR PROFILE" + "   " + c_Reset);
 	            
 	            String firstLineOption = (tabSpace + subCR55 + b_verticalLine + " ".repeat(26) + b_Texts + "USERNAME" + c_Reset + " ".repeat(26) + b_verticalLine);
-	            String secondtLineOption = (tabSpace + subCR55 + b_verticalLine + " ".repeat(28) + b_Texts + "ROLE" + c_Reset + " ".repeat(28) + b_verticalLine);
-	            String line14Option = (tabSpace + subCR55 + b_verticalLine + " [" + b_Texts + "1" + c_Reset +  "] " + b_Texts + "Administrator " + c_Reset);
-	            String line15Option = (tabSpace + " ".repeat(5) + b_verticalLine  + " ".repeat(8) + "[" + b_Texts + "4" + c_Reset +  "] " + b_Texts + "Manager" + c_Reset + " │ ");
+	            String secondtLineOption = (tabSpace + subCR55 + b_verticalLine + " ".repeat(26) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(26) + b_verticalLine);
+	            String passworddescription1 = (tabSpace + subCR55 + b_verticalLine + " ".repeat(7) + "Password must contain " + b_Texts + c_Green + "letters" + c_Reset + ", "
+						   + b_Texts  + c_Green + "numbers " + c_Reset + "(" + b_Texts  + c_Green + "0 - 9" + c_Reset + ")," + c_Reset + " ".repeat(6) + b_verticalLine);
+	            String passworddescription2 = (tabSpace + subCR55 + b_verticalLine + " ".repeat(13) + "and " + b_Texts + c_Green + "symbols " + c_Reset + "("
+						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
+						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
+						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
 
+	            String setterLine = (tabSpace + subCR55 + c_Green + b_Texts +  " —> " + c_Reset);
+	            String fillerLine = (tab + subCR55 + b_Texts +  "—".repeat(64) + c_Reset); 
+	            
+	            System.out.println(fillerLine);
+				System.out.println(firstLineOption);
+				System.out.println(fillerLine);
+				System.out.print(setterLine);
+	            userName = mths.scan.nextLine();
+	            
+	            System.out.println(fillerLine);
+	            System.out.println(secondtLineOption);
+	            System.out.println(passworddescription1);
+	            System.out.println(passworddescription2);
+	            System.out.println(fillerLine);
+	            System.out.print(setterLine);
+	            userPassword = mths.scan.nextLine();
+	            
+	            print.println(fillerLine);
+	            print.flush();
+	            Logics_Inventory.passwordVerification();
+	            break;
+			}
+		
+			catch(Exception e) {
+				System.out.println("profileUser SOMETHING WENT WRONG" + e.getMessage());
+			}
+		}
+	}
+	
+	// FOLLOW UP FOR RETRYING INPUT PASSWORD
+	public static void retryPassword() {
+		while(true) {
+			try {
+	        	// Method
+	        	PrintWriter print = new PrintWriter(System.out);
+	        	
+				//Logic_Inventory METHOD
+	        	Logics_Inventory mths = new Logics_Inventory();
+	        	
+				
+				System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
+	            System.out.println(tabSpace + centerRepeat + " ".repeat(2) +  b_Texts + "RETRY YOUR PROFILE" + "   " + c_Reset);
+	            
+	            String firstLineOption = (tabSpace + subCR55 + b_verticalLine + " ".repeat(26) + b_Texts + "USERNAME" + c_Reset + " ".repeat(26) + b_verticalLine);
+	            String secondtLineOption = (tabSpace + subCR55 + b_verticalLine + " ".repeat(26) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(26) + b_verticalLine);
+	            String passworddescription1 = (tabSpace + subCR55 + b_verticalLine + " ".repeat(7) + "Password must contain " + b_Texts + c_Green + "letters" + c_Reset + ", "
+						   + b_Texts  + c_Green + "numbers " + c_Reset + "(" + b_Texts  + c_Green + "0 - 9" + c_Reset + ")," + c_Reset + " ".repeat(6) + b_verticalLine);
+	            String passworddescription2 = (tabSpace + subCR55 + b_verticalLine + " ".repeat(13) + "and " + b_Texts + c_Green + "symbols " + c_Reset + "("
+						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
+						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
+						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
+	            
 	            String setterLine = (tabSpace + subCR55 + c_Green + b_Texts +  " —> " + c_Reset);
 	            String fillerLine = (tab + subCR55 + b_Texts +  "—".repeat(64) + c_Reset); 
 	            
@@ -131,35 +189,132 @@ public class Logics_Inventory implements InventoryVars{
 				System.out.println(firstLineOption);
 				System.out.println(fillerLine);
 				System.out.print(setterLine);
-	            userName = mths.scan.nextLine();
+	            System.out.println(userName);
 	            
 	            System.out.println(fillerLine);
 	            System.out.println(secondtLineOption);
+	            System.out.println(passworddescription1);
+	            System.out.println(passworddescription2);
 	            
 	            System.out.println(fillerLine);
 	            System.out.print(setterLine);
-	            userRole = mths.scan.nextLine();
+	            userPassword = mths.scan.nextLine();
 	            
 	            print.println(fillerLine);
 	            print.flush();
-	            System.out.println(newLines);
+	            Logics_Inventory.passwordVerification();
+	            break;
 			}
-		
-			catch(Exception e) {
-				System.out.println("profileUser SOMETHING WENT WRONG" + e.getMessage());
+				
+			catch (Exception e) {
+				System.out.println("SOMETHING WENT WRONG IN retryPassword: " + e.getMessage());
 			}
-		
+		}
+	}
+	
+	@SuppressWarnings("finally")
+	public static void passwordVerification() {
+		while(true) {
+			try {
+				Pattern p1 = Pattern.compile("[a-zA-Z]+");
+				Pattern p2 = Pattern.compile("[0-9]+");
+				Pattern p3 = Pattern.compile("^(?=.*[@$!%*?&])");
+				Pattern p4 = Pattern.compile("[a-zA-Z0-9@$!%*?&]{8,}");
+				
+				Matcher mPass1 = p1.matcher(userPassword);
+				Matcher mPass2 = p2.matcher(userPassword);
+				Matcher mPass3 = p3.matcher (userPassword);
+				Matcher mPass4 = p4.matcher (userPassword);
+				
+				if(mPass1.find()) {
+					if(mPass2.find()) {
+						if(mPass3.find()) {
+							if(mPass4.matches()) {
+								passwordHolder = mPass4.matches();
+							}
+							else System.out.println(tabSpace + subCR55 + b_Texts + "Password must contain " + c_Red + "8 (Eight) characters..." + c_Reset);
+						}
+						else System.out.println(tabSpace + subCR55 + b_Texts + "Password must contain "+ c_Red + "symbols..." + c_Reset);
+					}
+					else System.out.println(tabSpace + subCR55 + b_Texts + "Password must contain " + c_Red + "numbers..." + c_Reset);
+				}
+				else System.out.println(tabSpace + subCR55 + b_Texts + "Password must contain " + c_Red + "letters..." + c_Reset);
+			}
+			
+			catch (Exception e) {
+				System.out.println("SOMETHING WENT WRONG IN retryPassword: " + e.getMessage());
+			}
+			
 			finally {
-				if(userRole.equalsIgnoreCase("Administrator") || userRole.equalsIgnoreCase("Admin") || userRole.equalsIgnoreCase("Manager") || userRole.equalsIgnoreCase("Employee")  || userRole.equals("1") || userRole.equals("2") || userRole.equalsIgnoreCase("3")) {
+				retryCount += 1;
+				System.out.println(newLines);
+				
+				if(passwordHolder) retryCount = 0;
+				
+				if (Logics_Inventory.getPasswordVerification() == false) {
+					if (retryCount == 3) {
+						Logics_Inventory.retryCountNotice();
+						break;
+					}
+				}
+				
+				if (Logics_Inventory.getPasswordVerification()) {
 					break;
 				}
-				else if (userRole == null){
-					continue;
+				
+				else if (Logics_Inventory.getPasswordVerification() == false){
+					Logics_Inventory.retryPassword();
+					break;
 				}
 			}
 		}
 	}
 	
+	// RETURNS THE BOOLEAN VALUE OF THE PASSWORD VERIFICATION
+	public static boolean getPasswordVerification() {
+		return passwordHolder;
+	}
+	
+	// NOTICE FOR FAILIND FOR THE 3rd TIME
+	public static void retryCountNotice() {
+		try {
+			System.out.println("NOTICE OF OVERREACHING");
+		}
+		
+		catch (Exception e) {
+			System.out.println("SOMETHING WENT WRONG IN retryPassword: " + e.getMessage());
+		}
+		
+		finally {
+			retryCount = 0;
+			Logics_Inventory.retryPassword();
+		}
+	}
+	
+	// OPTION IN ACCESS SYSTEM and WHEN RETRYING MORE THAN 3
+	public static void manageAccount() {
+		try {
+			
+		}
+		
+		catch (Exception e) {
+			System.out.println("SOMETHING WENT WRONG IN retryPassword: " + e.getMessage());
+		}
+	}
+	
+	// OPTION IN ACCESS SYSTEM and WHEN RETRYING MORE THAN 3
+	public static void createAccount() {
+		try {
+			
+		}
+		
+		catch (Exception e) {
+			System.out.println("SOMETHING WENT WRONG IN retryPassword: " + e.getMessage());
+		}
+	}
+
+	
+	//
 	public static void firstDecision() {
     	// Method
     	PrintWriter print = new PrintWriter(System.out);
@@ -706,7 +861,7 @@ public class Logics_Inventory implements InventoryVars{
 		    			tabLine + dashBFormat + """
 		    			█████████╔╝ ███║    ███║█████████║███║    ███║██████████╔╝╚█████████╔╝███║    ███║███║   ███║██████████╔╝  """ + " ".repeat(33) + "| \n" +
 		    			tabLine + dashBFormat + """
-		    			╚═══════╝   ╚══╝    ╚══╝╚════════╝╚══╝    ╚══╝╚═════════╝  ╚════════╝ ╚══╝    ╚══╝╚══╝   ╚══╝╚═════════╝    """ + " ".repeat(34) + "|" + """
+		    			╚═══════╝   ╚══╝    ╚══╝╚════════╝╚══╝    ╚══╝╚═════════╝  ╚════════╝ ╚══╝    ╚══╝╚══╝   ╚══╝╚═════════╝   """ + " ".repeat(34) + "|" + """
 		    			""";
 	    		print.println(dashboardHeader);
 	    		print.println(tabSpace + "—".repeat(172));
@@ -717,6 +872,12 @@ public class Logics_Inventory implements InventoryVars{
 	    		String lines = "";
 	    		String valueHoldChanger = " ";
 	    		
+            	print.println("\n");
+	    		print.println(tabSpace + " " + "—".repeat(170));
+	    		print.println(tabSpace + centerRepeat + " ".repeat(4) + b_Texts + "ITEM QUANTITY" + c_Reset); 
+	    		print.println(valueHoldChanger);
+	    		print.println(tabSpace + " ".repeat(41) + b_Texts + "—".repeat(104) + c_Reset);	
+	    		
 	    		while((lines = br.readLine()) != null) {
 	    			String[] val = lines.split(";");
 
@@ -726,77 +887,79 @@ public class Logics_Inventory implements InventoryVars{
 	            	if (doubleVar <= 100) valueHoldChanger = tabSpace + centerRepeat + " ".repeat(8) + b_Texts + "0–100" + c_Reset;
             		if(doubleVar > 100) valueHoldChanger = tabSpace + centerRepeat + " ".repeat(8) + b_Texts + "0–1000" + c_Reset;
             		
-	            	print.println("\n");
-		    		print.println(tabSpace + " " + "—".repeat(170));
-		    		print.println(tabSpace + centerRepeat + " ".repeat(4) + b_Texts + "ITEM QUANTITY" + c_Reset); 
-		    		print.println(valueHoldChanger);
-		    		print.println(tabSpace + " ".repeat(41) + b_Texts + "—".repeat(104) + c_Reset);	
 		            print.print(tabSpace + " ".repeat(40 - (val[3].length())) + val[3] + b_verticalSpacesLine);	
 		            	
-		            if (doubleVar <= 100) {
-		    			if((doubleVar == 1)) {
-		    				print.print("█".repeat(doubleVar));
-		    				print.print(" ".repeat(100 - doubleVar) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			else if ((doubleVar % 2 == 0)) {
-		    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
-		    					print.print("██");
-		    				}
-		    				print.print(" ".repeat(100 - (doubleVar)) + " |");
-		    			}
-		    			
-		    			else if((doubleVar % 2 != 0)) {
-		    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
-		    					print.print("██");
-		    				}
-		    				if (doubleVar % 2 == 1) {
-		    					print.print("█");
-		    					print.print(" ".repeat(100 - (doubleVar)) + b_verticalSpacesLine);
-		    				}
-		    			}
-		    			print.println();
-		    			print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
-		    			print.println(tabSpace + rep40 + "  0" + rep8 + "10" +rep8 + "20" + rep8 + "30" + rep8 + "40" + rep8 + "50" + rep8  + "60" + rep8  + "70" + rep8  + "80" + rep8  + "90" + rep8  + "100");
-		    			print.flush();
-	            	}
+		            	if (doubleVar <= 100) {
+			    			if((doubleVar == 1)) {
+			    				print.print("█".repeat(doubleVar));
+			    				print.print(" ".repeat(100 - doubleVar) + b_verticalSpacesLine);
+			    			}
+			    			
+			    			else if ((doubleVar % 2 == 0)) {
+			    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
+			    					print.print("██");
+			    				}
+			    				print.print(" ".repeat(100 - (doubleVar)) + " |");
+			    			}
+			    			
+			    			else if((doubleVar % 2 != 0)) {
+			    				for(int numRepeat = 0; numRepeat < (doubleVar / 2); numRepeat++) {
+			    					print.print("██");
+			    				}
+			    				if (doubleVar % 2 == 1) {
+			    					print.print("█");
+			    					print.print(" ".repeat(100 - (doubleVar)) + b_verticalSpacesLine);
+			    				}
+			    			}
+			    			
+		            	}
 		            	
-	            	else if (doubleVar > 100) {	            		
-	            		if((doubleVar == 1)) {
+	            	
+		            	else if (doubleVar > 100) {
+		            		if((doubleVar == 1)) {
 		    				print.print("█".repeat(doubleVar));
 		    				print.print(" ".repeat((1000 - doubleVar) / 10) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			else if ((doubleVar % 2 == 0)) {
-		    				for(int numRepeat = 0; numRepeat < (doubleVar / 10); numRepeat++) {
-		    					print.print("█");
-		    					
-		    				}print.print(" ".repeat((1000 - doubleVar) / 10) + " |");
-		    			}
-		    			
-		    			else if((doubleVar % 2 != 0)) {
-		    				for(int numRepeat = 0; numRepeat < (doubleVar / 10); numRepeat++) {
-		    					print.print("█");
-		    					
-		    				}
-		    				if (doubleVar % 2 == 1) {
-		    					print.print("█");
-		    					print.print(" ".repeat((1000 - doubleVar) / 10) + b_verticalSpacesLine);
-		    				}
-		    			}
-	            		print.println();
-		    			print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
-		    			print.println(tabSpace + rep40 + "  0" + rep7 + "100" + rep7 + "200" + rep7 + "300" + rep7 + "400" + rep7 + "500" + rep7  + "600" + rep7  + "700" + rep7  + "800" + rep7  + "900" + rep7  + "1000");
-		    			print.flush();
-	            	}
-	    			else {
+			    			}
+			    			
+			    			else if ((doubleVar % 2 == 0)) {
+			    				for(int numRepeat = 0; numRepeat < (doubleVar / 10); numRepeat++) {
+			    					print.print("█");
+			    					
+			    				}print.print(" ".repeat((1000 - doubleVar) / 10) + " |");
+			    			}
+			    			
+			    			else if((doubleVar % 2 != 0)) {
+			    				for(int numRepeat = 0; numRepeat < (doubleVar / 10); numRepeat++) {
+			    					print.print("█");
+			    					
+			    				}
+			    				if (doubleVar % 2 == 1) {
+			    					print.print("█");
+			    					print.print(" ".repeat((1000 - doubleVar) / 10) + b_verticalSpacesLine);
+			    				}
+			    			}
+		            	}
+	            	
+		            
+		            else if(doubleVar == 0) {
 	    				System.out.println(tabSpace + rep40 + b_Texts + " The Text File is Currently Empty..." + c_Reset);
 	    				break;
 	    			}
-	    			print.println();
-	    		}
+		        print.println();   	
+            	if (doubleVar <= 100) {
+	    			print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
+	    			print.println(tabSpace + rep40 + "  0" + rep8 + "10" +rep8 + "20" + rep8 + "30" + rep8 + "40" + rep8 + "50" + rep8  + "60" + rep8  + "70" + rep8  + "80" + rep8  + "90" + rep8  + "100");
+				}
+				
+				else if (doubleVar > 100) {
+	    			print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
+					print.println(tabSpace + rep40 + "  0" + rep7 + "100" + rep7 + "200" + rep7 + "300" + rep7 + "400" + rep7 + "500" + rep7  + "600" + rep7  + "700" + rep7  + "800" + rep7  + "900" + rep7  + "1000");
+				}
+	            	
+	    		}			
+				print.flush();
 	    		br.close();
-	    		print.flush();
+	
 	    	}
 	    	
 	    	catch(Exception e) {
@@ -902,12 +1065,11 @@ public class Logics_Inventory implements InventoryVars{
 			print.flush();
 				while(true) {
 					
-					
 					Date now = new Date();
 	        		mths.writer.write(now + " ;");
 					
 					mths.writer.write(userName + ";");
-					mths.writer.write(userRole + ";");
+					mths.writer.write(userPassword + ";");
 					
 					System.out.println(" ".repeat(49) + b_verticalLine + " ".repeat(90) + b_verticalLine);
 					System.out.print(" ".repeat(50 - "Item:".length()) + tabLine + " ".repeat(10 - "Item:".length()) + "Item: ");
@@ -1012,9 +1174,6 @@ public class Logics_Inventory implements InventoryVars{
     public static void chooseItemOption(){
     	Logics_Inventory mths = new Logics_Inventory();
     	try {
-    		
-    		
-    		
     		System.out.println(tabSpace + " " + "—".repeat(170));
     		System.out.println(tabSpace);
         	System.out.println(" ".repeat(76) +  b_Texts + "========================================" + c_Reset);
@@ -1060,7 +1219,7 @@ public class Logics_Inventory implements InventoryVars{
 	    		}
 				
 				else if (thirdChoice.equalsIgnoreCase("Exit") || thirdChoice.trim().equalsIgnoreCase("Exit and Go Back") || thirdChoice.equals("4")) {
-					System.out.println(" EXIT");
+					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
 				
@@ -1222,7 +1381,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				else if (numOrStr.equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("4")){
-					System.out.println(" EXIT");
+					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
 				else if (numOrStr.equalsIgnoreCase(" ") || numOrStr.equals(" ")){
@@ -1356,7 +1515,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				else if (numOrStr.equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("5")){
-					System.out.println(" EXIT");
+					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
 				else if (numOrStr.equalsIgnoreCase(" ") || numOrStr.equals(" ")){
@@ -1415,7 +1574,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				else if (numOrStr.equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("5")){
-					System.out.println(" EXIT");
+					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
 				else if (numOrStr.equalsIgnoreCase(" ") || numOrStr.equals(" ")){
