@@ -70,10 +70,6 @@ public class Main {
         
         finally {
         	System.out.println("\t | SYSTEM EXITED ");
-        }
- 
-        
-        
-        
+        }  
     }
 }
