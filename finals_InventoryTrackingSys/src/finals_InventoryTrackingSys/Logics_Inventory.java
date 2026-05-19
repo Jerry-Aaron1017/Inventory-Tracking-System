@@ -1418,7 +1418,7 @@ public class Logics_Inventory implements InventoryVars{
 			print.flush();
 				while(true) {
 					Date now = new Date();
-					mths.writer.write(now + " ;");
+	        		mths.writer.write(now + " ;");
 					
 					System.out.println(" ".repeat(49) + b_verticalLine + " ".repeat(90) + b_verticalLine);
 					System.out.print(" ".repeat(repFirst - "Item:".length()) + tabLine + " ".repeat(repSecond - "Item:".length()) + "Item: ");
