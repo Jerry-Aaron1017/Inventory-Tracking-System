@@ -1122,7 +1122,7 @@ public class Logics_Inventory implements InventoryVars{
 		final String rep7 = " ".repeat(7);
     	final String rep40 = " ".repeat(40);
     	final String dashBFormat = " ".repeat(31);
-    	
+      	
     	while(true)
 			try {
 				//METHODS
@@ -1679,20 +1679,51 @@ public class Logics_Inventory implements InventoryVars{
     	final int repThird = 60;
     	
     	while(true) {
+    		// METHODS
+    		
+    		// VARIABLE
+    		final String rep8 = " ".repeat(8);
+    		final String rep7 = " ".repeat(7);
+        	final String rep40 = " ".repeat(40);
+        	final String dashBFormat = " ".repeat(38);
+        	
 			try {
 			mths.writer = new FileWriter(mths.fPath.toString(), true);
 			
 			print.println("\n");
+        print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	    	final String dashboardHeader = tabLine + dashBFormat + " " + """
+	    			 █████████╗ ██████████╗ ██████████╗        █████████╗███████████╗█████████╗████╗    ████╗""" + " ".repeat(42) + "| \n" +
+	    			tabLine + dashBFormat + """
+	    			███╔════███╗███╔════███╗███╔════███╗          ███╔══╝    ███╔═══╝███╔═════╝█████╗  █████║""" + " ".repeat(42) + "| \n" +
+	    			tabLine + dashBFormat + """
+	    			███████████║███║    ███║███║    ███║          ███║       ███║    ██████╗   ███╔█████╔███║""" + " ".repeat(42) + "| \n" +
+	    			tabLine + dashBFormat + """ 
+	    			███╔════███║███║    ███║███║    ███║          ███║       ███║    ███╔══╝   ███║╚███╔╝███║""" + " ".repeat(42) + "| \n" +
+	    			tabLine + dashBFormat + """
+	    			███║    ███║██████████╔╝██████████╔╝       █████████╗    ███║    █████████╗███║ ╚══╝ ███║""" + " ".repeat(42) + "| \n" +
+	    			tabLine + dashBFormat + """
+	    			╚══╝    ╚══╝╚═══════╝   ╚═══════╝          ╚════════╝    ╚══╝    ╚════════╝╚══╝      ╚══╝""" + " ".repeat(42) + "|" + """
+	    			""";
+    		print.println(dashboardHeader);
+    		print.println(tabSpace + "—".repeat(172));
+        	print.println(tabSpace + "█".repeat(172));
+    		print.flush();
+		    		
+			print.println("\n");
 			print.println(tabSpace + " " + "—".repeat(170));
-			print.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "ADDING AN ITEM" + c_Reset); 
+			print.println(tabSpace + centerRepeat + " ".repeat(4) + b_Texts + "ADDING AN ITEM" + c_Reset); 
 			print.println(b_Texts + " ".repeat(49) + "—".repeat(92) + c_Reset);
 			print.println( " ".repeat(49) + b_verticalLine + " ".repeat(32) + b_Texts + "ENTER THE DETAILS NEEDED" + c_Reset + " ".repeat(34) + b_verticalLine); 
 			
-			
 			print.flush();
-				while(true) {
+	  			while(true) {
+					
 					Date now = new Date();
-					mths.writer.write(now + " ;");
+	        		mths.writer.write(now + " ;");
+					
+					mths.writer.write(userName + ";");
+					mths.writer.write(userPassword + ";");
 					
 					System.out.println(" ".repeat(49) + b_verticalLine + " ".repeat(90) + b_verticalLine);
 					System.out.print(" ".repeat(repFirst - "Item:".length()) + tabLine + " ".repeat(repSecond - "Item:".length()) + "Item: ");
@@ -1798,7 +1829,14 @@ public class Logics_Inventory implements InventoryVars{
 					continue;
 				}
 			}
+		} 
+    	catch (Exception e) {
+			e.printStackTrace();
 		}
+    	
+    	finally {
+    		System.out.println(newLines);
+    	}
     }
     
     public static void removeItem() {
