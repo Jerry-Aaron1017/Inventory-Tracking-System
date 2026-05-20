@@ -5,7 +5,6 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args){
-    	
         String c_Red = "\u001B[31m";
         String c_Green = "\u001B[32m";
         String b_Texts = "\u001B[1m";
