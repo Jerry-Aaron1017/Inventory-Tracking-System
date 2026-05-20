@@ -1865,6 +1865,11 @@ public class Logics_Inventory implements InventoryVars{
 	*/
     
     // ACCES UPDATE/WRITES for Adding a Group 
+    
+    
+    
+    
+    //
     public static void setGroupInventory() {
     	//METHODS
     	
