@@ -1047,6 +1047,107 @@ public class Logics_Inventory implements InventoryVars{
 		}
 	}
     
+    public static void firstDecisionDuplicate() {
+    	// Method
+    	PrintWriter print = new PrintWriter(System.out);
+    	
+    	// Logic_Inventory METHOD
+    	Logics_Inventory opts = new Logics_Inventory();
+    	Logics_Inventory mths = new Logics_Inventory();
+		
+		while(true) {
+			try {
+				int countFormatIns = 18;
+				int countFAfter = 18;
+	        	print.println("\n");
+	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	        	String accessSystem = 
+	        			"\t | " + " ".repeat(countFormatIns + 1) + """
+	        			 █████████╗  ████████╗ ████████╗█████████╗█████████╗█████████╗       █████████╗███╗  ███╗█████████╗█████████╗█████████╗████╗    ████╗       """ + " ".repeat(countFAfter) + "| \n"  
+	        	        + "\t | " + " ".repeat(countFormatIns) + """
+	        			███╔════███╗███╔═════╝███╔═════╝███╔═════╝███╔═════╝███╔═════╝       ███╔═════╝███╚══███║███╔═════╝   ███╔══╝███╔═════╝█████╗  █████║       """ + " ".repeat(countFAfter) + "| \n" 
+	        			+ "\t | " + " ".repeat(countFormatIns) + """
+	        	        ███████████║███║      ███║      ███████╗  █████████╗█████████╗       █████████╗╚███████╔╝█████████╗   ███║   ███████╗  ███╔█████╔███║       """ + " ".repeat(countFAfter) + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormatIns) + """
+	        	        ███╔════███║███║      ███║      ███╔═══╝  ╚═════███║╚═════███║       ╚═════███║   ███╔═╝ ╚═════███║   ███║   ███╔═══╝  ███║╚███╔╝███║       """ + " ".repeat(countFAfter) + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormatIns) + """
+	        	        ███║    ███║╚████████╗╚████████╗█████████╗█████████║█████████║       █████████║   ███║   █████████║   ███║   █████████╗███║ ╚══╝ ███║       """ + " ".repeat(countFAfter) + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormatIns) + """
+	        	        ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝╚════════╝╚════════╝╚════════╝       ╚════════╝   ╚══╝   ╚════════╝   ╚══╝   ╚════════╝╚══╝      ╚══╝       """ + " ".repeat(countFAfter) + "|" +
+	        	        """
+	        	        """;
+        		
+	        	print.println(accessSystem);
+	        	print.println("\t " + "—".repeat(172));
+	        	print.println("\t " + "█".repeat(172));
+	        	print.flush();
+				
+				// WHAT TO ACCESS, ASKED TO THE USER
+	        	System.out.println("\n");
+	        	System.out.println(tabSpace + " " + "_".repeat(170));
+	        	System.out.println(tabSpace);
+	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
+	            System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);
+	            
+	            String line11Option = (tabSpace + subCR54 + b_verticalLine + " [" + b_Texts + "1" + c_Reset +  "] " + b_Texts + "Inventory " + c_Reset);
+	            String line12Option = ( tabSpace + " ".repeat(13) + b_verticalLine + " ".repeat(8) + "[" + b_Texts + "2" + c_Reset +  "] " + b_Texts + "Item" + c_Reset + " ".repeat(13) + b_verticalLine);
+	            String line13Option = (tab + subCR54 + b_Texts +  "—".repeat(64) + c_Reset);
+	           
+	            String line14Option = (tabSpace + subCR54 + b_verticalLine + " [" + b_Texts + "3" + c_Reset +  "] " + b_Texts + "Group or Category " + c_Reset);
+	            String line15Option = (tabSpace + " ".repeat(5) + b_verticalLine  + " ".repeat(8) + "[" + b_Texts + "4" + c_Reset +  "] " + b_Texts + "Exit to Profile  " + c_Reset + b_verticalLine);
+		        String line16Option = (tabSpace + " ".repeat(54) + b_verticalLine + " ".repeat(20) + "[" + b_Texts + "5" + c_Reset + "]" + b_Texts + " Exit the System " + c_Reset + " ".repeat(20) + b_verticalLine);
+	            String line17Option = (tabSpace + subCR54 + b_Texts +  " —> " + c_Reset);
+	            
+	            print.println(line13Option);
+	            print.print(line11Option);
+	            print.println(line12Option);
+	            print.println(line13Option);
+	            
+	            print.print(line14Option);	
+	            print.println(line15Option);
+	            print.println(line13Option);
+	            print.println(line16Option);
+	            print.println(line13Option);
+	            print.print(line17Option);
+	            print.flush();
+	            String numOrStr = mths.scan.nextLine().trim();
+				
+				System.out.println(newLines);
+				if (numOrStr.equalsIgnoreCase("Inventory") || numOrStr.equals("1")) {
+					Logics_Inventory.chooseInventoryOption();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Item") || numOrStr.equals("2")) {
+					Logics_Inventory.chooseItemOption();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Group or Category") || numOrStr.equals("3")) {
+					Logics_Inventory.setGroupInventory();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Exit to Profile") || numOrStr.equals("4")) {
+					Logics_Inventory.profileUser();
+					break;
+				}
+				else if (numOrStr.equalsIgnoreCase("Exit the System") || numOrStr.equals("5")){
+					System.out.println(tabLine + b_Texts + "Exited and Went Back..." + c_Reset);
+					break;
+				}
+				else {
+					System.out.println(tabSpace + minorCR48 + "Try Another: ");
+					continue;
+				}
+			}
+			catch(Exception e) {
+				System.out.println("firstDecision SOMETHING WENT WRONG" + e.getMessage());
+			}
+			
+			finally {
+				System.out.println(newLines);
+			}
+		}
+	}
+    
     
     // Second Decision == Internal Inventory ==
     public void setSecondDecision(String secondChoice) {
@@ -1635,6 +1736,7 @@ public class Logics_Inventory implements InventoryVars{
 			
 			print.flush();
 				while(true) {
+					
 					Date now = new Date();
 	        		mths.writer.write(now + " ;");
 					
