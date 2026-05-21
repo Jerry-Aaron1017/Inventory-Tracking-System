@@ -4,13 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public static void main(String[] args){
-        String c_Red = "\u001B[31m";
-        String c_Green = "\u001B[32m";
-        String b_Texts = "\u001B[1m";
-        String u_Texts = "\u001B[4m";
-        String c_Reset = "\u001B[0m";
-        
+    public static void main(String[] args){    
      // Instance Variables
     	boolean ContinueOpt = true;
     	
