@@ -1635,6 +1635,7 @@ public class Logics_Inventory implements InventoryVars{
 			
 			print.flush();
 				while(true) {
+					
 					Date now = new Date();
 	        		mths.writer.write(now + " ;");
 					
