@@ -1476,6 +1476,10 @@ public class Logics_Inventory implements InventoryVars{
     	final String spacerFormat = " ".repeat(3);
     	
     	
+    	//VARIABLES
+    	final String rep20 = " ".repeat(20);
+    	final String inventoryFormat = " ".repeat(38);
+    	final String spacerFormat = " ".repeat(3);
     	while(true) {
 	    	try {
     			FileReader fR = new FileReader(mths.fPath.toString());
@@ -1549,7 +1553,11 @@ public class Logics_Inventory implements InventoryVars{
 	    	catch(IOException e) {
 	    		System.out.println("\t | SOMETHING WENT WRONG: "+ e.getLocalizedMessage());
 	    	}
-    	
+	    	
+	    	catch(Exception e){
+	    		System.out.println("\t | SOMETHING WENT WRONG IN INVENTORY OPTION: " + e.getMessage());
+	    	}
+	    	
 	    	finally {
 				// Internal Decision to repeat or to choose other Action
 	    		System.out.println(newLines);
@@ -3251,6 +3259,12 @@ public class Logics_Inventory implements InventoryVars{
     	final String dashBFormat = " ".repeat(38);
     	
     	while(true) {
+    		// VARIABLE
+    		final String rep8 = " ".repeat(8);
+    		final String rep7 = " ".repeat(7);
+        	final String rep40 = " ".repeat(40);
+        	final String dashBFormat = " ".repeat(38);
+        	
 			try {
 			mths.writer = new FileWriter(mths.fPath.toString(), true);
 
@@ -3285,6 +3299,7 @@ public class Logics_Inventory implements InventoryVars{
 	        
 			print.flush();
 				while(true) {
+					
 					Date now = new Date();
 					mths.writer.write(now + " ;");   // DATE ENTERED
 					
@@ -3305,6 +3320,36 @@ public class Logics_Inventory implements InventoryVars{
 					System.out.println(b_Texts + " ".repeat(65) + "—".repeat(60) + c_Reset);
 					System.out.println();
 					
+					while(true) {
+						System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+						System.out.println( " ".repeat(59) + b_verticalLine + " ".repeat(20) + b_Texts + "Is the Item Perishable or Not?" + c_Reset + " ".repeat(20) + b_verticalLine);
+						
+						System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
+						System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+						System.out.print(" ".repeat(69) + b_verticalLine + b_Texts + " ".repeat(9) + "[" + c_Reset + "1" + b_Texts + "]" + " Yes" + " ".repeat(9) + b_verticalLine + c_Reset);						
+						System.out.println(" ".repeat(9) + b_Texts + "[" + c_Reset + "2" + b_Texts + "]" + " No" + " ".repeat(9) + b_verticalLine + c_Reset);
+						
+						System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
+						System.out.print(" ".repeat(69) + b_Texts + " —>" + c_Reset);
+						String perishableHolderDecision = mths.scan.nextLine();
+						
+						if(perishableHolderDecision.equalsIgnoreCase("Yes") || perishableHolderDecision.equals("1")) {
+							System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + "Expiration: ");
+							perishable =  mths.scan.nextLine().trim();
+							mths.writer.write(perishable + ";");
+							break;
+						}
+						
+						else if(perishableHolderDecision.equalsIgnoreCase("No") || perishableHolderDecision.equals("2")) {
+							System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + "Expiration: None");
+							perishable = "no date";
+							mths.writer.write(perishable + ";");
+							break;
+						}
+						else {
+							continue;
+						}
+					}
 					mths.writer.write("\n");
 					mths.writer.flush();
 					break;
@@ -3371,6 +3416,11 @@ public class Logics_Inventory implements InventoryVars{
 					System.out.println(tabSpace + minorCR48 + "Try Another: ");
 					Logics_Inventory.repeatingChooseAgainGroup();
 					break;
+				}
+				else if (numOrStr.equalsIgnoreCase(" ") || numOrStr.equals(" ")){
+					System.out.println("\t | Try Again:");
+					// THINK OF BETTER METHOD AFTER ENTERING BLANK
+					continue;
 				}
 			}
 		}
