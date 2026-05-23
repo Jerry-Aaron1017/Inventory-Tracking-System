@@ -31,9 +31,15 @@ public class Main {
 	                    	break;
 	                    	
 	                    case GROUP, CATEGORY:
-	                    	System.out.println("\t | ACCESS A GROUP OR CATEGORY");
+	                    	Logics_Inventory.chooseGroupOption();
+	                    	Logics_Inventory.getFourthDecision();
 	                		break;
 	            		
+	                    case MANAGEACCOUNT:
+	                    	Logics_Inventory.manageAccount();
+	                    	Logics_Inventory.firstDecisionDuplicate();
+	                    	break;
+	                    	
 	                    case EXIT:
 	                    	Logics_Inventory.profileUser();
 	                    	Logics_Inventory.firstDecision();
