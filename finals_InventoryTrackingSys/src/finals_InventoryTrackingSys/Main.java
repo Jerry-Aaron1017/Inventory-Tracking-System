@@ -47,6 +47,7 @@ public class Main {
 	            			
 	                    case DEFAULT:
 	                    	System.out.println("\t | EXITING SYSTEM");
+	                    	Logics_Inventory.firstDecision();
 	            			break;
 	            			
 	                    default:

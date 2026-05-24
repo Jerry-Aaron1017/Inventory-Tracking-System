@@ -3,16 +3,11 @@ package finals_InventoryTrackingSys;
 
 import java.io.*;
 
-
-import java.net.URI;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.regex.*;
-
-import static java.nio.file.AccessMode.*;
 
 
 public class Logics_Inventory implements InventoryVars{
@@ -230,7 +225,8 @@ public class Logics_Inventory implements InventoryVars{
 	            							+ c_Reset + " ".repeat(23) + b_verticalLine);
 	            
 	            String passwordDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
-	            		                       + c_Reset + " ".repeat(18) + b_verticalLine);
+	            		                    + c_Reset + " ".repeat(18) + b_verticalLine);
+	            
 	            String passwordDescription2 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
 	            		   + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
 						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
@@ -687,7 +683,7 @@ public class Logics_Inventory implements InventoryVars{
 	            }
 	            mths.writer.write("Account" + ";");
 				mths.writer.write(userName + ";");
-				mths.writer.write(userPassword + ";none;0;;;;");
+				mths.writer.write(userPassword + ";none;0;0;0;no group;");
 				mths.writer.write("\n");
 				mths.writer.flush();
 				mths.writer.close();
@@ -1202,7 +1198,6 @@ public class Logics_Inventory implements InventoryVars{
     	PrintWriter print = new PrintWriter(System.out);
     	
     	//VARIABLES
-    	final String rep20 = " ".repeat(20);
     	final String inventoryFormat = " ".repeat(38);
     	final String spacerFormat = " ".repeat(3);
     	
@@ -1307,7 +1302,6 @@ public class Logics_Inventory implements InventoryVars{
     	PrintWriter print = new PrintWriter(System.out);
     	
     	//VARIABLES
-    	final String rep20 = " ".repeat(20);
     	final String inventoryFormat = " ".repeat(38);
     	final String spacerFormat = " ".repeat(3);
     	while(true) {
@@ -1622,7 +1616,7 @@ public class Logics_Inventory implements InventoryVars{
 				BufferedReader br1 = new BufferedReader(new FileReader(mths.fPath.toString()));
 				BufferedReader br2 = new BufferedReader(new FileReader(mths.fPath.toString()));
 
-		    	print.println("\n");
+				print.println("\n");
 	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
 		    	final String dashboard = tabLine + dashBFormat + """
 		    			█████████╗   █████████╗ █████████╗███╗    ███╗██████████╗  █████████╗  █████████╗ █████████╗ ██████████╗   """ + " ".repeat(34) + "| \n" +
@@ -1745,6 +1739,7 @@ public class Logics_Inventory implements InventoryVars{
 				print.println(tabSpace + rep40 + "  0" + rep7 + "100" + rep7 + "200" + rep7 + "300" + rep7 + "400" + rep7 + "500" + rep7  + "600" + rep7  + "700" + rep7  + "800" + rep7  + "900" + rep7  + "1000");
 				print.flush();
 				
+				// END OF ITEM QUANTITY
 	            if((lines1 = br1.readLine()) != null || (lines2 = br1.readLine()) != null) {
     				System.out.println(tabSpace + rep40 + b_Texts + " The Text File is Currently Empty..." + c_Reset);
     				break;
@@ -1808,6 +1803,7 @@ public class Logics_Inventory implements InventoryVars{
 	    	}
 		}
 	
+
 	// ACCES UPDATE/WRITES for Adding an Item 
 	@SuppressWarnings("finally")
     public static void setItemInventory() {
@@ -1823,9 +1819,12 @@ public class Logics_Inventory implements InventoryVars{
         	final String strSpace = " ";
         	final int repSecond = 15;
         	final int repThird = 80;
-        	
+        	Set <String> dupli = new HashSet<>();
+        	List <String> groups = new ArrayList<>();
+            Set <String> duppli2 = new HashSet<>();
         	try {
     			mths.writer = new FileWriter(mths.fPath.toString(), true);
+				
 
     			print.println("\n");
     			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
@@ -1879,50 +1878,198 @@ public class Logics_Inventory implements InventoryVars{
     					
     					mths.scan.nextLine();
     					
-    					System.out.print(" ".repeat(1 + repFirst - "Group:".length()) + b_verticalLine + " ".repeat((repSecond) - "Group:".length()) + c_Green + " Group: " + c_Reset);
-    					String group =  mths.scan.nextLine().trim();
-    					mths.writer.write(group + ";");
-    					
     					System.out.println(b_Texts + " ".repeat(65) + "—".repeat(60) + c_Reset);
-    					System.out.println();
-    					
-    					while(true) {
-    						System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
-    						System.out.println( " ".repeat(59) + b_verticalLine + " ".repeat(20) + b_Texts + "Is the Item Perishable or Not?" + c_Reset + " ".repeat(20) + b_verticalLine);
-    						
-    						System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
-    						System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
-
-    						System.out.print(" ".repeat(69) + b_verticalLine + b_Texts + " ".repeat(9) + "[" + c_Reset + "1" + b_Texts + "]" + " Yes" + " ".repeat(9) + b_verticalLine + c_Reset);						
-    						System.out.println(" ".repeat(9) + b_Texts + "[" + c_Reset + "2" + b_Texts + "]" + " No" + " ".repeat(9) + b_verticalLine + c_Reset);
-    						
-    						System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
-    						System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
-    						String perishableHolderDecision = mths.scan.nextLine();
-    						
-    						if(perishableHolderDecision.equalsIgnoreCase("Yes") || perishableHolderDecision.equals("1")) {
-    							perishable =  mths.scan.nextLine().trim();
-    							System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + " Expiration: " + perishable);
-    							mths.writer.write(perishable + ";");
-    							break;
-    						}
-    						
-    						else if(perishableHolderDecision.equalsIgnoreCase("No") || perishableHolderDecision.equals("2")) {
-    							System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + " Expiration: No Expiration Date");
-    							perishable = "no date";
-    							mths.writer.write(perishable + ";");
-    							break;
-    						}
-    						else {
-    							continue;
-    						}
-    					}
-    					mths.writer.write("\n");
-    					mths.writer.flush();
+    					print.println("\n");
     					break;
     				}
-    				mths.writer.close();
-    			}
+        		}
+			catch (InputMismatchException e) {
+				System.out.println("\t | ");
+				if ((e.getMessage() == null)) {
+		    		System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10)
+		    				+ b_Texts + "Something Went Wrong in setItemInventory" + c_Reset + c_Red + e.getMessage() + c_Reset);
+					System.out.println(tabSpace + " ".repeat(50 - ("INVALID INPUT: Entered String to a supposed Integer/Number").length()) + tabLine + "INVALID INPUT: Entered String to a supposed Integer/Number");
+				}
+				mths.scan.nextLine();
+			}
+			catch(IOException e) {
+				if ((e.getMessage() == null)) {
+					System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10)
+		    				+ b_Texts + "Something Went Wrong in setItemInventory" + c_Reset + c_Red + e.getMessage() + c_Reset);
+					System.out.println(tabSpace + " ".repeat(50 - ("FILE INPUT ERROR: Something went wrong with the File...").length()) + tabLine + "FILE INPUT ERROR: Something went wrong with the File...");
+				}
+				mths.scan.nextLine();
+			}
+        	
+        	
+            try {
+				FileReader fR = new FileReader(mths.fPath.toString());
+				BufferedReader brAI = new BufferedReader(fR);
+				String LINE;
+				int numRep = 0;
+				int numRep2 = 0;
+		        int total = 0;
+		        
+		        print.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+		        print.flush();
+		        
+                while ((LINE = brAI.readLine()) != null) {
+                	String[] DATA = LINE.split(";", -1);                
+                	String group = DATA.length > 7 ? DATA[7].trim() : "";
+                	
+                    if (group.isEmpty() || "no group".equalsIgnoreCase(group)) continue;
+                    
+		                if (dupli.add(group)) {
+		                    total++;
+		                    
+	                    	if(total >= 10) {
+		                    	numRep++;
+		                    	if (total >= 100) {
+		                    		numRep++;
+		                    		numRep2++;
+		                    	}
+		                    }
+	                    	
+		                    if (total % 2 != 0) {
+		                    	System.out.print(" ".repeat(59) + "    [" + c_Green + b_Texts + total + c_Reset + "] " + c_Green + b_Texts + group + c_Reset);
+		                    }
+		                    
+		                    if (total % 2 == 0) {
+		                    	System.out.print( "    [" + c_Green + b_Texts + total + c_Reset + "] " + c_Green + b_Texts + group + c_Reset + " ".repeat(24 - (group.length() + numRep)));
+		                    }
+		                    
+		                    if (brAI.ready()) 
+		                    	System.out.print(" ".repeat(29 - (group.length() + numRep2)));
+		                    
+		                    if (total % 2 == 0) 
+		                    	System.out.println();
+		                }
+                    } 
+                }
+    	
+            
+            catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            
+            finally {
+            	System.out.print("");
+            	print.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+            	print.flush();
+            }
+            
+            try {
+            	System.out.println("[" + "1" + "]" + "Choose Corresponding Number");
+            	System.out.println("[" + "2" + "]" + "Choose to Create New Group ");
+            	
+            	String numOrStr = mths.scan.nextLine();
+            	
+            	if (numOrStr.equals("1") || numOrStr.equalsIgnoreCase("Number") || numOrStr.equalsIgnoreCase("Choose Number") || numOrStr.equalsIgnoreCase("Corresponding") || numOrStr.equalsIgnoreCase("Choose Corresponding")) {
+            		try {
+	            	FileReader fR = new FileReader(mths.fPath.toString());
+	            	BufferedReader brAI = new BufferedReader(fR);
+			        String LINE;
+			        
+			        while ((LINE = brAI.readLine()) != null) {
+			            String[] DATA = LINE.split(";", -1);
+			            String groupData = DATA.length > 7 ?DATA[7].trim():"";
+			            
+			            if (groupData.isEmpty() || "no group".equalsIgnoreCase(groupData)) 
+			            	continue;
+			            
+			            if (duppli2.add(groupData))
+			            	groups.add(groupData);
+				        }
+		            }
+		            
+		            catch(Exception e) {
+						e.getMessage();
+						mths.scan.nextLine();
+					}
+		            
+		            
+		            int choice = -1;
+	            
+		            try {
+		                while (true) {
+		                    System.out.print("Enter Only The" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (1-" + groups.size() + "): ");
+		                    String input = mths.scan.nextLine().trim();
+		                    
+		                    try {
+		                        choice = Integer.parseInt(input);
+		                        if (choice >= 1 && choice <= groups.size()) 
+		                        	break;
+		                    }
+		                    
+		                    catch (NumberFormatException ignored) {}
+		                    System.out.println("Invalid input. Please enter an integer between 1 and " + groups.size() + ".");
+		                }
+		                
+			            String selectedGroup = groups.get(choice - 1);
+			            mths.writer.write(selectedGroup + ";");
+			            
+			            System.out.println("Selected: [" + c_Green + b_Texts + choice + c_Reset + "] " + b_Texts + selectedGroup + c_Reset);
+		            }
+		            
+					catch(Exception e) {
+						e.getMessage();
+						mths.scan.nextLine();
+					}
+            	}
+	            
+	            else if (numOrStr.equals("2") || numOrStr.equalsIgnoreCase("Create") || numOrStr.equalsIgnoreCase("Choose Create") || numOrStr.equalsIgnoreCase("New Group") || numOrStr.equalsIgnoreCase("Choose to Create New Group")) {
+	            	System.out.print("Enter Only The" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (1-" + groups.size() + "): ");
+                    String newGroup = mths.scan.nextLine().trim();
+                    mths.writer.write(newGroup + ";");
+	            }
+
+            }
+            
+            catch(Exception e) {
+	    		System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10));
+			}
+            
+            
+            
+			try {
+				while(true) {
+					System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+					System.out.println( " ".repeat(59) + b_verticalLine + " ".repeat(20) + b_Texts + "Is the Item Perishable or Not?" + c_Reset + " ".repeat(20) + b_verticalLine);
+					
+					System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+					System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
+
+					System.out.print(" ".repeat(69) + b_verticalLine + b_Texts + " ".repeat(9) + "[" + c_Reset + "1" + b_Texts + "]" + " Yes" + " ".repeat(9) + b_verticalLine + c_Reset);						
+					System.out.println(" ".repeat(9) + b_Texts + "[" + c_Reset + "2" + b_Texts + "]" + " No" + " ".repeat(9) + b_verticalLine + c_Reset);
+					
+					System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
+					System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
+					String perishableHolderDecision = mths.scan.nextLine();
+					
+					if(perishableHolderDecision.equalsIgnoreCase("Yes") || perishableHolderDecision.equals("1")) {
+						perishable =  mths.scan.nextLine().trim();
+						System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + " Expiration: " + perishable);
+						mths.writer.write(perishable + ";");
+						break;
+					}
+					
+					else if(perishableHolderDecision.equalsIgnoreCase("No") || perishableHolderDecision.equals("2")) {
+						System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + " Expiration: No Expiration Date");
+						perishable = "no date";
+						mths.writer.write(perishable + ";");
+						break;
+					}
+					else {
+						continue;
+					}
+				}
+				mths.writer.write("\n");
+				mths.writer.flush();
+				mths.writer.close();
+				break;	
+			}
+			
 			
 			catch (InputMismatchException e) {
 				System.out.println("\t | ");
@@ -2063,9 +2210,6 @@ public class Logics_Inventory implements InventoryVars{
     	PrintWriter print = new PrintWriter(System.out);
     	
 		// VARIABLE
-		final String rep8 = " ".repeat(8);
-		final String rep7 = " ".repeat(7);
-    	final String rep40 = " ".repeat(40);
     	int numRepItem = 63;
     	
     	try {
@@ -2163,9 +2307,6 @@ public class Logics_Inventory implements InventoryVars{
     	PrintWriter print = new PrintWriter(System.out);
     	
 		// VARIABLE
-		final String rep8 = " ".repeat(8);
-		final String rep7 = " ".repeat(7);
-    	final String rep40 = " ".repeat(40);
     	int numRepItem = 63;
     	
     	while(true) {
@@ -2254,9 +2395,6 @@ public class Logics_Inventory implements InventoryVars{
     	
     	//VARIABLES // UI
     	String decisionHolder;
-    	final String rep20 = " ".repeat(20);
-    	final String itemFormat = " ".repeat(33);
-    	final String spacerFormat = " ".repeat(3);
     	
     	while(true) {
 	    	try {
@@ -2573,7 +2711,6 @@ public class Logics_Inventory implements InventoryVars{
     	PrintWriter print = new PrintWriter(System.out);
     	
     	// VARIABLES
-    	String perichabilitySate;
     	final int repFirst = 70;
     	final String strSpace = " ";
     	final int repSecond = 15;
@@ -2581,7 +2718,10 @@ public class Logics_Inventory implements InventoryVars{
     	
 		// VARIABLE
     	final String dashBFormat = " ".repeat(38);
-    	
+    	String perishable;
+    	Set <String> dupli = new HashSet<>();
+    	List <String> groups = new ArrayList<>();
+        Set <String> duppli2 = new HashSet<>();
     	
     	while(true) {
 			try {
@@ -2639,59 +2779,194 @@ public class Logics_Inventory implements InventoryVars{
 					
 					mths.scan.nextLine();
 					
-					System.out.print(" ".repeat(1 + repFirst - "Group:".length()) + b_verticalLine + " ".repeat((repSecond) - "Group:".length()) + c_Green + " Group: " + c_Reset);
-					String group =  mths.scan.nextLine().trim();
-					mths.writer.write(group + ";");
-					
 					System.out.println(b_Texts + " ".repeat(65) + "—".repeat(60) + c_Reset);
-					System.out.println();
-					
-					while(true) {
-						System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
-						System.out.println( " ".repeat(59) + b_verticalLine + " ".repeat(20) + b_Texts + "Is the Item Perishable or Not?" + c_Reset + " ".repeat(20) + b_verticalLine);
-						
-						System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
-						System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
-						System.out.print(" ".repeat(69) + b_verticalLine + b_Texts + " ".repeat(9) + "[" + c_Reset + "1" + b_Texts + "]" + " Yes" + " ".repeat(9) + b_verticalLine + c_Reset);						
-						System.out.println(" ".repeat(9) + b_Texts + "[" + c_Reset + "2" + b_Texts + "]" + " No" + " ".repeat(9) + b_verticalLine + c_Reset);
-						
-						System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
-						System.out.print(" ".repeat(69) + b_Texts + " —>" + c_Reset);
-						String perishableHolderDecision = mths.scan.nextLine();
-						
-						if(perishableHolderDecision.equalsIgnoreCase("Yes") || perishableHolderDecision.equals("1")) {
-							System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + "Expiration: ");
-							perichabilitySate =  mths.scan.nextLine().trim();
-							mths.writer.write(perichabilitySate + ";");
-							break;
-						}
-						
-						else if(perishableHolderDecision.equalsIgnoreCase("No") || perishableHolderDecision.equals("2")) {
-							System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + "Expiration: None");
-							perichabilitySate = "no date";
-							mths.writer.write(perichabilitySate + ";");
-							break;
-						}
-						else {
-							continue;
-						}
-					}
-					mths.writer.write("\n");
-					mths.writer.flush();
+					print.println("\n");
 					break;
 				}
-				mths.writer.close();
-			}
-			
+    		}
 			catch (InputMismatchException e) {
+				System.out.println("\t | ");
 				if ((e.getMessage() == null)) {
-					System.out.println(e + "INVALID INPUT: Entered String to a supposed Integer/Number");
+		    		System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10)
+		    				+ b_Texts + "Something Went Wrong in setItemInventory" + c_Reset + c_Red + e.getMessage() + c_Reset);
+					System.out.println(tabSpace + " ".repeat(50 - ("INVALID INPUT: Entered String to a supposed Integer/Number").length()) + tabLine + "INVALID INPUT: Entered String to a supposed Integer/Number");
 				}
 				mths.scan.nextLine();
 			}
 			catch(IOException e) {
 				if ((e.getMessage() == null)) {
-					System.out.println("FILE INPUT ERROR: Something went wrong with the File...");
+					System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10)
+		    				+ b_Texts + "Something Went Wrong in setItemInventory" + c_Reset + c_Red + e.getMessage() + c_Reset);
+					System.out.println(tabSpace + " ".repeat(50 - ("FILE INPUT ERROR: Something went wrong with the File...").length()) + tabLine + "FILE INPUT ERROR: Something went wrong with the File...");
+				}
+				mths.scan.nextLine();
+			}
+        	
+        	
+            try {
+				FileReader fR = new FileReader(mths.fPath.toString());
+				BufferedReader brAI = new BufferedReader(fR);
+				String LINE;
+				int numRep = 0;
+				int numRep2 = 0;
+		        int total = 0;
+		        
+		        print.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+		        print.flush();
+		        
+                while ((LINE = brAI.readLine()) != null) {
+                	String[] DATA = LINE.split(";", -1);                
+                	String group = DATA.length > 7 ? DATA[7].trim() : "";
+                	
+                    if (group.isEmpty() || "no group".equalsIgnoreCase(group)) continue;
+                    
+		                if (dupli.add(group)) {
+		                    total++;
+		                    
+	                    	if(total >= 10) {
+		                    	numRep++;
+		                    	if (total >= 100) {
+		                    		numRep++;
+		                    		numRep2++;
+		                    	}
+		                    }
+	                    	
+		                    if (total % 2 != 0) {
+		                    	System.out.print(" ".repeat(59) + b_verticalLine + "    [" + c_Green + b_Texts + total + c_Reset + "] " + c_Green + b_Texts + group + c_Reset);
+		                    }
+		                    
+		                    if (total % 2 == 0) {
+		                    	System.out.print(b_verticalLine + "    [" + c_Green + b_Texts + total + c_Reset + "] " + c_Green + b_Texts + group + c_Reset + " ".repeat(24 - (group.length() + numRep)) + b_verticalLine);
+		                    }
+		                    
+		                    if (brAI.ready()) 
+		                    	System.out.print(" ".repeat(29 - (group.length() + numRep2)));
+		                    
+		                    if (total % 2 == 0) 
+		                    	System.out.println();
+		                }
+                    } 
+                	System.out.print("");
+                }
+    	
+            
+            catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            
+            finally {
+            	print.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+            	print.flush();
+            }
+                
+            try {
+            	FileReader fR = new FileReader(mths.fPath.toString());
+            	BufferedReader brAI = new BufferedReader(fR);
+		        String LINE;
+		        
+		        while ((LINE = brAI.readLine()) != null) {
+		            String[] DATA = LINE.split(";", -1);
+		            String groupData = DATA.length > 7 ? DATA[7].trim() : "";
+		            
+		            if (groupData.isEmpty() || "no group".equalsIgnoreCase(groupData)) 
+		            	continue;
+		            
+		            if (duppli2.add(groupData))
+		            	groups.add(groupData);
+		        }
+            }
+            
+            catch(Exception e) {
+				e.getMessage();
+				mths.scan.nextLine();
+			}
+            
+            
+            int choice = -1;
+            
+            try {
+                while (true) {
+                    System.out.print("Enter Only The" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (1-" + groups.size() + "): ");
+                    String input = mths.scan.nextLine().trim();
+                    
+                    try {
+                        choice = Integer.parseInt(input);
+                        if (choice >= 1 && choice <= groups.size()) 
+                        	break;
+                    }
+                    
+                    catch (NumberFormatException ignored) {}
+                    System.out.println("Invalid input. Please enter an integer between 1 and " + groups.size() + ".");
+                }
+	            String selectedGroup = groups.get(choice - 1);
+	            mths.writer.write(selectedGroup + ";");
+	            System.out.println("Selected: [" + c_Green + b_Texts + choice + c_Reset + "] " + b_Texts + selectedGroup + c_Reset);
+            }
+            
+			catch(Exception e) {
+				e.getMessage();
+				mths.scan.nextLine();
+			}
+            
+			try {
+				while(true) {
+					System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+					System.out.println( " ".repeat(59) + b_verticalLine + " ".repeat(20) + b_Texts + "Is the Item Perishable or Not?" + c_Reset + " ".repeat(20) + b_verticalLine);
+					
+					System.out.println(b_Texts + " ".repeat(59) + "—".repeat(72) + c_Reset);
+					System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
+
+					System.out.print(" ".repeat(69) + b_verticalLine + b_Texts + " ".repeat(9) + "[" + c_Reset + "1" + b_Texts + "]" + " Yes" + " ".repeat(9) + b_verticalLine + c_Reset);						
+					System.out.println(" ".repeat(9) + b_Texts + "[" + c_Reset + "2" + b_Texts + "]" + " No" + " ".repeat(9) + b_verticalLine + c_Reset);
+					
+					System.out.println(b_Texts + " ".repeat(69) + "—".repeat(52) + c_Reset);
+					System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
+					String perishableHolderDecision = mths.scan.nextLine();
+					
+					if(perishableHolderDecision.equalsIgnoreCase("Yes") || perishableHolderDecision.equals("1")) {
+						System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
+						perishable =  mths.scan.nextLine().trim();
+						System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + " Expiration: " + perishable);
+						mths.writer.write(perishable + ";");
+						break;
+					}
+					
+					else if(perishableHolderDecision.equalsIgnoreCase("No") || perishableHolderDecision.equals("2")) {
+						System.out.print(" ".repeat(repFirst - "Expiration:".length()) + strSpace + " ".repeat(repSecond - "Expiration:".length()) + " Expiration: No Expiration Date");
+						perishable = "no date";
+						mths.writer.write(perishable + ";");
+						break;
+					}
+					else {
+						continue;
+					}
+				}
+				mths.writer.write("\n");
+				mths.writer.flush();
+				mths.writer.close();
+				break;	
+			}
+			
+			// CHECKS FOR DUPLICATION OF THE ITEM AND ASKS IF THE USER IS SURE TO SUCCEED
+			
+			// ADDS ID NUMBER, READS THE PREVIOUS NUMBER, THEN ADDS ONE AS THE ADD ITEM SUCCEEDS
+			
+			
+			catch (InputMismatchException e) {
+				System.out.println("\t | ");
+				if ((e.getMessage() == null)) {
+		    		System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10)
+		    				+ b_Texts + "Something Went Wrong in setItemInventory" + c_Reset + c_Red + e.getMessage() + c_Reset);
+					System.out.println(tabSpace + " ".repeat(50 - ("INVALID INPUT: Entered String to a supposed Integer/Number").length()) + tabLine + "INVALID INPUT: Entered String to a supposed Integer/Number");
+				}
+				mths.scan.nextLine();
+			}
+			catch(IOException e) {
+				if ((e.getMessage() == null)) {
+					System.out.println(tabSpace + " ".repeat(50 - ("Something Went Wrong in setItemInventory").length()) + tabLine + " ".repeat(10)
+		    				+ b_Texts + "Something Went Wrong in setItemInventory" + c_Reset + c_Red + e.getMessage() + c_Reset);
+					System.out.println(tabSpace + " ".repeat(50 - ("FILE INPUT ERROR: Something went wrong with the File...").length()) + tabLine + "FILE INPUT ERROR: Something went wrong with the File...");
 				}
 				mths.scan.nextLine();
 			}
@@ -2745,13 +3020,7 @@ public class Logics_Inventory implements InventoryVars{
     	//MEHODS
     	Logics_Inventory mths = new Logics_Inventory();
     	PrintWriter print = new PrintWriter(System.out);
-    	
-    	// VARIABLES
-    	String perishable;
-    	final int repFirst = 50;
-    	final int repSecond = 20;
-    	final int repThird = 60;
-    	
+    	    	
 		// VARIABLE
 		final String rep8 = " ".repeat(8);
 		final String rep7 = " ".repeat(7);
@@ -2780,8 +3049,6 @@ public class Logics_Inventory implements InventoryVars{
     			print.println(removeItem);
 	    		print.println(tabSpace + "—".repeat(172));
 	        	print.println(tabSpace + "█".repeat(172));
-	        	
-	        	
 	    	}
 	    	
 	    	catch(Exception e){
@@ -2832,6 +3099,24 @@ public class Logics_Inventory implements InventoryVars{
     	}
     }
     
+    public static void checkExpirationDate() {
+    	while(true) {
+    		try {
+    			// CHECKS THE EXPIRATION DATES
+    			// COMPARES if Over Due or Approaching Expiration Date
+    			// 
+    		}
+    		
+    		catch(Exception e) {
+        		System.out.println(e.getMessage());
+        	}
+        	
+        	finally {
+        		
+        	}	
+    	}
+    }
+
     
 	public static void repeatingChooseAgainItem() {
 		// METHODS
@@ -2964,7 +3249,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (fourthChoice.equalsIgnoreCase("Add") || fourthChoice.trim().equalsIgnoreCase("Add a Group") || fourthChoice.equals("2")) {
+				else if (fourthChoice.equalsIgnoreCase("Add") || fourthChoice.trim().equalsIgnoreCase("Remove Group") || fourthChoice.trim().equalsIgnoreCase("Add a Group") || fourthChoice.equals("2")) {
 					Logics_Inventory.setNewGroup();    	                                    
 					/* METHOD FROM INVENTORY BUT WE CAN MAKE ANOTHER AND AS WE UPDATE THE 
 					   FEATURES OR WE WANT TO HAVE SPECIFICATIONS ON THE MODULE OF ITEM ALONE
@@ -2972,12 +3257,12 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (fourthChoice.equalsIgnoreCase("Remove") || fourthChoice.trim().equalsIgnoreCase("Remove a Group") || fourthChoice.equals("3")) {
+				else if (fourthChoice.equalsIgnoreCase("Remove") || fourthChoice.trim().equalsIgnoreCase("Remove Group")  || fourthChoice.trim().equalsIgnoreCase("Remove a Group") || fourthChoice.equals("3")) {
 					Logics_Inventory.removeGroup();
 					break;
 	    		}
 				
-				else if (fourthChoice.equalsIgnoreCase("Exit") || fourthChoice.trim().equalsIgnoreCase("Exit and Go Back") || fourthChoice.equals("4")) {
+				else if (fourthChoice.equalsIgnoreCase("Exit") || fourthChoice.trim().equalsIgnoreCase("Exit and Go Back") || fourthChoice.trim().equalsIgnoreCase("Go Back")  || fourthChoice.equals("4")) {
 					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
@@ -3056,7 +3341,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Add") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
+				else if (numOrStr.equalsIgnoreCase("Add")|| numOrStr.trim().equalsIgnoreCase("Add Group") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
 					Logics_Inventory.setNewGroup();    	                                    
 					/* METHOD FROM INVENTORY BUT WE CAN MAKE ANOTHER AND AS WE UPDATE THE 
 					   FEATURES OR WE WANT TO HAVE SPECIFICATIONS ON THE MODULE OF ITEM ALONE
@@ -3064,12 +3349,12 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
+				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove Group") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
 					Logics_Inventory.removeGroup();
 					break;
 	    		}
 				
-				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("4")) {
+				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.trim().equalsIgnoreCase("Go Back") || numOrStr.equals("4")) {
 					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
@@ -3212,7 +3497,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Add") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
+				else if (numOrStr.equalsIgnoreCase("Add")|| numOrStr.trim().equalsIgnoreCase("Add Group") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
 					Logics_Inventory.setNewGroup();    	                                    
 					/* METHOD FROM INVENTORY BUT WE CAN MAKE ANOTHER AND AS WE UPDATE THE 
 					   FEATURES OR WE WANT TO HAVE SPECIFICATIONS ON THE MODULE OF ITEM ALONE
@@ -3220,12 +3505,12 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
+				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove Group") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
 					Logics_Inventory.removeGroup();
 					break;
 	    		}
 				
-				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("4")) {
+				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.trim().equalsIgnoreCase("Go Back") || numOrStr.equals("4")) {
 					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
@@ -3292,7 +3577,7 @@ public class Logics_Inventory implements InventoryVars{
 					mths.writer.write(userPassword + ";"); // PASSWORD
 					mths.writer.write("none;");            // ITEMNAME "none" so it can be ignored in DASHBOARD and INVENTORY LIST
 					mths.writer.write("0;");                // QUANTITY
-					mths.writer.write(";");                // PRICE
+					mths.writer.write("0;");                // PRICE
 					
 //					System.out.print(" ".repeat(1 + repFirst - "Group:".length()) + b_verticalLine + " ".repeat((repSecond) - "Group:".length()) + c_Green + " Group: " + c_Reset);
 					System.out.print(subCR53 + c_Green + b_Texts + " —> " + c_Reset);    
@@ -3300,7 +3585,7 @@ public class Logics_Inventory implements InventoryVars{
 					System.out.println(tabSpace + " ".repeat(46) + b_Texts +  "—".repeat(80) + "" + c_Reset);
 					mths.writer.write(group + ";");
 					
-					mths.writer.write("0;");
+					mths.writer.write("no date;");           // EXPIRATION DATE
 					
 					System.out.println(b_Texts + " ".repeat(65) + "—".repeat(60) + c_Reset);
 					System.out.println();
@@ -3332,8 +3617,8 @@ public class Logics_Inventory implements InventoryVars{
 		    	System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "Access Group to".toUpperCase() + c_Reset);
 	            System.out.println(tabSpace + minorCR43 + b_Texts +  "—".repeat(86) + "" + c_Reset);
 	
-		    	System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Group List, again" + c_Reset);
-		        System.out.println(" ".repeat(12) + b_verticalLine + " ".repeat(14) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Add a Group  " + " ".repeat(10) + b_verticalLine + c_Reset);
+		    	System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Group List" + c_Reset);
+		        System.out.println(" ".repeat(12) + b_verticalLine + " ".repeat(14) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Add a Group, again" + " ".repeat(5) + b_verticalLine + c_Reset);
 		        System.out.println(tabSpace + minorCR43 + b_Texts + "" +  "—".repeat(86) + c_Reset);
 		        
 		        System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Remove a Group" + c_Reset);
@@ -3349,7 +3634,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Add") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
+				else if (numOrStr.equalsIgnoreCase("Add")|| numOrStr.trim().equalsIgnoreCase("Add Group") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
 					Logics_Inventory.setNewGroup();    	                                    
 					/* METHOD FROM INVENTORY BUT WE CAN MAKE ANOTHER AND AS WE UPDATE THE 
 					   FEATURES OR WE WANT TO HAVE SPECIFICATIONS ON THE MODULE OF ITEM ALONE
@@ -3357,12 +3642,12 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
+				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove Group") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
 					Logics_Inventory.removeGroup();
 					break;
 	    		}
 				
-				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("4")) {
+				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.trim().equalsIgnoreCase("Go Back") || numOrStr.equals("4")) {
 					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
@@ -3420,7 +3705,7 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Add") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
+				else if (numOrStr.equalsIgnoreCase("Add")|| numOrStr.trim().equalsIgnoreCase("Add Group") || numOrStr.trim().equalsIgnoreCase("Add a Group") || numOrStr.equals("2")) {
 					Logics_Inventory.setNewGroup();    	                                    
 					/* METHOD FROM INVENTORY BUT WE CAN MAKE ANOTHER AND AS WE UPDATE THE 
 					   FEATURES OR WE WANT TO HAVE SPECIFICATIONS ON THE MODULE OF ITEM ALONE
@@ -3428,12 +3713,12 @@ public class Logics_Inventory implements InventoryVars{
 					break;
 				}
 				
-				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
+				else if (numOrStr.equalsIgnoreCase("Remove") || numOrStr.trim().equalsIgnoreCase("Remove Group") || numOrStr.trim().equalsIgnoreCase("Remove a Group") || numOrStr.equals("3")) {
 					Logics_Inventory.removeGroup();
 					break;
 	    		}
 				
-				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.equals("4")) {
+				else if (numOrStr.equalsIgnoreCase("Exit") || numOrStr.trim().equalsIgnoreCase("Exit and Go Back") || numOrStr.trim().equalsIgnoreCase("Go Back") || numOrStr.equals("4")) {
 					Logics_Inventory.firstDecisionDuplicate();
 					break;
 				}
@@ -3451,7 +3736,7 @@ public class Logics_Inventory implements InventoryVars{
     public static void repeatingChooseAgainGroup() {
     	while(true) {
     		try {
-    			System.out.println("Remove GROUP");
+    			System.out.println("Repeating choose again GROUP");
     		}
     		
     		catch(Exception e) {
@@ -3463,96 +3748,77 @@ public class Logics_Inventory implements InventoryVars{
     		}
     	}
     }
-    
-    public static void checkExpirationDate() {
-    	while(true) {
-    		try {
-    			
-    		}
-    		
-    		catch(Exception e) {
-        		System.out.println(e.getMessage());
-        	}
-        	
-        	finally {
-        		
-        	}	
-    	}
-    }
-
-    
-    
-	// UX PURPOSES hehe
-    public static void delayInAccountVerification() {
-    	//METHODS
-    	
-    	//VARIABLES
-    	
-    	try {
-    		
-    	}
-    	
-    	catch(Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-    	
-    	finally {
-    		
-    	}	
-	}
-    public static void delayInAccountConfirmation() {
-    	//METHODS
-    	
-    	//VARIABLES
-    	
-    	try {
-    		
-    	}
-    	
-    	catch(Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-    	
-    	finally {
-    		
-    	}	
-	}
-    
-    public static void delayInInventoryListing() {
-    	//METHODS
-    	
-    	//VARIABLES
-    	
-    	try {
-    		
-    	}
-    	
-    	catch(Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-    	
-    	finally {
-    		
-    	}	
-	}
-    
-    public static void delayInDashboard() {
-    	//METHODS
-    	
-    	//VARIABLES
-    	
-    	try {
-    		
-    	}
-    	
-    	catch(Exception e) {
-    		System.out.println(e.getMessage());
-    	}
-    	
-    	finally {
-    		
-    	}	
-	}
+//	// UX PURPOSES hehe
+//    public static void delayInAccountVerification() {
+//    	//METHODS
+//    	
+//    	//VARIABLES
+//    	
+//    	try {
+//    		
+//    	}
+//    	
+//    	catch(Exception e) {
+//    		System.out.println(e.getMessage());
+//    	}
+//    	
+//    	finally {
+//    		
+//    	}	
+//	}
+//    public static void delayInAccountConfirmation() {
+//    	//METHODS
+//    	
+//    	//VARIABLES
+//    	
+//    	try {
+//    		
+//    	}
+//    	
+//    	catch(Exception e) {
+//    		System.out.println(e.getMessage());
+//    	}
+//    	
+//    	finally {
+//    		
+//    	}	
+//	}
+//    
+//    public static void delayInInventoryListing() {
+//    	//METHODS
+//    	
+//    	//VARIABLES
+//    	
+//    	try {
+//    		
+//    	}
+//    	
+//    	catch(Exception e) {
+//    		System.out.println(e.getMessage());
+//    	}
+//    	
+//    	finally {
+//    		
+//    	}	
+//	}
+//    
+//    public static void delayInDashboard() {
+//    	//METHODS
+//    	
+//    	//VARIABLES
+//    	
+//    	try {
+//    		
+//    	}
+//    	
+//    	catch(Exception e) {
+//    		System.out.println(e.getMessage());
+//    	}
+//    	
+//    	finally {
+//    		
+//    	}	
+//	}
     
 
 }
