@@ -41,8 +41,8 @@ public class Main {
 	                    	break;
 	                    	
 	                    case EXIT:
-	                    	Logics_Inventory.profileUser();
-	                    	Logics_Inventory.firstDecision();
+	                    	Logics_Inventory.profileUserDuplicate();
+	                    	Logics_Inventory.firstDecisionDuplicate();
 	                    	break;
 	            			
 	                    case DEFAULT:

@@ -619,6 +619,7 @@ public class Logics_Inventory implements InventoryVars{
 	public static void manageAccount() {
 		try {
 			// METHOD FOR ACCESS SYSTEM retrieve a username, edit the retrieved, password or username
+			
 			System.out.println("manage account");
 		}
 		
@@ -683,7 +684,7 @@ public class Logics_Inventory implements InventoryVars{
 	            }
 	            mths.writer.write("Account" + ";");
 				mths.writer.write(userName + ";");
-				mths.writer.write(userPassword + ";none;0;0;0;no group;");
+				mths.writer.write(userPassword + ";none;0;0;0;no group;no date;");
 				mths.writer.write("\n");
 				mths.writer.flush();
 				mths.writer.close();
@@ -972,12 +973,7 @@ public class Logics_Inventory implements InventoryVars{
 	            }
 	            
 	            Logics_Inventory.accountChecker();
-	            mths.writer.write("Account" + "-");
-				mths.writer.write(userName + "-");
-				mths.writer.write(userPassword + "-");
-				mths.writer.flush();
-				mths.writer.close();
-				System.out.println(newLines);
+				firstDecisionDuplicate();
 	            break;
 			}
 		
@@ -1536,7 +1532,7 @@ public class Logics_Inventory implements InventoryVars{
 		    			}
     				}
     			}
-    			System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+    			
     			brIL.close();
     		}
 
@@ -1546,8 +1542,9 @@ public class Logics_Inventory implements InventoryVars{
     	
 	    	finally {
 				// Internal Decision to repeat or to choose other Action
-	    		System.out.println(newLines);
+    			System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
 				System.out.println(tabSpace);
+				System.out.println(newLines);
 				System.out.println("\n");
 				System.out.println(tabSpace + b_Texts + "—".repeat(170));
 	        	System.out.println(centerRepeat +  b_Texts + "============================================" + c_Reset);
@@ -1947,7 +1944,6 @@ public class Logics_Inventory implements InventoryVars{
                     } 
                 }
     	
-            
             catch (IOException e) {
                 e.printStackTrace();
                 return;
