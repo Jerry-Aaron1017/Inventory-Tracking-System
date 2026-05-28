@@ -1,53 +1,51 @@
 package finals_InventoryTrackingSys;
 
-import java.io.*;
-import java.util.*;
-
 public class Main {
     public static void main(String[] args){    
      // Instance Variables
     	boolean ContinueOpt = true;
     	
         try{
-        	Logics_Inventory.profileUser();
-        	if(Logics_Inventory.continueAccessSystem) {
-        		Logics_Inventory.firstDecision();
+        	Logics_ProfileUser.profileUser();
+        	
+        	if(Logics_ManageAccount.getContinueAccessSystem()) {
+        		Logics_AccessSystem.firstDecision();
 
 	        	while(ContinueOpt){
-	                switch(Logics_Inventory.returnCons()){
+	                switch(Logics_AllDecisions.returnCons()){
 	                    case INVENTORY:
 	                    	// SECOND DECISION
 	                    	Logics_Inventory.chooseInventoryOption();
 	                    	// FUNCTION TO BE CALLED DEPENDING ON THE PREVIOUS DECISION
-	                    	Logics_Inventory.getSecondDecisions();
+	                    	Logics_AllDecisions.getSecondDecisions();
 	                    	break;
 	                    	
 	                    case ITEM:
 	                    	// SECOND DECISION
-	                    	Logics_Inventory.chooseItemOption();
+	                    	Logics_Item.chooseItemOption();
 	                    	// FUNCTION TO BE CALLED DEPENDING ON THE PREVIOUS DECISION
-	                    	Logics_Inventory.getThirdDecision();
+	                    	Logics_AllDecisions.getThirdDecision();
 	                    	
 	                    	break;
 	                    	
 	                    case GROUP, CATEGORY:
-	                    	Logics_Inventory.chooseGroupOption();
-	                    	Logics_Inventory.getFourthDecision();
+	                    	Logics_Group.chooseGroupOption();
+	                    	Logics_AllDecisions.getFourthDecision();
 	                		break;
 	            		
 	                    case MANAGEACCOUNT:
-	                    	Logics_Inventory.manageAccount();
-	                    	Logics_Inventory.firstDecisionDuplicate();
+	                    	Logics_ManageAccount.chooseManageAccountOption();
+	                    	Logics_AllDecisions.getFifthDecision();
 	                    	break;
 	                    	
 	                    case EXIT:
-	                    	Logics_Inventory.profileUserDuplicate();
-	                    	Logics_Inventory.firstDecisionDuplicate();
+	                    	Logics_ProfileUser.profileUserDuplicate();
+	                    	Logics_AccessSystem.firstDecisionDuplicate();
 	                    	break;
 	            			
 	                    case DEFAULT:
 	                    	System.out.println("\t | EXITING SYSTEM");
-	                    	Logics_Inventory.firstDecision();
+	                    	// MAKE A METHOD PROMPT THAT ASKS THE USER TO CONFIRM EXITING AND ENDING THE PROGRAM
 	            			break;
 	            			
 	                    default:
@@ -55,7 +53,7 @@ public class Main {
 	            			break;
 	                }
 	                
-	                if (Logics_Inventory.returnCons().toString().equalsIgnoreCase("exit")) {
+	                if (Logics_AllDecisions.returnCons().toString().equalsIgnoreCase("exit")) {
 	                	break;
 	                }
 	                //else if (Logics_Inventory.returnCons().toString().equalsIgnoreCase(""))
