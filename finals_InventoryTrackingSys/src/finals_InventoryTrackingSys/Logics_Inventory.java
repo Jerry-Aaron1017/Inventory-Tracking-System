@@ -591,6 +591,7 @@ public class Logics_Inventory{
 	
 
 	// ACCES UPDATE/WRITES for Adding an Item 
+	@SuppressWarnings("finally")
     public static void setItemInventory() {
     	//METHODS
     	Logics_Inventory mths = new Logics_Inventory();
@@ -959,7 +960,10 @@ public class Logics_Inventory{
 					mths.writer.flush();
 					break;
 				}
+				mths.writer.write("\n");
+				mths.writer.flush();
 				mths.writer.close();
+				break;	
 			}
 			
 			catch (InputMismatchException e) {
