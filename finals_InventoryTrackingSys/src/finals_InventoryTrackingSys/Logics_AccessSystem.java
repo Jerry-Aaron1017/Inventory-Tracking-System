@@ -37,10 +37,10 @@ public class Logics_AccessSystem {
 	
 	final static String tab = "\t";
 	final static String tabSpace = "\t ";
-	final static String tabLine = "\t | ";
+	final static String tabLine = "\t │ ";
 	
-	final static String b_verticalLine = b_Texts + "|" + c_Reset;
-	final static String b_verticalSpacesLine = b_Texts + " | " + c_Reset;
+	final static String b_verticalLine = b_Texts + "│" + c_Reset;
+	final static String b_verticalSpacesLine = b_Texts + " │ " + c_Reset;
 
     // METHODS
 	Scanner scan = new Scanner(System.in);
@@ -61,25 +61,25 @@ public class Logics_AccessSystem {
 				int countFormatIns = 18;
 				int countFAfter = 18;
 				System.out.println(newLines);
-	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	        	print.println("\t " + "┌" + "─".repeat(170) + "┐");
 	        	String accessSystem = 
-	        			"\t | " + " ".repeat(countFormatIns + 1) + """
-	        			 █████████╗  ████████╗ ████████╗█████████╗█████████╗█████████╗       █████████╗███╗  ███╗█████████╗█████████╗█████████╗████╗    ████╗       """ + " ".repeat(countFAfter) + "| \n"  
-	        	        + "\t | " + " ".repeat(countFormatIns) + """
-	        			███╔════███╗███╔═════╝███╔═════╝███╔═════╝███╔═════╝███╔═════╝       ███╔═════╝███╚══███║███╔═════╝   ███╔══╝███╔═════╝█████╗  █████║       """ + " ".repeat(countFAfter) + "| \n" 
-	        			+ "\t | " + " ".repeat(countFormatIns) + """
-	        	        ███████████║███║      ███║      ███████╗  █████████╗█████████╗       █████████╗ ███████╔╝█████████╗   ███║   ███████╗  ███╔█████╔███║       """ + " ".repeat(countFAfter) + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormatIns) + """
-	        	        ███╔════███║███║      ███║      ███╔═══╝  ╚═════███║╚═════███║       ╚═════███║   ███╔═╝ ╚═════███║   ███║   ███╔═══╝  ███║╚███╔╝███║       """ + " ".repeat(countFAfter) + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormatIns) + """
-	        	        ███║    ███║╚████████╗╚████████╗█████████╗█████████║█████████║       █████████║   ███║   █████████║   ███║   █████████╗███║ ╚══╝ ███║       """ + " ".repeat(countFAfter) + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormatIns) + """
-	        	        ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝╚════════╝╚════════╝╚════════╝       ╚════════╝   ╚══╝   ╚════════╝   ╚══╝   ╚════════╝╚══╝      ╚══╝       """ + " ".repeat(countFAfter) + "|" +
+	        			"\t │ " + " ".repeat(countFormatIns + 1) + """
+	        			 █████████╗  ████████╗ ████████╗█████████╗█████████╗█████████╗       █████████╗███╗  ███╗█████████╗█████████╗█████████╗████╗    ████╗       """ + " ".repeat(countFAfter) + "│ \n"  
+	        	        + "\t │ " + " ".repeat(countFormatIns) + """
+	        			███╔════███╗███╔═════╝███╔═════╝███╔═════╝███╔═════╝███╔═════╝       ███╔═════╝███╚══███║███╔═════╝   ███╔══╝███╔═════╝█████╗  █████║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        			+ "\t │ " + " ".repeat(countFormatIns) + """
+	        	        ███████████║███║      ███║      ███████╗  █████████╗█████████╗       █████████╗ ███████╔╝█████████╗   ███║   ███████╗  ███╔█████╔███║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormatIns) + """
+	        	        ███╔════███║███║      ███║      ███╔═══╝  ╚═════███║╚═════███║       ╚═════███║   ███╔═╝ ╚═════███║   ███║   ███╔═══╝  ███║╚███╔╝███║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormatIns) + """
+	        	        ███║    ███║╚████████╗╚████████╗█████████╗█████████║█████████║       █████████║   ███║   █████████║   ███║   █████████╗███║ ╚══╝ ███║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormatIns) + """
+	        	        ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝╚════════╝╚════════╝╚════════╝       ╚════════╝   ╚══╝   ╚════════╝   ╚══╝   ╚════════╝╚══╝      ╚══╝       """ + " ".repeat(countFAfter) + "│" +
 	        	        """
 	        	        """;
         		
 	        	print.println(accessSystem);
-	        	print.println("\t " + "—".repeat(172));
+	        	print.println("\t " + "└" + "─".repeat(170) + "┘");
 	        	print.println("\t " + "█".repeat(172));
 	        	print.flush();
 				
@@ -146,25 +146,25 @@ public class Logics_AccessSystem {
 				int countFormatIns = 18;
 				int countFAfter = 18;
 				System.out.println(newLines);
-	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	        	print.println("\t " + "┌" + "─".repeat(170) + "┐");
 	        	String accessSystem = 
-	        			"\t | " + " ".repeat(countFormatIns + 1) + """
-	        			 █████████╗  ████████╗ ████████╗█████████╗█████████╗█████████╗       █████████╗███╗  ███╗█████████╗█████████╗█████████╗████╗    ████╗       """ + " ".repeat(countFAfter) + "| \n"  
-	        	        + "\t | " + " ".repeat(countFormatIns) + """
-	        			███╔════███╗███╔═════╝███╔═════╝███╔═════╝███╔═════╝███╔═════╝       ███╔═════╝███╚══███║███╔═════╝   ███╔══╝███╔═════╝█████╗  █████║       """ + " ".repeat(countFAfter) + "| \n" 
-	        			+ "\t | " + " ".repeat(countFormatIns) + """
-	        	        ███████████║███║      ███║      ███████╗  █████████╗█████████╗       █████████╗ ███████╔╝█████████╗   ███║   ███████╗  ███╔█████╔███║       """ + " ".repeat(countFAfter) + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormatIns) + """
-	        	        ███╔════███║███║      ███║      ███╔═══╝  ╚═════███║╚═════███║       ╚═════███║   ███╔═╝ ╚═════███║   ███║   ███╔═══╝  ███║╚███╔╝███║       """ + " ".repeat(countFAfter) + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormatIns) + """
-	        	        ███║    ███║╚████████╗╚████████╗█████████╗█████████║█████████║       █████████║   ███║   █████████║   ███║   █████████╗███║ ╚══╝ ███║       """ + " ".repeat(countFAfter) + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormatIns) + """
-	        	        ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝╚════════╝╚════════╝╚════════╝       ╚════════╝   ╚══╝   ╚════════╝   ╚══╝   ╚════════╝╚══╝      ╚══╝       """ + " ".repeat(countFAfter) + "|" +
+	        			"\t │ " + " ".repeat(countFormatIns + 1) + """
+	        			 █████████╗  ████████╗ ████████╗█████████╗█████████╗█████████╗       █████████╗███╗  ███╗█████████╗█████████╗█████████╗████╗    ████╗       """ + " ".repeat(countFAfter) + "│ \n"  
+	        	        + "\t │ " + " ".repeat(countFormatIns) + """
+	        			███╔════███╗███╔═════╝███╔═════╝███╔═════╝███╔═════╝███╔═════╝       ███╔═════╝███╚══███║███╔═════╝   ███╔══╝███╔═════╝█████╗  █████║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        			+ "\t │ " + " ".repeat(countFormatIns) + """
+	        	        ███████████║███║      ███║      ███████╗  █████████╗█████████╗       █████████╗ ███████╔╝█████████╗   ███║   ███████╗  ███╔█████╔███║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormatIns) + """
+	        	        ███╔════███║███║      ███║      ███╔═══╝  ╚═════███║╚═════███║       ╚═════███║   ███╔═╝ ╚═════███║   ███║   ███╔═══╝  ███║╚███╔╝███║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormatIns) + """
+	        	        ███║    ███║╚████████╗╚████████╗█████████╗█████████║█████████║       █████████║   ███║   █████████║   ███║   █████████╗███║ ╚══╝ ███║       """ + " ".repeat(countFAfter) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormatIns) + """
+	        	        ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝╚════════╝╚════════╝╚════════╝       ╚════════╝   ╚══╝   ╚════════╝   ╚══╝   ╚════════╝╚══╝      ╚══╝       """ + " ".repeat(countFAfter) + "│" +
 	        	        """
 	        	        """;
         		
 	        	print.println(accessSystem);
-	        	print.println("\t " + "—".repeat(172));
+	        	print.println("\t " + "└" + "─".repeat(170) + "┘");
 	        	print.println("\t " + "█".repeat(172));
 	        	print.flush();
 				

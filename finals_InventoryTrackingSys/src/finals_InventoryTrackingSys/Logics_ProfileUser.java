@@ -39,16 +39,17 @@ public class Logics_ProfileUser {
 	final static String minorCR48 = " ".repeat(48);      // MINOR CENTER REPEAT
 	final static String minorCR47 = " ".repeat(47);
 	final static String minorCR45 = " ".repeat(45);
+	final static String minorCR44 = " ".repeat(44);
 	final static String minorCR43 = " ".repeat(43);
 	
-	final static String newLines = ("\n\n\n\n\n");
+	final static String newLines5 = ("\n\n\n\n\n");
 	
 	final static String tab = "\t";
 	final static String tabSpace = "\t ";
-	final static String tabLine = "\t | ";
+	final static String tabLine = "\t │ ";
 	
-	final static String b_verticalLine = b_Texts + "|" + c_Reset;
-	final static String b_verticalSpacesLine = b_Texts + " | " + c_Reset;
+	final static String b_verticalLine = b_Texts + "│" + c_Reset;
+	final static String b_verticalSpacesLine = b_Texts + " │ " + c_Reset;
 	
 	// VARIABLE FOR DECISIONS
 	String firstChoice;
@@ -90,70 +91,175 @@ public class Logics_ProfileUser {
 	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
 	        	
 	        	// UI Format: 
-	        	int countFormat = 46;
+	        	int countFormat1 = 46;
+	        	int countFormat2 = 22;
 	        	String CF1 = " ".repeat(49);
 	        	String CF2 = " ".repeat(51);
-	        	print.println("\n");
-	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	        	String CF12 = " ".repeat(24);
+	        	int CF22 = 23;
+	        	
+	        	print.println(newLines5);
+	        	print.println("\t " + "┌" + "─".repeat(170) + "┐");
 	        	String welcome = 
-	        			"\t | " + " ".repeat(countFormat) + """
-	        			███╗     ███╗████████╗███╗      ███████╗ ████████╗ ████╗    ████╗████████╗""" + CF1 + "| \n"  
-	        	        + "\t | " + " ".repeat(countFormat) + """
-	        			███║     ███║███╔════╝███║     ███╔════╝███╔═══███╗█████╗  █████║███╔════╝""" + CF1 + "| \n" 
-	        			+ "\t | " + " ".repeat(countFormat) + """
-	        	        ███║ ██╗ ███║██████╗  ███║     ███║     ███║   ███║███╔█████╔███║██████╗""" + CF2 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat) + """
-	        	        ███║████╗███║███╔══╝  ███║     ███║     ███║   ███║███║╚███╔╝███║███╔══╝""" + CF2 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat) + """
-	        	        ╚█████╔████╔╝████████╗████████╗╚███████╗╚████████╔╝███║ ╚══╝ ███║████████╗""" + CF1 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat + 1) + """
-	        	         ╚════╝╚═══╝ ╚═══════╝╚═══════╝ ╚══════╝ ╚═══════╝ ╚══╝      ╚══╝╚═══════╝""" + CF1 + "|" +
+	        			"\t │ " + " ".repeat(countFormat1) + """
+	        			███╗     ███╗████████╗███╗      ███████╗ ████████╗ ████╗    ████╗████████╗""" + CF1 + "│ \n"  
+	        	        + "\t │ " + " ".repeat(countFormat1) + """
+	        			███║     ███║███╔════╝███║     ███╔════╝███╔═══███╗█████╗  █████║███╔════╝""" + CF1 + "│ \n" 
+	        			+ "\t │ " + " ".repeat(countFormat1) + """
+	        	        ███║ ██╗ ███║██████╗  ███║     ███║     ███║   ███║███╔█████╔███║██████╗""" + CF2 + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat1) + """
+	        	        ███║████╗███║███╔══╝  ███║     ███║     ███║   ███║███║╚███╔╝███║███╔══╝""" + CF2 + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat1) + """
+	        	        ╚█████╔████╔╝████████╗████████╗╚███████╗╚████████╔╝███║ ╚══╝ ███║████████╗""" + CF1 + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat1 + 1) + """
+	        	         ╚════╝╚═══╝ ╚═══════╝╚═══════╝ ╚══════╝ ╚═══════╝ ╚══╝      ╚══╝╚═══════╝""" + CF1 + "│" +
 	        	        """
 	        	        """;
         		
 	        	print.println(welcome);
-	        	print.println("\t " + "—".repeat(172));
+	        	print.println("\t " + "└" + "─".repeat(170) + "┘");
+	        	print.println("\t " + "█".repeat(172));
+	        	
+	        	print.print("\n\n");
+	        	//print.println("\t " + " ".repeat(52) + b_Texts + " Dynamic Inventory Tracking Logging System for Complex Accounting " + c_Reset);
+	        	print.print("\t " + " ".repeat(52) + b_Texts);
+	        	print.flush();
+	        	
+    	    	char chars [] = {'D','y','n','a','m','i','c',' ',
+	    			'I','n','v','e','n','t','o','r','y',' ',
+	    			'T','r','a','c','k','i','n','g',' ',
+	    			'L','o','g','g','i','n','g',' ',
+	    			'S','y','s','t','e','m',' ','f','o','r',' ',
+	    			'C','o','m','p','l','e','x',' ',
+	    			'A','c','c','o','u','n','t','i','n','g'};
+    	    	
+            	for (int num = 0; num < chars.length; num++) {
+            	    try {
+            	    	int numbering = 1;
+
+            	    	
+            	    	String str = new String (chars, num, numbering);
+            	    	System.out.print(str);
+            	    	
+            	    	numbering++;
+            	        Thread.sleep(25);
+            	    } catch (InterruptedException e) {
+            	        Thread.currentThread().interrupt();
+            	    }
+            	}
+            	System.out.print(c_Reset);
+    	        Thread.sleep(1000);
+
+            	print.println(newLines5 + newLines5);
+            	print.print("\t " + " ".repeat(62) + b_Texts + " Press 'Enter' to continue ");
+            	print.flush();
+            	            	
+    	        Thread.sleep(1000);
+            	for (int num = 0; num < 3; num++) {
+            	    try {
+            	    	System.out.print(". ");
+            	        Thread.sleep(150);
+            	    } catch (InterruptedException e) {
+            	        Thread.currentThread().interrupt();
+            	    }
+            	}
+            	String scanPrint = "";
+            	while(true) { 	
+	        	   
+	            	try {
+		            	System.out.print(scanPrint);
+		            	String enteringSyst = mths.scan.nextLine();
+		            	
+		            	if(enteringSyst.isEmpty())
+		            		enteringSyst = "0";
+		            	else
+		            		enteringSyst = "1";
+		            	
+		            	if(enteringSyst == "0")
+		            		break;
+		            	else if(enteringSyst == "1")
+		            		scanPrint = ("\t " + " ".repeat(85));
+		            		continue;
+	            	}
+	            	catch(Exception e) {
+	            		e.getMessage();
+	            	}
+            	}	
+	        	
+            	for (int num = 0; num < 46; num++) {
+            	    try {
+            	    	System.out.print("\n");
+            	        Thread.sleep(10);
+            	    } catch (InterruptedException e) {
+            	        Thread.currentThread().interrupt();
+            	    }
+            	}
+            	
+	        	print.println("\t " + "┌" + "─".repeat(170) + "┐");
+	        	String profileUser = 
+	        			"\t │ " + " ".repeat(countFormat2) + """
+	        			█████████╗ █████████╗  █████████╗ █████████╗█████████╗███╗      ████████╗          ███╗   ███╗█████████╗████████╗█████████╗   """ + CF12 + "│ \n"  
+	        	        + "\t │ " + " ".repeat(countFormat2) + """
+	        			███    ███╗███╔═══███╗███╔════███║███╔═════╝   ███╔══╝███║      ███╔════╝          ███║   ███║███╔═════╝███╔════╝███╔═══███╗ """ + " ".repeat(CF22) + "│ \n" 
+	        			+ "\t │ " + " ".repeat(countFormat2) + """
+	        	        █████████╔╝█████████╔╝███║    ███║███████╗     ███║   ███║      ██████╗            ███║   ███║█████████╗██████╗  █████████╔╝ """ + " ".repeat(CF22) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat2) + """
+	        	        ███╔═════╝ ███╔═══███╗███║    ███║███╔═══╝     ███║   ███║      ███╔══╝            ███║   ███║╚═════███║███╔══╝  ███╔═══███╗ """ + " ".repeat(CF22) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat2) + """
+	        	        ███║       ███║   ███║╚█████████╔╝███║      █████████╗█████████╗████████╗          ╚████████╔╝█████████║████████╗███║   ███║ """ + " ".repeat(CF22) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat2) + """
+	        	        ╚══╝       ╚══╝   ╚══╝ ╚════════╝ ╚══╝      ╚════════╝╚════════╝╚═══════╝           ╚═══════╝ ╚════════╝╚═══════╝╚══╝   ╚══╝ """ + " ".repeat(CF22) + "│" +
+	        	        """
+	        	        """;
+        		
+	        	print.println(profileUser);
+	        	print.println("\t " + "└" + "─".repeat(170) + "┘");
 	        	print.println("\t " + "█".repeat(172));
 	        	print.flush();
 	        	
+    	        Thread.sleep(50);
+	        	
 	        	System.out.println("\n");
 	        	System.out.println(tabSpace + " " + "_".repeat(170));
+	        	System.out.println("\n\n");
 	        	System.out.println(tabSpace);
 	        	
 	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(2) +  b_Texts + "ENTER YOUR PROFILE" + "   " + c_Reset);
 	            
-	            String firstLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(36) + b_verticalLine);
-	            String secondtLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(36) + b_verticalLine);
-	            String usernameDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
-	            		   						+ c_Reset + " ".repeat(23) + b_verticalLine);
-	            String passwordDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
-	            		                       + c_Reset + " ".repeat(18) + b_verticalLine);
-	            String passwordDescription2 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
+	            String firstLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String secondtLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String usernameDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
+	            		   						+ c_Reset + " ".repeat(25) + b_verticalLine);
+	            String passwordDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
+	            		                       + c_Reset + " ".repeat(20) + b_verticalLine);
+	            String passwordDescription2 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
 	            		   + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
 						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
 						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
-						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
+						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(13) + b_verticalLine);
 
 	            String setterLine = (tabSpace + minorCR45 + c_Green + b_Texts +  " —> " + c_Reset);
-	            String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset); 
+	            String fillerLine = (tab + minorCR45 + b_Texts + "─".repeat(84) + c_Reset); 
+	            String fillerLine1 = (tab + minorCR45 + b_Texts + "┌" + "─".repeat(82) + "┐" + c_Reset); 
+	            String fillerLine2 = (tab + minorCR45 + b_Texts + "└" + "─".repeat(82) + "┘" + c_Reset); 
 	            
-	            System.out.println(fillerLine);
+	            System.out.println(fillerLine1);
 				System.out.println(firstLineOption);
 				System.out.println(usernameDescription1);
-				System.out.println(fillerLine);
+				System.out.println(fillerLine2);
 				System.out.print(setterLine);
 	            userName = mths.scan.nextLine().trim();
 				System.out.print(fillerLine);
 	            Logics_ProfileUser.usernameVerification();
 	            
-				System.out.println("\n\n");
+				System.out.println("\n\n\n");
 	            if(userNameHolder){
-		            System.out.println(fillerLine);
+		            System.out.println(fillerLine1);
 		            System.out.println(secondtLineOption);
 		            System.out.println(passwordDescription1);
 		            System.out.println(passwordDescription2);
-		            System.out.println(fillerLine);
+		            System.out.println(fillerLine2);
 		            System.out.print(setterLine);
 		            userPassword = mths.scan.nextLine().trim();
 		            
@@ -186,29 +292,29 @@ public class Logics_ProfileUser {
 	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
 	        	
 	        	// UI Format: 
-	        	int countFormat = 46;
-	        	String CF1 = " ".repeat(49);
-	        	String CF2 = " ".repeat(51);
+	        	int countFormat2 = 22;
+	        	String CF12 = " ".repeat(24);
+	        	int CF22 = 23;
 	        	print.println("\n");
-	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
-	        	String welcome = 
-	        			"\t | " + " ".repeat(countFormat) + """
-	        			███╗     ███╗████████╗███╗      ███████╗ ████████╗ ████╗    ████╗████████╗""" + CF1 + "| \n"  
-	        	        + "\t | " + " ".repeat(countFormat) + """
-	        			███║     ███║███╔════╝███║     ███╔════╝███╔═══███╗█████╗  █████║███╔════╝""" + CF1 + "| \n" 
-	        			+ "\t | " + " ".repeat(countFormat) + """
-	        	        ███║ ██╗ ███║██████╗  ███║     ███║     ███║   ███║███╔█████╔███║██████╗""" + CF2 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat) + """
-	        	        ███║████╗███║███╔══╝  ███║     ███║     ███║   ███║███║╚███╔╝███║███╔══╝""" + CF2 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat) + """
-	        	        ╚█████╔████╔╝████████╗████████╗╚███████╗╚████████╔╝███║ ╚══╝ ███║████████╗""" + CF1 + "| \n" 
-	        	        + "\t | " +  " ".repeat(countFormat + 1) + """
-	        	         ╚════╝╚═══╝ ╚═══════╝╚═══════╝ ╚══════╝ ╚═══════╝ ╚══╝      ╚══╝╚═══════╝""" + CF1 + "|" +
+	        	print.println("\t " + "┌" + "─".repeat(170) + "┐");
+	        	String profileUser = 
+	        			"\t │ " + " ".repeat(countFormat2) + """
+	        			█████████╗ █████████╗  █████████╗ █████████╗█████████╗███╗      ████████╗          ███╗   ███╗█████████╗████████╗█████████╗   """ + CF12 + "│ \n"  
+	        	        + "\t │ " + " ".repeat(countFormat2) + """
+	        			███    ███╗███╔═══███╗███╔════███║███╔═════╝   ███╔══╝███║      ███╔════╝          ███║   ███║███╔═════╝███╔════╝███╔═══███╗ """ + " ".repeat(CF22) + "│ \n" 
+	        			+ "\t │ " + " ".repeat(countFormat2) + """
+	        	        █████████╔╝█████████╔╝███║    ███║███████╗     ███║   ███║      ██████╗            ███║   ███║█████████╗██████╗  █████████╔╝ """ + " ".repeat(CF22) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat2) + """
+	        	        ███╔═════╝ ███╔═══███╗███║    ███║███╔═══╝     ███║   ███║      ███╔══╝            ███║   ███║╚═════███║███╔══╝  ███╔═══███╗ """ + " ".repeat(CF22) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat2) + """
+	        	        ███║       ███║   ███║╚█████████╔╝███║      █████████╗█████████╗████████╗          ╚████████╔╝█████████║████████╗███║   ███║ """ + " ".repeat(CF22) + "│ \n" 
+	        	        + "\t │ " +  " ".repeat(countFormat2) + """
+	        	        ╚══╝       ╚══╝   ╚══╝ ╚════════╝ ╚══╝      ╚════════╝╚════════╝╚═══════╝           ╚═══════╝ ╚════════╝╚═══════╝╚══╝   ╚══╝ """ + " ".repeat(CF22) + "│" +
 	        	        """
 	        	        """;
         		
-	        	print.println(welcome);
-	        	print.println("\t " + "—".repeat(172));
+	        	print.println(profileUser);
+	        	print.println("\t " + "└" + "─".repeat(170) + "┘");
 	        	print.println("\t " + "█".repeat(172));
 	        	print.flush();
 	        	
@@ -219,37 +325,39 @@ public class Logics_ProfileUser {
 	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(2) +  b_Texts + "ENTER YOUR PROFILE" + "   " + c_Reset);
 	            
-	            String firstLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(36) + b_verticalLine);
-	            String secondtLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(36) + b_verticalLine);
-	            String usernameDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
-	            		   						+ c_Reset + " ".repeat(23) + b_verticalLine);
-	            String passwordDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
-	            		                       + c_Reset + " ".repeat(18) + b_verticalLine);
-	            String passwordDescription2 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
+	            String firstLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String secondtLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String usernameDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
+	            		   						+ c_Reset + " ".repeat(25) + b_verticalLine);
+	            String passwordDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
+	            		                       + c_Reset + " ".repeat(20) + b_verticalLine);
+	            String passwordDescription2 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
 	            		   + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
 						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
 						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
-						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
+						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(13) + b_verticalLine);
 
 	            String setterLine = (tabSpace + minorCR45 + c_Green + b_Texts +  " —> " + c_Reset);
-	            String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset); 
+	            String fillerLine = (tab + minorCR45 + b_Texts + "─".repeat(84) + c_Reset); 
+	            String fillerLine1 = (tab + minorCR45 + b_Texts + "┌" + "─".repeat(82) + "┐" + c_Reset); 
+	            String fillerLine2 = (tab + minorCR45 + b_Texts + "└" + "─".repeat(82) + "┘" + c_Reset); 
 	            
-	            System.out.println(fillerLine);
+	            System.out.println(fillerLine1);
 				System.out.println(firstLineOption);
 				System.out.println(usernameDescription1);
-				System.out.println(fillerLine);
+				System.out.println(fillerLine2);
 				System.out.print(setterLine);
 	            userName = mths.scan.nextLine().trim();
 				System.out.print(fillerLine);
 	            Logics_ProfileUser.usernameVerification();
 	            
-				System.out.println("\n\n");
+				System.out.println("\n\n\n");
 	            if(userNameHolder){
-		            System.out.println(fillerLine);
+		            System.out.println(fillerLine1);
 		            System.out.println(secondtLineOption);
 		            System.out.println(passwordDescription1);
 		            System.out.println(passwordDescription2);
-		            System.out.println(fillerLine);
+		            System.out.println(fillerLine2);
 		            System.out.print(setterLine);
 		            userPassword = mths.scan.nextLine().trim();
 		            
@@ -295,25 +403,28 @@ public class Logics_ProfileUser {
 	
 		while(true) {
 			try {
-				System.out.println(newLines);
+				System.out.println(newLines5);
 				System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(2) +  b_Texts + "RETRY YOUR PROFILE" + "   " + c_Reset);
 	            
-	            String firstLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(36) + b_verticalLine);
+	            String firstLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(38) + b_verticalLine);
 	            
-	            String usernameDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(23) + "Username must only contain " 
-	            							   + b_Texts + c_Green + "letters" + c_Reset + " ".repeat(23) + b_verticalLine);
+	            String usernameDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
+   											   + c_Reset + " ".repeat(25) + b_verticalLine);
 	            
 	            String setterLine = (tabSpace + minorCR45 + c_Green + b_Texts +  " —> " + c_Reset);
 	            String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset); 
+	            String fillerLine1 = (tab + minorCR45 + b_Texts + "┌" + "─".repeat(82) + "┐" + c_Reset); 
+	            String fillerLine2 = (tab + minorCR45 + b_Texts + "└" + "─".repeat(82) + "┘" + c_Reset); 
 	            
-	            System.out.println(fillerLine);
+	            System.out.println(fillerLine1);
 
 				System.out.println(firstLineOption);
 				System.out.println(usernameDescription1);
-				System.out.println(fillerLine);
+				System.out.println(fillerLine2);
 				System.out.print(setterLine);
 				userName = mths.scan.nextLine().trim();
+	            System.out.println(fillerLine);
 				Logics_ProfileUser.usernameVerification();
 	            break;
 			}
@@ -333,42 +444,46 @@ public class Logics_ProfileUser {
     	Logics_Inventory mths = new Logics_Inventory();
 		while(true) {
 			try {
-				System.out.println(newLines);
+				System.out.println(newLines5);
 				System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(2) +  b_Texts + "RETRY YOUR PROFILE" + "   " + c_Reset);
 	            
-	            String firstLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(36) + b_verticalLine);
-	            String secondtLineOption = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(36) + b_verticalLine);
+	            String firstLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String secondtLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(38) + b_verticalLine);
 	            
-	            String usernameDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
-	            							+ c_Reset + " ".repeat(23) + b_verticalLine);
+	            String usernameDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
+	            							+ c_Reset + " ".repeat(25) + b_verticalLine);
 	            
-	            String passwordDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
-	            		                    + c_Reset + " ".repeat(18) + b_verticalLine);
+	            String passwordDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
+	            		                    + c_Reset + " ".repeat(20) + b_verticalLine);
 	            
-	            String passwordDescription2 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
+	            String passwordDescription2 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
 	            		   + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
 						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
 						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
-						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
+						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(13) + b_verticalLine);
 	            
 	            String setterLine = (tabSpace + minorCR45 + c_Green + b_Texts +  " —> " + c_Reset);
 	            String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset); 
+	            String fillerLine1 = (tab + minorCR45 + b_Texts + "┌" + "─".repeat(82) + "┐" + c_Reset); 
+	            String fillerLine2 = (tab + minorCR45 + b_Texts + "└" + "─".repeat(82) + "┘" + c_Reset); 
 	            
-	            System.out.println(fillerLine);
+	            System.out.println(fillerLine1);
 
 				System.out.println(firstLineOption);
 				System.out.println(usernameDescription1);
-				System.out.println(fillerLine);
+				System.out.println(fillerLine2);
 				System.out.print(setterLine);
 	            System.out.println(userName);
 	            
 	            System.out.println(fillerLine);
+	            
+	            System.out.println(fillerLine1);
 	            System.out.println(secondtLineOption);
 	            System.out.println(passwordDescription1);
 	            System.out.println(passwordDescription2);
 	            
-	            System.out.println(fillerLine);
+	            System.out.println(fillerLine2);
 	            System.out.print(setterLine);
 	            userPassword = mths.scan.nextLine();
 	            
@@ -384,7 +499,6 @@ public class Logics_ProfileUser {
 		}
 	}
 	
-	@SuppressWarnings("finally")
 	public static void usernameVerification(){
 		// METHOD
 		PrintWriter print = new PrintWriter (System.out);
@@ -394,10 +508,10 @@ public class Logics_ProfileUser {
 				String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset);
 				print.println(fillerLine);
 				Pattern p1 = Pattern.compile("[a-zA-Z ]+");
-
 				Matcher mPass1 = p1.matcher(userName);
 
 				if(mPass1.matches()) userNameHolder = true;
+				
 				else {
 					userNameHolder = false;
 					print.println(tabSpace + subCR55 + b_Texts + "Username must only contain " + c_Red + "letters..." + c_Reset);
@@ -409,18 +523,48 @@ public class Logics_ProfileUser {
 			}
 			
 			finally {
-				if (userNameHolder) {
+				retryCount += 1;
+				
+				if(userNameHolder) retryCount = 0;
+				
+				if (Logics_ProfileUser.getUsernameVerification() == false) {
+					if (retryCount == 3) {
+						Logics_ProfileUser.retryCountNoticeUsername();
+						break;
+					}
+				}
+				
+				if (Logics_ProfileUser.getUsernameVerification()) {
 					break;
 				}
 				
-				else{
-					print.flush();
-
+				else if (Logics_ProfileUser.getUsernameVerification() == false){
 					Logics_ProfileUser.retryUsername();
 					break;
 				}
 			}
 		}
+	}
+	
+	// NOTICE FOR FAILIND FOR THE 3rd TIME
+	public static void retryCountNoticeUsername() {
+		try {
+			System.out.println(tabSpace + subCR55 + b_Texts + "NOTICE OF OVERREACHING" + c_Reset);
+		}
+		
+		catch (Exception e) {
+			System.out.println("SOMETHING WENT WRONG IN retryCountNotice: " + e.getMessage());
+		}
+		
+		finally {
+			retryCount = 0;
+			Logics_ProfileUser.retryUsername();
+		}
+	}
+	
+	// RETURNS THE BOOLEAN VALUE OF THE PASSWORD VERIFICATION
+	public static boolean getUsernameVerification() {
+		return userNameHolder;
 	}
 	
 	public static void passwordVerification() {
@@ -474,7 +618,7 @@ public class Logics_ProfileUser {
 				
 				if (Logics_ProfileUser.getPasswordVerification() == false) {
 					if (retryCount == 3) {
-						Logics_ProfileUser.retryCountNotice();
+						Logics_ProfileUser.retryCountNoticePassword();
 						break;
 					}
 				}
@@ -492,9 +636,9 @@ public class Logics_ProfileUser {
 	}
 	
 	// NOTICE FOR FAILIND FOR THE 3rd TIME
-	public static void retryCountNotice() {
+	public static void retryCountNoticePassword() {
 		try {
-			System.out.println(tabSpace + subCR55 + b_Texts + "NOTICE OF OVERREACHING" + c_Reset);
+			System.out.println(tabSpace + subCR55 + b_Texts + "NOTICE OF OVERREACHING password" + c_Reset);
 		}
 		
 		catch (Exception e) {

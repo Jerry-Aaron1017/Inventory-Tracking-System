@@ -174,7 +174,7 @@ public class Logics_AllDecisions implements InventoryVars{
 				
 				else {
 					System.out.println(tabSpace + minorCR48 + "Try Another: ");
-					Logics_Inventory.chooseInventoryOption();
+					Logics_Inventory.chooseInventoryOptionDuplicate();
 					break;
 				}
 			}
@@ -216,8 +216,8 @@ public class Logics_AllDecisions implements InventoryVars{
 					break;
 				}
 				
-				else {
-					System.out.println(tabSpace + minorCR48 + "Try Another: ");
+				else if (thirdChoice.isEmpty() || thirdChoice.equals("") || thirdChoice.equals(" ")) {
+					System.out.println("\t | Try Again:");
 					Logics_Item.chooseItemOptionDuplicate();
 					break;
 				}
@@ -265,9 +265,9 @@ public class Logics_AllDecisions implements InventoryVars{
 					break;
 				}
 				
-				else {
+				else if (fourthChoice.isEmpty() || fourthChoice.equals("") || fourthChoice.equals(" ")) {
 					System.out.println(tabSpace + minorCR48 + "Try Another: ");
-					Logics_Group.repeatingChooseAgainGroup();
+					Logics_Group.chooseGroupOptionDuplicate();
 					break;
 				}
 			}
@@ -281,7 +281,7 @@ public class Logics_AllDecisions implements InventoryVars{
     	}
     }
     
-	// Fourth Decision == Internal Group == 
+	// Fourth Decision == Manage Account == 
     public void setFifthDecision(String fifthChoice) {
     	Logics_AllDecisions.fifthChoice = fifthChoice;
 	}
@@ -318,9 +318,9 @@ public class Logics_AllDecisions implements InventoryVars{
 					break;
 				}
 				
-				else {
+				else if (fifthChoice.isEmpty() || fifthChoice.equals("") || fifthChoice.equals(" ")) {
 					System.out.println(tabSpace + minorCR48 + "Try Another: ");
-					Logics_Group.chooseGroupOptionDuplicate();
+					Logics_ManageAccount.chooseManageAccountOptionDuplicate();
 					break;
 				}
 			}
