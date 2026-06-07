@@ -1021,7 +1021,8 @@ public class Logics_Inventory{
 				}
 				
 				else if (numOrStr.equalsIgnoreCase("Add an Item") || numOrStr.equalsIgnoreCase("Add") || numOrStr.equals("3")) {
-					continue;
+					Logics_Inventory.setItemInventory();
+					break;
 				}
 				
 				else if (numOrStr.equalsIgnoreCase("Add a Group or Category") || numOrStr.equals("4")) {
