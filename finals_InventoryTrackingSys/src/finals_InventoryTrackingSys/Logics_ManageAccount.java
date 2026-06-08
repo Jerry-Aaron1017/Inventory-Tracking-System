@@ -430,7 +430,6 @@ public class Logics_ManageAccount {
             				    └──────┘ └─────┘  └──────┘ └──────┘└─────┘└──────┘└──────┘└─┘     └─────┘ └──────┘       └───┘     """ + "  " + c_Reset
 		            			  );
 		            	System.out.println(" ".repeat(32) + "=".repeat(123));
-		            	
 		            	System.out.println(newLines5 + newLines5);
 		            	Thread.sleep(2500);
 		            	System.out.println(newLines5 + newLines5);
@@ -488,7 +487,6 @@ public class Logics_ManageAccount {
 	        	
 	        	// SHOWS ALL ACCOUNTS
 	        	
-	        	String toDelete = mths.scan.nextLine();
 	        	
 	        	
 	    	}
