@@ -31,8 +31,8 @@ public class Logics_Item {
 	final static String b_verticalSpacesLine = b_Texts + " │ " + c_Reset;
     
     // METHODS
-	Scanner scan = new Scanner(System.in);
-	NumberFormat currency = NumberFormat.getCurrencyInstance();
+	private final Scanner scan = new Scanner(System.in);
+	private NumberFormat currency = NumberFormat.getCurrencyInstance();
 	
 	// FILE DECLARATIONS
 	private final Path fPath = Path.of("src", "InventoryData");
@@ -75,18 +75,18 @@ public class Logics_Item {
     		print.flush();
     		
     		System.out.println(tabSpace);
-        	System.out.println(" ".repeat(76) +  b_Texts + "========================================" + c_Reset);
+        	System.out.println(" ".repeat(75) +  b_Texts + "========================================" + c_Reset);
 
-	    	System.out.println(tabSpace + " ".repeat(80) + b_Texts + "Access Item to".toUpperCase() + c_Reset);
-            System.out.println(tabSpace + " ".repeat(46) + b_Texts +  "—".repeat(80) + "" + c_Reset);
+	    	System.out.println(tabSpace + " ".repeat(79) + b_Texts + "Access Item to".toUpperCase() + c_Reset);
+            System.out.println(tabSpace + " ".repeat(56) + b_Texts + "┌" + "─".repeat(28) + "┬" + "─".repeat(29) + "┐" + c_Reset);
 
-	    	System.out.print(subCR55 + " " + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show an Item" + c_Reset);
-	        System.out.println(" ".repeat(20) + b_verticalLine + " ".repeat(15) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Add an Item" + " ".repeat(7) + b_verticalLine + c_Reset);
-	        System.out.println(tabSpace + " ".repeat(46) + b_Texts +  "—".repeat(80) + c_Reset);
-	        System.out.print(subCR55 + " " + b_verticalLine + "  [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Remove an Item" + c_Reset);
-	        System.out.println(" ".repeat(18) + b_verticalLine + " ".repeat(15) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Exit and Go Back  " + b_verticalLine + c_Reset);
-	        System.out.println(tabSpace + " ".repeat(46) + b_Texts + "" +  "—".repeat(80) + "" + c_Reset);
-	        System.out.print(subCR55 + b_Texts + " —> " + c_Reset);
+	    	System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green + b_Texts + " Show an Item" + c_Reset);
+	        System.out.println(" ".repeat(10) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Add an Item" + " ".repeat(12) + c_Reset + b_verticalLine );
+	        System.out.println(tabSpace + " ".repeat(56) + b_Texts + "├" + "─".repeat(28) + "┼" + "─".repeat(29)  + "┤"  + c_Reset);
+	        System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Remove an Item" + c_Reset);
+	        System.out.println(" ".repeat(8) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back  " + " ".repeat(5) + c_Reset + b_verticalLine );
+	        System.out.println(tabSpace + " ".repeat(56) + b_Texts +  "└" + "─".repeat(28) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
+	        System.out.print(" ".repeat(65) + b_Texts + " —> " + c_Reset);
 	        String setItemDecision = mths.scan.nextLine().trim();
 	        logics_AllDecisions.setThirdDecision(setItemDecision);
     	}
@@ -155,16 +155,16 @@ public class Logics_Item {
     			print.println(tabSpace + " " + "—".repeat(170));
     			print.flush();
 	    		System.out.println(tabSpace);
-	        	System.out.println(" ".repeat(76) +  b_Texts + "========================================" + c_Reset);
+	        	System.out.println(" ".repeat(75) +  b_Texts + "========================================" + c_Reset);
 
-		    	System.out.println(tabSpace + " ".repeat(74) + b_Texts + "Access the List or an Item".toUpperCase() + c_Reset);
-	            System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + "" + c_Reset);
+		    	System.out.println(tabSpace + " ".repeat(73) + b_Texts + "Access the List or an Item".toUpperCase() + c_Reset);
+	            System.out.println(tabSpace + " ".repeat(58) + b_Texts + "┌" + "─".repeat(26) + "┬" + "─".repeat(27) + "┐" + "" + c_Reset);
 
-		    	System.out.print(" ".repeat(68) + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show List" + c_Reset);
-		        System.out.println(" ".repeat(11) + b_verticalLine + " ".repeat(9) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Show an Item" + "  " + b_verticalLine + c_Reset);
-		        System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + c_Reset);
-		        System.out.println(" ".repeat(68) + b_verticalLine + " ".repeat(17) + "[" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Exit and Go Back" + " ".repeat(17) + b_verticalLine +  c_Reset);
-		        System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + c_Reset);
+		    	System.out.print(" ".repeat(67) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green + b_Texts + " Show List" + c_Reset);
+		        System.out.println(" ".repeat(11) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Show an Item" + " ".repeat(9) + c_Reset + b_verticalLine);
+		        System.out.println(tabSpace + " ".repeat(58) + b_Texts + "├" + "─".repeat(26) + "┴" + "─".repeat(27) + "┤" + c_Reset);
+		        System.out.println(" ".repeat(67) + b_verticalLine + " ".repeat(17) + "[" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back" + " ".repeat(17) + c_Reset + b_verticalLine );
+		        System.out.println(tabSpace + " ".repeat(58) + b_Texts + "└" + "─".repeat(54) + "┘" + c_Reset);
 		        System.out.print(" ".repeat(68) + b_Texts + " —> " + c_Reset);
 		        decisionHolder = mths.scan.nextLine();
 	    		
@@ -228,12 +228,12 @@ public class Logics_Item {
 		
 				print.println("\n");
 				print.println(tabSpace + " " + "—".repeat(170));
-				print.println(tabSpace + centerRepeat + " ".repeat(4) + c_Green + b_Texts + "ITEM LIST" + c_Reset); 
+				print.println(tabSpace + centerRepeat + " ".repeat(7) + c_Green + b_Texts + "ITEM LIST" + c_Reset); 
 				print.println(tabSpace + b_Texts + "┌" + "─".repeat(38) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(32) + "┬" + "─".repeat(29) + "┐" + c_Reset);
 				
-				String [] label = {"Items", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
-				String blockForCategories = tabLine + " ".repeat(21 - (label[0].length())) + b_Texts
-						+ label[0] + " ".repeat(21 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
+				String [] label = {"Items and #ID", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
+				String blockForCategories = tabLine + " ".repeat(25 - (label[0].length())) + b_Texts
+						+ label[0] + " ".repeat(25 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
 						+ label[1] + " ".repeat(14 - (label[1].length())) + b_verticalLine + " ".repeat(8) // QUANTITY
 						+ label[2] + " ".repeat(14 - (label[2].length())) + b_verticalLine + " ".repeat(5) // PRICE
 						+ label[3] + " ".repeat(17 - (label[3].length())) + b_verticalLine + " ".repeat(8) // PRICE
@@ -241,7 +241,7 @@ public class Logics_Item {
 						+ label[5] + " ".repeat(53 - (label[5].length())) + b_verticalLine + // EXPIRATION DATE
 						c_Reset;
 				print.println(blockForCategories);
-				print.println(tabSpace + b_Texts + "└" + "─".repeat(38) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(32) + "┴" + "─".repeat(29) + "┘" + c_Reset);
+				print.println(tabSpace + b_Texts + "├" + "─".repeat(38) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(32) + "┼" + "─".repeat(29) + "┤" + c_Reset);
 				print.flush();
 				
 				FileReader fR = new FileReader(mths.fPath.toString());
@@ -253,10 +253,11 @@ public class Logics_Item {
 				while((LINE = brIL.readLine()) != null) {
 					String DATA [] = LINE.split(";");
 					String date [] = LINE.split(Pattern.quote("\\"));
+					String ID [] = LINE.split("_");
 					
 					if (DATA [3].equals ("none") == false){
 		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM NAME
-		    				System.out.print(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(30 - DATA[3].length()) + DATA [3] + b_verticalSpacesLine);
+		    				System.out.print(tabSpace + b_verticalLine + " ".repeat(28 - DATA[3].length()) + DATA [3] + " ".repeat(2) + "#" + ID[1] + " ".repeat(5) + b_verticalSpacesLine);
 		    			}
 		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM QUANTITY
 		    				System.out.print(DATA [4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
@@ -287,18 +288,17 @@ public class Logics_Item {
 		    				
 		    				else {
 			    				String dateStatement = (date[1] + "/" + date[2] + "/" + date[3]);
-			    				
 			    				System.out.println(dateStatement + " ".repeat(27 - dateStatement.length()) + c_Reset + b_verticalSpacesLine);
 		    				}
 		    			}
 					}
 				}
-				System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+				System.out.println(tabSpace + b_Texts + "└" + "─".repeat(38) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(32) + "┴" + "─".repeat(29) + "┘"+ c_Reset);
 				
 				print.println("\n");
 				print.println(tabSpace + " " + "—".repeat(170));
-				print.println(tabSpace + centerRepeat + c_Red + b_Texts + " EXPIRATION LIST" + c_Reset); 
-				print.println(tabSpace + b_Texts + " ".repeat(40) + "—".repeat(92) + c_Reset);
+				print.println(tabSpace + centerRepeat + c_Red + b_Texts + "   EXPIRATION LIST" + c_Reset); 
+				print.println(tabSpace + b_Texts + " ".repeat(40) + "┌" + "─".repeat(29) + "┬" + "─".repeat(29) + "┬" + "─".repeat(30) + "┐" + c_Reset);
 				print.flush();
 				
 				while((LINE1 = brIL1.readLine()) != null) {
@@ -334,17 +334,17 @@ public class Logics_Item {
 							} 
 							
 							else if (expirationDate.isEqual(today)) {
-							    System.out.println(c_Red + " Expires today " + " ".repeat(28 - " Expired today ".length()) + c_Reset + b_verticalSpacesLine);
+							    System.out.println(c_Red + " Expires today " + " ".repeat(28 - " Expires today ".length()) + c_Reset + b_verticalSpacesLine);
 							} 
 							
 							else { // expiry.isAfter(today)
-							    System.out.println(c_Green + " Valid (Not Expired) " + " ".repeat(28 -  " Not Expired ".length()) + c_Reset + b_verticalSpacesLine);
+							    System.out.println(c_Green + " Not Expired " + " ".repeat(28 -  " Not Expired ".length()) + c_Reset + b_verticalSpacesLine);
 							}
 							
 						}
 					}
 				}
-				System.out.println(tabSpace + b_Texts + " ".repeat(40) + "—".repeat(92) + c_Reset);
+				System.out.println(tabSpace + b_Texts + " ".repeat(40) + "└" + "─".repeat(29) + "┴" + "─".repeat(29) + "┴" + "─".repeat(30) + "┘" + c_Reset);
 				brIL.close();
 				brIL1.close();
 			}
@@ -844,8 +844,6 @@ public class Logics_Item {
 					break;	
 				}
 				
-				// ADDS ID NUMBER, READS THE PREVIOUS NUMBER, THEN ADDS ONE AS THE ADD ITEM SUCCEEDS
-				
 				catch (InputMismatchException e) {
 					System.out.println("\t | ");
 					if ((e.getMessage() == null)) {
@@ -888,7 +886,6 @@ public class Logics_Item {
 				        	
 				        	int convertedID = (int) Integer.parseInt(DATA[1]);
 				        	itemID = convertedID + 1;
-				        	System.out.println(itemID);
 				        }
 				        brID.close();
 					}
@@ -1031,8 +1028,10 @@ public class Logics_Item {
 		        	String DATA [] = lineRead.split(";");
 		        	String DATA1 [] = lineRead.split("_");
 		        	
-		        	if (!DATA[3].equals(removeData[0]) && !DATA1[1].equals(removeData[1])) {
-		        		itemNames.add(lineRead);
+		        	if (!DATA[3].equalsIgnoreCase(removeData[0])) {
+		        		if(!DATA1[1].equals(removeData[1]) || DATA1[1].equals(removeData[1])) {
+		        			itemNames.add(lineRead);
+		        		}
 		        	}
 		        }
 		        String joinedList = itemNames.stream().collect(Collectors.joining(System.lineSeparator()));
@@ -1065,24 +1064,23 @@ public class Logics_Item {
 	public static void repeatingChooseAgainItem() {
 		// METHODS
 		Logics_Item mths = new Logics_Item();
-		PrintWriter print = new PrintWriter(System.out);
 		
 		while(true) {
 			try {
 				// Internal Decision to repeat or to choose other Action
 				System.out.println("\n\n");
-				print.println(tabSpace + b_Texts + "—".repeat(170));
-	        	System.out.println(centerRepeat +  b_Texts + "============================================" + c_Reset);
-	
-		    	System.out.println(tabSpace + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
-	            System.out.println(tabSpace + " ".repeat(46) + b_Texts + "" +  "—".repeat(80) + "" + c_Reset);
-	
-		    	System.out.print(subCR55 + " " + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show an Item" + c_Reset);
-		        System.out.println(" ".repeat(20) + b_verticalLine + " ".repeat(15) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Add an Item" + " ".repeat(7) + b_verticalLine + c_Reset);
-		        System.out.println(tabSpace + " ".repeat(46) + b_Texts +  "—".repeat(80) + c_Reset);
-		        System.out.print(subCR55 + " " + b_verticalLine + "  [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Remove an Item" + c_Reset);
-		        System.out.println(" ".repeat(18) + b_verticalLine + " ".repeat(15) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Exit and Go Back  " + b_verticalLine + c_Reset);
-		        System.out.println(tabSpace + " ".repeat(46) + b_Texts + "" +  "—".repeat(80) + "" + c_Reset);
+				System.out.println(tabSpace + b_Texts + "—".repeat(170));		        
+	        	System.out.println(" ".repeat(75) +  b_Texts + "========================================" + c_Reset);
+
+		    	System.out.println(tabSpace + " ".repeat(79) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM"  + c_Reset);
+	            System.out.println(tabSpace + " ".repeat(56) + b_Texts + "┌" + "─".repeat(28) + "┬" + "─".repeat(29) + "┐" + c_Reset);
+
+		    	System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green + b_Texts + " Show an Item" + c_Reset);
+		        System.out.println(" ".repeat(10) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Add an Item" + " ".repeat(12) + c_Reset + b_verticalLine );
+		        System.out.println(tabSpace + " ".repeat(56) + b_Texts + "├" + "─".repeat(28) + "┼" + "─".repeat(29)  + "┤"  + c_Reset);
+		        System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Remove an Item" + c_Reset);
+		        System.out.println(" ".repeat(8) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back  " + " ".repeat(5) + c_Reset + b_verticalLine );
+		        System.out.println(tabSpace + " ".repeat(56) + b_Texts +  "└" + "─".repeat(28) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
 		        System.out.print(subCR55 + b_Texts + " —> " + c_Reset);
 		        String numOrStr = mths.scan.nextLine().trim();
 		        
@@ -1118,6 +1116,4 @@ public class Logics_Item {
 			}
 		}
 	}
-    
-    
 }

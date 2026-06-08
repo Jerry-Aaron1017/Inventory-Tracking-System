@@ -186,11 +186,11 @@ public class Logics_Inventory{
     			print.println(tabSpace + " " + "—".repeat(170));
     			
 				print.println(tabSpace + centerRepeat + " ".repeat(4) + b_Texts + "INVENTORY LIST" + c_Reset); 
-				print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+				print.println(tabSpace + b_Texts + "┌" + "─".repeat(38) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(32) + "┬" + "─".repeat(29) + "┐" + c_Reset);
 				
-				String [] label = {"Items", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
-				String blockForCategories = tabLine + " ".repeat(21 - (label[0].length())) + b_Texts
-						+ label[0] + " ".repeat(21 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
+				String [] label = {"Items and #ID", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
+				String blockForCategories = tabLine + " ".repeat(25 - (label[0].length())) + b_Texts
+						+ label[0] + " ".repeat(25 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
 						+ label[1] + " ".repeat(14 - (label[1].length())) + b_verticalLine + " ".repeat(8) // QUANTITY
 						+ label[2] + " ".repeat(14 - (label[2].length())) + b_verticalLine + " ".repeat(5) // PRICE
 						+ label[3] + " ".repeat(17 - (label[3].length())) + b_verticalLine + " ".repeat(8) // PRICE
@@ -198,7 +198,7 @@ public class Logics_Inventory{
 						+ label[5] + " ".repeat(53 - (label[5].length())) + b_verticalLine + // EXPIRATION DATE
 						c_Reset;
 				print.println(blockForCategories);
-				print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+				print.println(tabSpace + b_Texts + "├" + "─".repeat(38) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(32) + "┼" + "─".repeat(29) + "┤" + c_Reset);
 				print.flush();
 				
     			BufferedReader brIL = Files.newBufferedReader(mths.fPath);
@@ -209,11 +209,13 @@ public class Logics_Inventory{
     			while((LINE = brIL.readLine()) != null) {
 					String DATA [] = LINE.split(";");
 					String date [] = LINE.split(Pattern.quote("\\"));
+					String ID [] = LINE.split("_");
 					
 					if (DATA [3].equals ("none") == false){
 		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM NAME
-		    				System.out.print(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(30 - DATA[3].length()) + DATA [3] + b_verticalSpacesLine);
+		    				System.out.print(tabSpace + b_verticalLine + " ".repeat(28 - DATA[3].length()) + DATA [3] + " ".repeat(2) + "#" + ID[1] + " ".repeat(5)  + b_verticalSpacesLine);
 		    			}
+		    			
 		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM QUANTITY
 		    				System.out.print(DATA [4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
 		    			}
@@ -249,12 +251,12 @@ public class Logics_Inventory{
 		    			}
 					}
 				}
-				System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+				System.out.println(tabSpace + b_Texts + "└" + "─".repeat(38) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(32) + "┴" + "─".repeat(29) + "┘"  + c_Reset);
 				
 				print.println("\n");
 				print.println(tabSpace + " " + "—".repeat(170));
-				print.println(tabSpace + centerRepeat + c_Red + b_Texts + " EXPIRATION LIST" + c_Reset); 
-				print.println(tabSpace + b_Texts + " ".repeat(40) + "—".repeat(92) + c_Reset);
+				print.println(tabSpace + centerRepeat + c_Red + b_Texts + "   EXPIRATION LIST" + c_Reset); 
+				print.println(tabSpace + b_Texts + " ".repeat(40) + "┌" + "─".repeat(29) + "┬" + "─".repeat(29) + "┬" + "─".repeat(30) + "┐" + c_Reset);
 				print.flush();
 				
 				while((LINE1 = brIL1.readLine()) != null) {
@@ -299,7 +301,7 @@ public class Logics_Inventory{
 						}
 					}
 				}
-				System.out.println(tabSpace + b_Texts + " ".repeat(40) + "—".repeat(92) + c_Reset);
+				System.out.println(tabSpace + b_Texts + " ".repeat(40) + "└" + "─".repeat(29) + "┴" + "─".repeat(29) + "┴" + "─".repeat(30) + "┘" + c_Reset);
 				brIL.close();
 				brIL1.close();
 			}
@@ -356,22 +358,22 @@ public class Logics_Inventory{
 	    		String lines3 = "";
 	    		
 				print.println("\n");
-	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	        	print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
 		    	final String dashboard = tabLine + dashBFormat + """
-		    			█████████╗   █████████╗ █████████╗███╗    ███╗██████████╗  █████████╗  █████████╗ █████████╗ ██████████╗   """ + " ".repeat(34) + "| \n" +
+		    			█████████╗   █████████╗ █████████╗███╗    ███╗██████████╗  █████████╗  █████████╗ █████████╗ ██████████╗   """ + " ".repeat(34) + "│ \n" +
 		    			tabLine + dashBFormat + """
-		    			███╔════███╗███╔════███╗███╔═════╝███║    ███║███╔════███╗███╔════███║███╔════███╗███╔═══███╗███╔════███╗  """ + " ".repeat(33) + "| \n" +
+		    			███╔════███╗███╔════███╗███╔═════╝███║    ███║███╔════███╗███╔════███║███╔════███╗███╔═══███╗███╔════███╗  """ + " ".repeat(33) + "│ \n" +
 		    			tabLine + dashBFormat + """
-		    			███║    ███║███████████║█████████╗███████████║██████████╔╝███║    ███║███████████║█████████╔╝███║    ███║  """ + " ".repeat(33) + "| \n" +
+		    			███║    ███║███████████║█████████╗███████████║██████████╔╝███║    ███║███████████║█████████╔╝███║    ███║  """ + " ".repeat(33) + "│ \n" +
 		    			tabLine + dashBFormat + """ 
-		    			███║    ███║███╔════███║╚═════███║███╔════███║███╔════███╗███║    ███║███╔════███║███╔═══███╗███║    ███║  """ + " ".repeat(33) + "| \n" +
+		    			███║    ███║███╔════███║╚═════███║███╔════███║███╔════███╗███║    ███║███╔════███║███╔═══███╗███║    ███║  """ + " ".repeat(33) + "│ \n" +
 		    			tabLine + dashBFormat + """
-		    			█████████╔╝ ███║    ███║█████████║███║    ███║██████████╔╝╚█████████╔╝███║    ███║███║   ███║██████████╔╝  """ + " ".repeat(33) + "| \n" +
+		    			█████████╔╝ ███║    ███║█████████║███║    ███║██████████╔╝╚█████████╔╝███║    ███║███║   ███║██████████╔╝  """ + " ".repeat(33) + "│ \n" +
 		    			tabLine + dashBFormat + """
-		    			╚═══════╝   ╚══╝    ╚══╝╚════════╝╚══╝    ╚══╝╚═════════╝  ╚════════╝ ╚══╝    ╚══╝╚══╝   ╚══╝╚═════════╝   """ + " ".repeat(34) + "|" + """
+		    			╚═══════╝   ╚══╝    ╚══╝╚════════╝╚══╝    ╚══╝╚═════════╝  ╚════════╝ ╚══╝    ╚══╝╚══╝   ╚══╝╚═════════╝   """ + " ".repeat(34) + "│" + """
 		    			""";
 	    		print.println(dashboard);
-	    		print.println(tabSpace + "—".repeat(172));
+	    		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
 	        	print.println(tabSpace + "█".repeat(172));
 	    		print.flush();
 
@@ -381,7 +383,7 @@ public class Logics_Inventory{
 	    		print.println(tabSpace + centerRepeat + " ".repeat(4) + b_Texts + "ITEM QUANTITY" + c_Reset); 
 	    		String valueHoldChanger = (tabSpace + centerRepeat + " ".repeat(8) + b_Texts + "0–100" + c_Reset);
 	    		print.println(valueHoldChanger);
-	    		print.println(tabSpace + " ".repeat(41) + b_Texts + "—".repeat(104) + c_Reset);	
+	    		print.println(tabSpace + " ".repeat(41) + b_Texts + "┌" + "─".repeat(102) + "┐" + c_Reset);	
 	    		
 
 		        while ((LINE100 = brAI100.readLine()) != null) {
@@ -460,15 +462,16 @@ public class Logics_Inventory{
     			}
 	    		
 	    		if(labelHolder100) {
-	        		print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
+	        		print.println(tabSpace + rep40  + " " + b_Texts + "└" + "─".repeat(102) + "┘" + c_Reset);
 	        		print.println(tabSpace + rep40 + "  0" + rep8 + "10" +rep8 + "20" + rep8 + "30" + rep8 + "40" + rep8 + "50" + rep8  + "60" + rep8  + "70" + rep8  + "80" + rep8  + "90" + rep8  + "100");
 	        		print.flush();
 	    		}
-
-        		print.println(newLines);
-        		print.println(valueHoldChanger = tabSpace + centerRepeat + " ".repeat(8) + b_Texts + "0–1000" + c_Reset);
-        		print.println(tabSpace + " ".repeat(41) + b_Texts + "—".repeat(104) + c_Reset);	
-
+	    		
+	    		if(labelHolder1000) {
+	        		print.println(newLines);
+	        		print.println(valueHoldChanger = tabSpace + centerRepeat + " ".repeat(8) + b_Texts + "0–1000" + c_Reset);
+	        		print.println(tabSpace + " ".repeat(41) + b_Texts + "┌" + "─".repeat(102) + "┐" + c_Reset);	
+	    		}
 	    		while((lines2 = br2.readLine()) != null) {
 	    			String[] val = lines2.split(";");
 	    			String newQuantity = val [4];
@@ -508,15 +511,16 @@ public class Logics_Inventory{
 	            }
 	    		
 	    		if (labelHolder1000) {
-	    			print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
+	    			print.println(tabSpace + rep40  + " " + b_Texts + "└" + "─".repeat(102) + "┘" + c_Reset);
 					print.println(tabSpace + rep40 + "  0" + rep7 + "100" + rep7 + "200" + rep7 + "300" + rep7 + "400" + rep7 + "500" + rep7  + "600" + rep7  + "700" + rep7  + "800" + rep7  + "900" + rep7  + "1000");
 					print.flush();
 	    		}
 
-			
-    			print.println(newLines);
-    			print.println(valueHoldChanger = tabSpace + centerRepeat + " ".repeat(7) + b_Texts + "0–10000" + c_Reset);
-    			print.println(tabSpace + " ".repeat(41) + b_Texts + "—".repeat(104) + c_Reset);	
+	    		if (labelHolder10000) {
+	    			print.println(newLines);
+	    			print.println(valueHoldChanger = tabSpace + centerRepeat + " ".repeat(7) + b_Texts + "0–10000" + c_Reset);
+	    			print.println(tabSpace + " ".repeat(41) + b_Texts + "┌" + "─".repeat(102) + "┐" + c_Reset);	
+	    		}
 
 	    		while((lines3 = br3.readLine()) != null) {
 	    			String[] val = lines3.split(";");
@@ -556,7 +560,7 @@ public class Logics_Inventory{
 	            }
 	    		
 	    		if (labelHolder10000) {
-	    			print.println(tabSpace + rep40  + " " + b_Texts + "_".repeat(104) + c_Reset);
+	    			print.println(tabSpace + rep40  + " " + b_Texts + "└" + "─".repeat(102) + "┘" + c_Reset);
 					print.println(tabSpace + rep40 + "  0" + rep6 + "1000" + rep6 + "2000" + rep6 + "3000" + rep6 + "4000" + rep6 + "5000" + rep6 + "6000" + rep6  + "7000" + rep6  + "8000" + rep6  + "9000" + rep6  + "10000");
 					print.flush();
 	    		}
@@ -1082,7 +1086,7 @@ public class Logics_Inventory{
 						}
 					}
 					catch(Exception e) {
-    						
+						e.fillInStackTrace();
 					}
 				}
 			repeatingChooseAgainInventory();
@@ -1105,32 +1109,33 @@ public class Logics_Inventory{
 			mths.writer = new FileWriter(mths.fPathGrp.toString(), true);
 
 			print.println("\n");
-			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
 	    	final String addItem = tabLine + dashBFormat + " " + """
-	    			 █████████╗ ██████████╗ ██████████╗         ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "| \n" +
+	    			 █████████╗ ██████████╗ ██████████╗         ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███╔════███╗███╔════███╗███╔════███╗       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "| \n" +
+	    			███╔════███╗███╔════███╗███╔════███╗       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███████████║███║    ███║███║    ███║       ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "| \n" +
+	    			███████████║███║    ███║███║    ███║       ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "│ \n" +
 	    			tabLine + dashBFormat + """ 
-	    			███╔════███║███║    ███║███║    ███║       ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "| \n" +
+	    			███╔════███║███║    ███║███║    ███║       ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███║    ███║██████████╔╝██████████╔╝       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "| \n" +
+	    			███║    ███║██████████╔╝██████████╔╝       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			╚══╝    ╚══╝╚═══════╝   ╚═══════╝           ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(39) + "|" + """
+	    			╚══╝    ╚══╝╚═══════╝   ╚═══════╝           ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(40) + "│" + """
 	    			""";
+	    	
     		print.println(addItem);
-    		print.println(tabSpace + "—".repeat(172));
+    		print.println(tabSpace + b_Texts + "└" + "─".repeat(170) + "┘");
         	print.println(tabSpace + "█".repeat(172));
     		print.flush();
 		    		
 			print.println("\n");
 			print.println(tabSpace + " " + "—".repeat(170));
 			print.println(tabSpace + centerRepeat + " ".repeat(5) + b_Texts + "ADDING A GROUP" + c_Reset); 
-			print.println(b_Texts + " ".repeat(49) + "—".repeat(92) + c_Reset);
-			print.println( " ".repeat(49) + b_verticalLine + " ".repeat(12) + c_Green + b_Texts + "ENTER THE NEW GROUP" + c_Reset + ";" + " ".repeat(12) + 
-						  b_verticalLine + " ".repeat(13) + "or Enter '" + c_Green + "." + c_Reset + "' to Exit"+ " ".repeat(12) + b_verticalLine + c_Reset); 
-			print.println(b_Texts + " ".repeat(49) + "—".repeat(92) + c_Reset);
+			print.println(b_Texts + " ".repeat(49) + "┌" + "─".repeat(45) + "┬" + "─".repeat(44) + "┐" + c_Reset);
+			print.println( " ".repeat(49) + b_verticalLine + " ".repeat(12) + c_Green + b_Texts + "ENTER THE NEW GROUP" + c_Reset + ";" + " ".repeat(13) + 
+						  b_verticalLine + " ".repeat(12) + "or Enter '" + c_Green + "." + c_Reset + "' to Exit"+ " ".repeat(12) + b_verticalLine + c_Reset); 
+			print.println(b_Texts + " ".repeat(49) + "└" + "─".repeat(45) + "┴" + "─".repeat(44) + "┘"  + c_Reset);
 			print.flush();
 
 	        
@@ -1264,9 +1269,4 @@ public class Logics_Inventory{
 			}
 		}
 	}
-
-    /* FOR ITEM DUPLICATION, THE SYSTEM CHECKS IF THE USER REALLY WANTS TO ADD ANOTHER ITEM THAT SEEMS A SIMILAR WITH AN ENTERED ONE, 
-     * THEN THE SYSTEM PROCEEDS TO GET THE OTHER DETAILS IF THE USER CONTINUES.
-	*/
-
 }
