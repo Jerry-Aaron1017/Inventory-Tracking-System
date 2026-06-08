@@ -9,9 +9,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Logics_Inventory{
-	static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryData");
-	
+public class Logics_Inventory{	
 	// VARIABLES FOR COLOR/UI OUTPUT
 	static String c_Red = "\u001B[31m";
     static String c_Green = "\u001B[32m";
@@ -39,7 +37,8 @@ public class Logics_Inventory{
 	NumberFormat currency = NumberFormat.getCurrencyInstance();
 	
 	// FILE DECLARATIONS
-	Path fPath = Paths.get(filePath.getAbsolutePath());
+	private final Path fPath = Path.of("src", "InventoryData");
+	private final Path fPathGrp = Path.of("src", "InventoryGroups");
 	FileWriter writer;
 	FileReader fReader;
 
@@ -158,7 +157,6 @@ public class Logics_Inventory{
     	PrintWriter print = new PrintWriter(System.out);
     	
     	//VARIABLES
-    	final String rep20 = " ".repeat(20);
     	final String inventoryFormat = " ".repeat(10);
     	final String spacerFormat = " ".repeat(3);
     	
@@ -203,8 +201,7 @@ public class Logics_Inventory{
 				print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
 				print.flush();
 				
-    			FileReader fR = new FileReader(mths.fPath.toString());
-    			BufferedReader brIL = new BufferedReader(fR);
+    			BufferedReader brIL = Files.newBufferedReader(mths.fPath);
 				BufferedReader brIL1 = new BufferedReader(new FileReader(mths.fPath.toString()));
     			String LINE = "";
     			String LINE1;
@@ -336,7 +333,8 @@ public class Logics_Inventory{
     	
     	while(true) {
 			try {
-				//METHODS
+				//Path file = mths.fPath.resolve("InventoryData"); 
+				//METHODS Files.newBufferedReader(file)
 				BufferedReader br1 = new BufferedReader(new FileReader(mths.fPath.toString()));
 				BufferedReader br2 = new BufferedReader(new FileReader(mths.fPath.toString()));
 				BufferedReader br3 = new BufferedReader(new FileReader(mths.fPath.toString()));
@@ -895,7 +893,7 @@ public class Logics_Inventory{
 	
    public static void setNewGroupInventory() {
     	//METHODS
-    	Logics_Group mths = new Logics_Group();
+	   Logics_Inventory mths = new Logics_Inventory();
     	PrintWriter print = new PrintWriter(System.out);
     	
     	// VARIABLES

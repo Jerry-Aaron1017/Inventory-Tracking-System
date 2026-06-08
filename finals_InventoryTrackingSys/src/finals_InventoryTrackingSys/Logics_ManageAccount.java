@@ -4,9 +4,7 @@ import java.io.*;
 import java.nio.file.*;
 import java.util.*;
 
-public class Logics_ManageAccount {
-	static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryAccounts");
-	
+public class Logics_ManageAccount {	
 	// VARIABLES FOR COLOR/UI OUTPUT
 	static String c_Red = "\u001B[31m";
     static String c_Green = "\u001B[32m";
@@ -63,7 +61,7 @@ public class Logics_ManageAccount {
 	Scanner scan = new Scanner(System.in);
 	
 	// FILE DECLARATIONS
-	Path fPath = Paths.get(filePath.getAbsolutePath());
+	Path fPath = Path.of("src", "InventoryAccounts");
 	FileWriter writer;
 	FileReader fReader;
 	
@@ -393,8 +391,8 @@ public class Logics_ManageAccount {
 		            			""" 
 		            			██┐   ██┐██████┐██████┐ ██████┐██████┐██    ██┐██████┐███┐  ██┐ ██████┐     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(25) + """
 		            			██│   ██│██────┘██┌──██┐  ██┌─┘██┌───┘ ██  ██┌┘  ██┌─┘████┐ ██│██┌────┘     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(26) + """
-		            			 ██┐ ██┌┘████┐  ██████┌┘  ██│  ████┐    ████┌┘   ██│  ██┌██┐██│██│ ███┐     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(26) + """
-		            			 ██│ ██│ ██──┘  ██┌──██┐  ██│  ██┌─┘     ██┌┘    ██│  ██│└████│██│  ██│     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(27) + """
+		            			 ██┐ ██┌┘█████┐ ██████┌┘  ██│  █████┐   ████┌┘   ██│  ██┌██┐██│██│ ███┐     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(26) + """
+		            			 ██│ ██│ ██───┘ ██┌──██┐  ██│  ██┌──┘    ██┌┘    ██│  ██│└████│██│  ██│     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(27) + """
             				      ████┌┘ ██████┐██│  ██│██████┐██│       ██│   ██████┐██│ └███│└██████│     """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(27) + """
 		            			  └───┘  └─────┘└─┘  └─┘└─────┘└─┘       └─┘   └─────┘└─┘  └──┘ └─────┘     """ + "  "
 		            			  );
@@ -409,10 +407,32 @@ public class Logics_ManageAccount {
             	}
             	
             	try {
+            		System.out.println(newLines5 + newLines5 + "\n");
+            		System.out.println(" ".repeat(32) + "=".repeat(123));
+                	System.out.println(tabSpace + " ".repeat(32) + 
+	            			""" 
+	            			██┐   ██┐██████┐██████┐ ████████┐██████┐████████┐ ███████┐ ███████┐ ████████┐████████┐ ███████┐ ███┐  ██┐  """ + tabSpace + " ".repeat(40) + "\n" + tabSpace + " ".repeat(32) + """
+	            			██│   ██│██────┘██┌──██┐   ██┌──┘██┌───┘   ██┌──┘██┌─────┘██┌────██┐   ██┌──┘   ██┌──┘██┌────██┐████┐ ██│  """ + tabSpace + " ".repeat(40) + "\n" + tabSpace + " ".repeat(33) + """
+	            			 ██┐ ██┌┘█████┐ ██████┌┘   ██│   █████┐    ██│   ██│      █████████│   ██│      ██│   ██│    ██│██┌██┐██│  """ + tabSpace + " ".repeat(40) + "\n" + tabSpace + " ".repeat(33) + """
+	            			 ██│ ██│ ██┌──┘ ██┌──██┐   ██│   ██┌──┘    ██│   ██│      ██│    ██│   ██│      ██│   ██│    ██│██│└████│  """ + tabSpace + " ".repeat(40) + "\n" + tabSpace + " ".repeat(34) + """
+        				      ████┌┘ ██████┐██│  ██│████████┐██│    ████████┐└███████┐██│    ██│   ██│   ████████┐└███████┌┘██│ └███│  """ + tabSpace + " ".repeat(40) + "\n" + tabSpace + " ".repeat(34) + """
+	            			  └───┘  └─────┘└─┘  └─┘└───────┘└─┘    └───────┘ └──────┘└─┘    └─┘   └─┘   └───────┘ └──────┘ └─┘  └──┘  """ + "  "
+	            			  );
+            		
 		    		if (flagName && flagPassword) {
-		            	System.out.println(c_Green + b_Texts + "\u001B[6m" + " !! ACCOUNT DOES EXIST !!" + c_Reset);
+		            	System.out.println(c_Green + tabSpace + " ".repeat(43) + 
+		            			""" 
+		            			███████┐██    ██┐ ███████┐ ███████┐██████┐███████┐███████┐██████┐██    ██┐██                   ██┐ """ + tabSpace + " ".repeat(65) + "\n" + tabSpace + " ".repeat(36) + """
+		            			██┌────┘██    ██│██┌─────┘██┌─────┘██────┘██┌────┘██┌────┘██┌───┘██    ██│██                  ██┌┘ """ + tabSpace + " ".repeat(65) + "\n" + tabSpace + " ".repeat(36) + """
+		            		    ███████┐██    ██│██│      ██│      █████┐ ███████┐███████┐█████┐ ██    ██│██           ██    ██┌┘ """ + tabSpace + " ".repeat(65) + "\n" + tabSpace + " ".repeat(36) + """
+		            			     ██│██    ██│██│      ██│      ██┌──┘      ██│     ██│██┌──┘ ██    ██│██            ██  ██┌┘ """ + tabSpace + " ".repeat(65) + "\n" + tabSpace + " ".repeat(36) + """
+            				    ███████│ ██████┌┘└███████┐└███████┐██████┐███████│███████│██│     ██████┌┘███████┐       ████┌┘ """ + tabSpace + " ".repeat(65) + "\n" + tabSpace + " ".repeat(36) + """
+            				    └──────┘ └─────┘  └──────┘ └──────┘└─────┘└──────┘└──────┘└─┘     └─────┘ └──────┘       └───┘     """ + "  " + c_Reset
+		            			  );
+		            	System.out.println(" ".repeat(32) + "=".repeat(123));
+		            	
 		            	System.out.println(newLines5 + newLines5);
-		            	Thread.sleep(1500);
+		            	Thread.sleep(2500);
 		            	System.out.println(newLines5 + newLines5);
 		    			break;
 		    		}
@@ -492,7 +512,7 @@ public class Logics_ManageAccount {
 	        	PrintWriter print = new PrintWriter(System.out);
 	        	
 	        	//Logic_Inventory METHOD
-	        	Logics_Inventory mths = new Logics_Inventory();
+	        	Logics_ManageAccount mths = new Logics_ManageAccount();
 	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
 	        	
 	        	// UI Format: 
@@ -645,7 +665,16 @@ public class Logics_ManageAccount {
 	            String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset); 
 	            
 	            if((flagPassword == false) && (flagName == false)){
-	            	System.out.println(c_Red + b_Texts + " !! ACCOUNT DOES NOT EXIST !!" + c_Reset);
+	            	System.out.println(c_Red + tabSpace + " ".repeat(35) + 
+	            			""" 
+	            			██    ██┐███┐  ██┐███████┐██    ██┐ ███████┐ ███████┐██████┐███████┐███████┐██████┐██    ██┐██           ██   ██┐ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            			██    ██│████┐ ██│██┌────┘██    ██│██┌─────┘██┌─────┘██────┘██┌────┘██┌────┘██┌───┘██    ██│██            ██ ██┌┘ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            		    ██    ██│██┌██┐██│███████┐██    ██│██│      ██│      ████┐  ███████┐███████┐█████┐ ██    ██│██             ███┌┘ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            			██    ██│██│└████│     ██│██    ██│██│      ██│      ██──┘       ██│     ██│██┌──┘ ██    ██│██            ██┌██┐""" + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(29) + """
+        				     ██████┌┘██│ └███│███████│ ██████┌┘└███████┐└███████┐██████┐███████│███████│██│     ██████┌┘███████┐     ██┌┘ ██┐""" + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(29) + """
+        				     └─────┘ └─┘  └──┘└──────┘ └─────┘  └──────┘ └──────┘└─────┘└──────┘└──────┘└─┘     └─────┘ └──────┘     └─┘  └─┘   """ + "  " + c_Reset
+	            			  );
+	            	System.out.println(" ".repeat(32) + "=".repeat(123));
 	            	Thread.sleep(2500);
 	            	System.out.println(newLines5 + newLines5 + newLines5 + newLines5);
 	            	
@@ -723,7 +752,16 @@ public class Logics_ManageAccount {
 				}
 	            
 	            else if (flagName == false) {	
-	            	System.out.println(c_Red + b_Texts + " !! USERNAME DOES NOT EXIST !!" + c_Reset);
+	            	System.out.println(c_Red + tabSpace + " ".repeat(35) + 
+	            			""" 
+	            			██    ██┐███┐  ██┐███████┐██    ██┐ ███████┐ ███████┐██████┐███████┐███████┐██████┐██    ██┐██           ██   ██┐ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            			██    ██│████┐ ██│██┌────┘██    ██│██┌─────┘██┌─────┘██────┘██┌────┘██┌────┘██┌───┘██    ██│██            ██ ██┌┘ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            		    ██    ██│██┌██┐██│███████┐██    ██│██│      ██│      ████┐  ███████┐███████┐█████┐ ██    ██│██             ███┌┘ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            			██    ██│██│└████│     ██│██    ██│██│      ██│      ██──┘       ██│     ██│██┌──┘ ██    ██│██            ██┌██┐""" + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(29) + """
+        				     ██████┌┘██│ └███│███████│ ██████┌┘└███████┐└███████┐██████┐███████│███████│██│     ██████┌┘███████┐     ██┌┘ ██┐""" + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(29) + """
+        				     └─────┘ └─┘  └──┘└──────┘ └─────┘  └──────┘ └──────┘└─────┘└──────┘└──────┘└─┘     └─────┘ └──────┘     └─┘  └─┘   """ + "  " + c_Reset
+	            			  );
+	            	System.out.println(" ".repeat(32) + "=".repeat(123));
 	            	Thread.sleep(2500);
 	            	System.out.println(newLines5 + newLines5 + newLines5 + newLines5);
 
@@ -761,7 +799,16 @@ public class Logics_ManageAccount {
 				}
 				
 				else if (flagPassword == false) {
-	            	System.out.println(c_Red + b_Texts + "     !! WRONG PASSWORD !!" + c_Reset);
+	            	System.out.println(c_Red + tabSpace + " ".repeat(35) + 
+	            			""" 
+	            			██    ██┐███┐  ██┐███████┐██    ██┐ ███████┐ ███████┐██████┐███████┐███████┐██████┐██    ██┐██           ██   ██┐ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            			██    ██│████┐ ██│██┌────┘██    ██│██┌─────┘██┌─────┘██────┘██┌────┘██┌────┘██┌───┘██    ██│██            ██ ██┌┘ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            		    ██    ██│██┌██┐██│███████┐██    ██│██│      ██│      ████┐  ███████┐███████┐█████┐ ██    ██│██             ███┌┘ """ + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(28) + """
+	            			██    ██│██│└████│     ██│██    ██│██│      ██│      ██──┘       ██│     ██│██┌──┘ ██    ██│██            ██┌██┐""" + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(29) + """
+        				     ██████┌┘██│ └███│███████│ ██████┌┘└███████┐└███████┐██████┐███████│███████│██│     ██████┌┘███████┐     ██┌┘ ██┐""" + tabSpace + " ".repeat(35) + "\n" + tabSpace + " ".repeat(29) + """
+        				     └─────┘ └─┘  └──┘└──────┘ └─────┘  └──────┘ └──────┘└─────┘└──────┘└──────┘└─┘     └─────┘ └──────┘     └─┘  └─┘   """ + "  " + c_Reset
+	            			  );
+	            	System.out.println(" ".repeat(32) + "=".repeat(123));
 	            	Thread.sleep(2500);
 	            	System.out.println(newLines5 + newLines5 + newLines5 + newLines5);
 

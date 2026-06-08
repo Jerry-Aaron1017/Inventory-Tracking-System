@@ -11,9 +11,7 @@ import java.util.*;
 import java.util.regex.*;
 import java.util.regex.Pattern;
 
-public class Logics_ProfileUser {
-	static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryAccounts");
-	
+public class Logics_ProfileUser {	
 	// VARIABLES FOR COLOR/UI OUTPUT
 	static String c_Red = "\u001B[31m";
     static String c_Green = "\u001B[32m";
@@ -76,7 +74,7 @@ public class Logics_ProfileUser {
 	NumberFormat currency = NumberFormat.getCurrencyInstance();
 	
 	// FILE DECLARATIONS
-	Path fPath = Paths.get(filePath.getAbsolutePath());
+	Path fPathAcc = Path.of("src","InventoryAccounts");
 	FileWriter writer;
 	FileReader fReader;
 	
@@ -88,7 +86,7 @@ public class Logics_ProfileUser {
 	        	
 	        	//Logic_Inventory METHOD
 	        	Logics_ProfileUser mths = new Logics_ProfileUser();
-	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
+	        	mths.writer = new FileWriter(mths.fPathAcc.toString(), true);
 	        	
 	        	// UI Format: 
 	        	int countFormat1 = 46;
@@ -288,8 +286,8 @@ public class Logics_ProfileUser {
 	        	PrintWriter print = new PrintWriter(System.out);
 	        	
 	        	//Logic_Inventory METHOD
-	        	Logics_Inventory mths = new Logics_Inventory();
-	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
+	        	Logics_ProfileUser mths = new Logics_ProfileUser();
+	        	mths.writer = new FileWriter(mths.fPathAcc.toString(), true);
 	        	
 	        	// UI Format: 
 	        	int countFormat2 = 22;

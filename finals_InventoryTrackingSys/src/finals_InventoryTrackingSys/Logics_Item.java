@@ -4,15 +4,12 @@ import java.io.*;
 import java.nio.file.*;
 import java.text.*;
 import java.time.*;
-import java.time.format.*;
 import java.util.*;
 import java.util.regex.*;
+import java.util.stream.*;
 
 
 public class Logics_Item {
-	static final File filePath = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryData");
-	static final File filePathGrp = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryGroups");
-
 	// VARIABLES FOR COLOR/UI OUTPUT
 	static String c_Red = "\u001B[31m";
     static String c_Green = "\u001B[32m";
@@ -38,8 +35,8 @@ public class Logics_Item {
 	NumberFormat currency = NumberFormat.getCurrencyInstance();
 	
 	// FILE DECLARATIONS
-	Path fPath = Paths.get(filePath.getAbsolutePath());
-	Path fPathGrp = Paths.get(filePathGrp.getAbsolutePath());
+	private final Path fPath = Path.of("src", "InventoryData");
+	private final Path fPathGrp = Path.of("src", "InventoryGroups");
 	FileWriter writer;
 	FileReader fReader;
 
@@ -205,7 +202,6 @@ public class Logics_Item {
     	PrintWriter print = new PrintWriter(System.out);
     	
     	//VARIABLES // UI
-    	final String rep20 = " ".repeat(20);
     	final String itemFormat = " ".repeat(33);
     	final String spacerFormat = " ".repeat(3);
 		
@@ -342,7 +338,7 @@ public class Logics_Item {
 							} 
 							
 							else { // expiry.isAfter(today)
-							    System.out.println(c_Green + " Valid (Not Expired) " + " ".repeat(28 -  " Valid (Not Expired) ".length()) + c_Reset + b_verticalSpacesLine);
+							    System.out.println(c_Green + " Valid (Not Expired) " + " ".repeat(28 -  " Not Expired ".length()) + c_Reset + b_verticalSpacesLine);
 							}
 							
 						}
@@ -355,7 +351,7 @@ public class Logics_Item {
 			
     		
 	    	catch(Exception e){
-	    		System.out.println(e.getLocalizedMessage());
+	    		System.out.println("\t\t\t\t Text File may be Empty");
 	    	}
     		
     		finally {
@@ -453,6 +449,10 @@ public class Logics_Item {
 		    			for (int numHolder = 0; numHolder < 1; numHolder++) {
 		    				System.out.println(DATA [7] + " ".repeat(50 - DATA[7].length()) + b_verticalSpacesLine);
 		    			}
+    				}
+    				
+    				else {
+    					System.out.println(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(40 - "Item Not Found".length()) + "Item Not Found" + b_verticalLine);
     				}
     			}
     			System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
@@ -696,7 +696,7 @@ public class Logics_Item {
 	            		}
 	            		
 	            		else if (dupli.size() > 3) {
-	                    	System.out.print(" ".repeat(29 - (groupPrintingHolder.length() + numRep2Holder)) +  b_verticalLine + "    [" + c_Green + b_Texts + "N" + c_Reset + "] " + c_Green + b_Texts + "GRP NAME" + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
+	                    	System.out.print(b_verticalLine + "    [" + c_Green + b_Texts + "N" + c_Reset + "] " + c_Green + b_Texts + "GRP NAME" + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
 	                    	System.out.println();
 		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(37) + "┴" + "─".repeat(32) + "┘" + c_Reset);
 	                		print.flush();
@@ -705,8 +705,7 @@ public class Logics_Item {
 	            	}
 	            }
 			}
-			
-	            
+
             // FOR RETRIEVING THE GROUPS
 			if (mths.getContinueProcess()) {
 	            try {
@@ -732,54 +731,54 @@ public class Logics_Item {
 					mths.scan.nextLine();
 				}
 
-
-            int choice = -1;
-            try {
-                while (true) {
-					System.out.println(b_Texts + " ".repeat(62) + "┌" + "─".repeat(64) + "┐" + c_Reset);
-                    System.out.println(" ".repeat(62) + "│" + " ".repeat(8) + "Enter only the" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (" + c_Green + "1-" + groups.size() + c_Reset + ")." +  " ".repeat(5) + "│");
-                    System.out.println(" ".repeat(62) + "│" + " ".repeat(15) + "Or Enter '" + c_Green + "." + c_Reset + "'" + b_Texts + " (" + c_Green + "Period" + c_Reset + ") to Create New" + " ".repeat(14) + "│");
-					System.out.println(b_Texts + " ".repeat(62) + "└" + "─".repeat(64) + "┘" + c_Reset);
-                    System.out.print(" ".repeat(68) + c_Green + b_Texts + " —> " + c_Reset);
-                    String groupOption = mths.scan.nextLine().trim();
-                    
-                    if (groupOption.equalsIgnoreCase(".")) {
-						mths.setContinueProcess(false);
-                    	break;
-                    }
-                    
-                    else {
-                    	while(true) {
-		                    try {                    	
-		                    	Pattern p1 = Pattern.compile("[1-9]?");
-		                    	Matcher m1 = p1.matcher(groupOption);
-		                    	if (m1.matches()) {
-		                    		choice = Integer.parseInt(groupOption);
-		                    		if (choice >= 1 && choice <= groups.size()) {
-		                    			break;
-		                    		}
-		                    	}
-		                    }
-		                    catch (NumberFormatException e) {
-		                    	System.out.println("Invalid input. Please enter an integer between 1 and " + groups.size() + "." + "\n");						
-		                    	System.out.println(b_Texts + " ".repeat(62) + "┌" + "─".repeat(64) + "┐" + c_Reset);
-			                    System.out.println(" ".repeat(62) + "│" + " ".repeat(8) + "Enter only the" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (" + c_Green + "1-" + groups.size() + c_Reset + ")." +  " ".repeat(5) + "│");
-			                    System.out.println(" ".repeat(62) + "│" + " ".repeat(18) + "Or Enter '" + c_Green + "." + c_Reset + "'" + b_Texts + " (" + c_Green + "Period" + c_Reset + ") to Create New" + " ".repeat(11) + "│");
-								System.out.println(b_Texts + " ".repeat(62) + "└" + "─".repeat(64) + "┘" + c_Reset);
-			                    System.out.print(" ".repeat(68) + c_Green + b_Texts + " —> " + c_Reset);
-			                    groupOption = mths.scan.nextLine().trim();
-			                    continue;
-		                    }
-                    		
-                    	}
-                    	group = groups.get(choice - 1);
-						mths.setContinueProcess(true);	
-						System.out.println(" ".repeat(85) + "Selected: [" + c_Green + b_Texts + choice + c_Reset + "] " + c_Green + b_Texts + group + c_Reset);
-						System.out.println(b_Texts + " ".repeat(65) + "─".repeat(60) + c_Reset);
-						break;
-                	}
-                }
-                
+	
+	            int choice = -1;
+	            try {
+	                while (true) {
+						System.out.println(b_Texts + " ".repeat(62) + "┌" + "─".repeat(64) + "┐" + c_Reset);
+	                    System.out.println(" ".repeat(62) + "│" + " ".repeat(8) + "Enter only the" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (" + c_Green + "1-" + groups.size() + c_Reset + ")." +  " ".repeat(5) + "│");
+	                    System.out.println(" ".repeat(62) + "│" + " ".repeat(15) + "Or Enter '" + c_Green + "." + c_Reset + "'" + b_Texts + " (" + c_Green + "Period" + c_Reset + ") to Create New" + " ".repeat(14) + "│");
+						System.out.println(b_Texts + " ".repeat(62) + "└" + "─".repeat(64) + "┘" + c_Reset);
+	                    System.out.print(" ".repeat(68) + c_Green + b_Texts + " —> " + c_Reset);
+	                    String groupOption = mths.scan.nextLine().trim();
+	                    
+	                    if (groupOption.equalsIgnoreCase(".")) {
+							mths.setContinueProcess(false);
+	                    	break;
+	                    }
+	                    
+	                    else {
+	                    	while(true) {
+			                    try {                    	
+			                    	Pattern p1 = Pattern.compile("[1-9]?");
+			                    	Matcher m1 = p1.matcher(groupOption);
+			                    	if (m1.matches()) {
+			                    		choice = Integer.parseInt(groupOption);
+			                    		if (choice >= 1 && choice <= groups.size()) {
+			                    			break;
+			                    		}
+			                    	}
+			                    }
+			                    catch (NumberFormatException e) {
+			                    	System.out.println("Invalid input. Please enter an integer between 1 and " + groups.size() + "." + "\n");						
+			                    	System.out.println(b_Texts + " ".repeat(62) + "┌" + "─".repeat(64) + "┐" + c_Reset);
+				                    System.out.println(" ".repeat(62) + "│" + " ".repeat(8) + "Enter only the" + b_Texts + c_Green + " NUMBER " + c_Reset + "of the group to select (" + c_Green + "1-" + groups.size() + c_Reset + ")." +  " ".repeat(5) + "│");
+				                    System.out.println(" ".repeat(62) + "│" + " ".repeat(18) + "Or Enter '" + c_Green + "." + c_Reset + "'" + b_Texts + " (" + c_Green + "Period" + c_Reset + ") to Create New" + " ".repeat(11) + "│");
+									System.out.println(b_Texts + " ".repeat(62) + "└" + "─".repeat(64) + "┘" + c_Reset);
+				                    System.out.print(" ".repeat(68) + c_Green + b_Texts + " —> " + c_Reset);
+				                    groupOption = mths.scan.nextLine().trim();
+				                    continue;
+			                    }
+	                    		
+	                    	}
+	                    	group = groups.get(choice - 1);
+							mths.setContinueProcess(true);	
+							System.out.println(" ".repeat(85) + "Selected: [" + c_Green + b_Texts + choice + c_Reset + "] " + c_Green + b_Texts + group + c_Reset);
+							System.out.println(b_Texts + " ".repeat(65) + "─".repeat(60) + c_Reset);
+							break;
+	                	}
+	                }
+	                
 					if (mths.getContinueProcess() == false) {
 						System.out.println(b_Texts + " ".repeat(62) + "┌" + "─".repeat(64) + "┐" + c_Reset);
 	                    System.out.println(" ".repeat(62) + "│" + " ".repeat(8) + "Enter only the" + b_Texts + c_Green + " Group Name " + c_Reset + "that you want to set." +  " ".repeat(5) + "│");
@@ -888,7 +887,6 @@ public class Logics_Item {
 				        	String[] DATA = LINE.split("_");
 				        	
 				        	int convertedID = (int) Integer.parseInt(DATA[1]);
-				        	System.out.println(convertedID);
 				        	itemID = convertedID + 1;
 				        	System.out.println(itemID);
 				        }
@@ -972,12 +970,14 @@ public class Logics_Item {
 					}
 				}
 			repeatingChooseAgainItem();
-			}break;
+			}
+			break;
 		}
 	}
     
     public static void removeItem() {
     	//MEHODS
+    	Logics_Item mths = new Logics_Item();
     	PrintWriter print = new PrintWriter(System.out);
     	    	
 		// VARIABLE
@@ -985,8 +985,6 @@ public class Logics_Item {
     	
     	while(true) {
 	    	try {
-	    		System.out.println(" REMOVE ITEMMMM");
-	    		
     			print.println("\n");
     			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
     			String removeItem = tabLine + dashBFormat + """
@@ -1006,13 +1004,58 @@ public class Logics_Item {
     			print.println(tabSpace + "└" + "─".repeat(170) + "┘");
     			print.println(tabSpace + "█".repeat(172));
 	        	print.flush();
+	        	
+				System.out.println();
+				System.out.println(b_Texts + " ".repeat(60) + "┌" + "─".repeat(8) + "┬" + "─".repeat(32) + "┬" + "─".repeat(24) + "┐" + c_Reset);
+				System.out.println(" ".repeat(60) + b_Texts + "│" + c_Reset + " Enter: │" + c_Green + " ".repeat(1) + " Item Name To Be Removed" + c_Reset + 
+								   ";" + " ".repeat(9) + b_Texts + "│" + c_Reset +
+								   " ".repeat(4) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(4) + "│" + c_Reset);
+				System.out.println(b_Texts + " ".repeat(60) + "└" + "─".repeat(8) + "┴" + "─".repeat(32) + "┴" + "─".repeat(24) + "┘" + c_Reset);
+				
+		        System.out.print(" ".repeat(68) + c_Green + b_Texts + " —> " + c_Reset);						
+		        String removeByNameAndID = mths.scan.nextLine().trim();
+		        String removeData [] = removeByNameAndID.split(" ");
+		        
+				BufferedReader br1 = new BufferedReader(new FileReader(mths.fPath.toString()));
+				File oldFile = new File (mths.fPath.toString());
+				File newFile = new File ("temp.txt");
+				
+				FileWriter FW = new FileWriter("temp.txt", true);
+				BufferedWriter BW = new BufferedWriter(FW);
+				PrintWriter PW = new PrintWriter(BW);
+				
+		        String lineRead;
+		        List <String> itemNames = new ArrayList<>(); 
+		        
+		        while((lineRead = br1.readLine()) != null) {
+		        	String DATA [] = lineRead.split(";");
+		        	String DATA1 [] = lineRead.split("_");
+		        	
+		        	if (!DATA[3].equals(removeData[0]) && !DATA1[1].equals(removeData[1])) {
+		        		itemNames.add(lineRead);
+		        	}
+		        }
+		        String joinedList = itemNames.stream().collect(Collectors.joining(System.lineSeparator()));
+		        PW.write(joinedList);
+		        PW.write("\n");
+		        
+		        PW.flush();
+		        PW.close();
+		        br1.close();
+		        
+		        oldFile.delete();
+		        File dump = new File ("src/InventoryData");
+		        newFile.renameTo(dump);
+	        	
 	    	}
 	    	
 	    	catch(Exception e){
-	    		System.out.println(tabLine + "SOMETHING WENT WRONG IN REMOVEITEM " + e.getMessage());
+	    		System.out.println(tabLine + "SOMETHING WENT WRONG IN REMOVE ITEM " + e.getMessage());
+	    		e.getStackTrace();
 	    	}
 	    	
 	    	finally {
+	    		getItemList();
 	    		repeatingChooseAgainItem();
 	    	}
     	break;

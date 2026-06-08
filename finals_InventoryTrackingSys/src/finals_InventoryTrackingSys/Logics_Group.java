@@ -2,12 +2,9 @@ package finals_InventoryTrackingSys;
 
 import java.io.*;
 import java.nio.file.*;
-import java.text.*;
 import java.util.*;
 
-public class Logics_Group {
-	static final File filePathGrp = new File ("C:\\Users\\Jerry Aaron\\git\\Inventory-Tracking-System\\finals_InventoryTrackingSys\\src\\InventoryGroups");
-	
+public class Logics_Group {	
 	// VARIABLES FOR COLOR/UI OUTPUT
 	static String c_Red = "\u001B[31m";
     static String c_Green = "\u001B[32m";
@@ -16,60 +13,25 @@ public class Logics_Group {
     static String c_Reset = "\u001B[0m";
     
     // VARS FOR UI FORMAT
-    final static String counterFormat = " ".repeat(53);
-    final static String halfCF = " ".repeat(27);
-    final static String repetition54 = " ".repeat(54);
-	final static String repetition56 = " ".repeat(56);
 	final static String centerRepeat = " ".repeat(75);
-	final static String centerRepeat72 = " ".repeat(72);
-	final static String centerRepeat73 = " ".repeat(73);
-	final static String subCR65 = " ".repeat(65);
-	final static String subCR57 = " ".repeat(57);
-	final static String subCR55 = " ".repeat(55);
-	final static String subCR54 = " ".repeat(54);
-	final static String subCR52 = " ".repeat(52);
 	final static String subCR53 = " ".repeat(53);
-	final static String subCR50 = " ".repeat(50);
 	final static String minorCR48 = " ".repeat(48);      // MINOR CENTER REPEAT
-	final static String minorCR47 = " ".repeat(47);
-	final static String minorCR45 = " ".repeat(45);
 	final static String minorCR43 = " ".repeat(43);
-	
 	final static String newLines = ("\n\n\n\n\n");
-	
 	final static String tab = "\t";
 	final static String tabSpace = "\t ";
 	final static String tabLine = "\t | ";
-	
 	final static String b_verticalLine = b_Texts + "|" + c_Reset;
 	final static String b_verticalSpacesLine = b_Texts + " | " + c_Reset;
-	
-	
-    // VARIABLES FOR DATA HOLDER IN ACCOUNT
-    static String userName;
-    static String userPassword;
-    static boolean passwordHolder;
-    static boolean userNameHolder;
-    static boolean flagName;
-	static boolean flagPassword;
-    static int retryCount = 0;
-    
-    static boolean continueAccessSystem = true;
-    
-    // ENUM CLASS
-    static Enums_Constants enumShow = null;
-    
+        
     // METHODS
 	Scanner scan = new Scanner(System.in);
-	NumberFormat currency = NumberFormat.getCurrencyInstance();
 	
 	// FILE DECLARATIONS
-	Path fPathGrp = Paths.get(filePathGrp.getAbsolutePath());
+	private final Path fPathGrp = Path.of("src", "InventoryGroups");
 	FileWriter writer;
 	FileReader fReader;
 
-    
-    
     public static void chooseGroupOption() {
     	//MEHODS
     	Logics_Group mths = new Logics_Group();
