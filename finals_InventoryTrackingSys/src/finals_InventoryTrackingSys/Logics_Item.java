@@ -542,8 +542,8 @@ public class Logics_Item {
 			while(true) {
 				System.out.println();
 				System.out.println(b_Texts + " ".repeat(60) + "┌" + "─".repeat(8) + "┬" + "─".repeat(32) + "┬" + "─".repeat(24) + "┐" + c_Reset);
-				System.out.println(" ".repeat(60) + b_Texts + "│" + c_Reset + " Enter: │" + c_Green + " ".repeat(11) + " Item Name " + c_Reset + 
-								   ";" + " ".repeat(9) + b_Texts + "│" + c_Reset +
+				System.out.println(" ".repeat(60) + b_Texts + "│" + c_Reset + " Enter: │" + c_Green + " ".repeat(11) + " Item Name" + c_Reset + 
+								   ";" + " ".repeat(10) + b_Texts + "│" + c_Reset +
 								   " ".repeat(4) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(4) + "│" + c_Reset);
 				System.out.println(b_Texts + " ".repeat(60) + "└" + "─".repeat(8) + "┴" + "─".repeat(32) + "┴" + "─".repeat(24) + "┘" + c_Reset);
 				
