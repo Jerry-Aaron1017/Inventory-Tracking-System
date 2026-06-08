@@ -1089,6 +1089,7 @@ public class Logics_Inventory{
 						e.fillInStackTrace();
 					}
 				}
+			System.out.println(newLines + newLines);
 			repeatingChooseAgainInventory();
 			}
 			break;

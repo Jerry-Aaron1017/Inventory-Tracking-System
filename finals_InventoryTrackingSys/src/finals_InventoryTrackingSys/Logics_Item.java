@@ -71,7 +71,7 @@ public class Logics_Item {
     		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
         	print.println(tabSpace + "█".repeat(172));
         	print.println("\n");
-			print.println(tabSpace + " " + "—".repeat(170));
+			print.println(tabSpace + "—".repeat(172));
     		print.flush();
     		
     		System.out.println(tabSpace);
@@ -95,7 +95,6 @@ public class Logics_Item {
     		System.out.println("\t | SOMETHING WENT WRONG IN INVENTORY OPTION: " + e.getMessage());
     	}
     }
-
 
     public static void chooseItemOptionDuplicate(){
     	//MEHODS
@@ -126,7 +125,6 @@ public class Logics_Item {
 	        	print.println(tabSpace + "█".repeat(172));
 	        	
     			print.println("\n");
-    			print.println(tabSpace + " " + "—".repeat(170));
 	    		print.flush();
 	    	}
 	    	
@@ -510,6 +508,7 @@ public class Logics_Item {
     		    	}
 		
     			}
+				System.out.println(newLines + newLines);
 	    		repeatingChooseAgainItem();
 	    	}
     		break;
@@ -663,7 +662,6 @@ public class Logics_Item {
         	int numRep2Holder = 0;
         	// FOR PRINTING THE GROUPS
 			if (mths.getContinueProcess()) {
-				
 	            try {
 					FileReader fR = new FileReader(mths.fPathGrp.toString());
 					BufferedReader brAI = new BufferedReader(fR);
@@ -672,7 +670,7 @@ public class Logics_Item {
 					int numRep2 = 0;
 			        int total = 0;
 			        
-			        print.println(b_Texts + " ".repeat(59) + "┌" + "─".repeat(37) + "┬" + "─".repeat(32) + "┐" + c_Reset);
+			        print.println(b_Texts + " ".repeat(59) + "┌" + "─".repeat(34) + "┬" + "─".repeat(32) + "┐" + c_Reset);
 			        print.flush();
 	                while ((LINE = brAI.readLine()) != null) {
 	                	String[] DATA = LINE.split(";", -1);                
@@ -723,12 +721,12 @@ public class Logics_Item {
 	            finally {
 	            	if (dupli.size() % 2 == 0) {
 	            		if (dupli.size() == 2) {
-	                    	print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(37) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+	                    	print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
                     		print.flush();
 	            		}
 	            		
 	            		else if (dupli.size() > 2) {
-	                    	print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(37) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+	                    	print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
                     		print.flush();
 	            		}
 	            	}
@@ -737,14 +735,14 @@ public class Logics_Item {
 	            		if (dupli.size() <= 3) {
 	                    	System.out.print(" ".repeat(29 - (groupPrintingHolder.length() + numRep2Holder)) + b_verticalLine + "    [" + c_Green + b_Texts + "N" + c_Reset + "] " + c_Green + b_Texts + "GRP NAME" + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
 	                    	System.out.println();
-		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(37) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
 	                		print.flush();
 	            		}
 	            		
 	            		else if (dupli.size() > 3) {
-	                    	System.out.print(b_verticalLine + "    [" + c_Green + b_Texts + "N" + c_Reset + "] " + c_Green + b_Texts + "GRP NAME" + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
+	                    	System.out.print(" ".repeat(29 - (groupPrintingHolder.length() + numRep2Holder)) + b_verticalLine + "    [" + c_Green + b_Texts + "#" + c_Reset + "] " + c_Green + b_Texts + "GRP NAME" + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
 	                    	System.out.println();
-		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(37) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
 	                		print.flush();
 	            		}
 
@@ -1012,6 +1010,7 @@ public class Logics_Item {
 						
 					}
 				}
+			System.out.println(newLines + newLines);
 			repeatingChooseAgainItem();
 			}
 			break;
@@ -1079,8 +1078,6 @@ public class Logics_Item {
 		        	setBoolContinueProcess(false);
 		        	break;
 		        }
-		        
-	        	
 	    	}
 	    	
 	    	catch(Exception e){
@@ -1132,6 +1129,7 @@ public class Logics_Item {
 	    	    	}
 	    		}
 	    		getItemList();
+				System.out.println(newLines + newLines);
 	    		repeatingChooseAgainItem();
 	    	}
     	break;
@@ -1145,7 +1143,6 @@ public class Logics_Item {
 		while(true) {
 			try {
 				// Internal Decision to repeat or to choose other Action
-				System.out.println(newLines + newLines);
 				System.out.println(tabSpace + b_Texts + "—".repeat(172));		        
 	        	System.out.println(" ".repeat(73) +  b_Texts + "=============================================" + c_Reset);
 

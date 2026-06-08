@@ -5,6 +5,7 @@ import java.nio.file.*;
 import java.text.NumberFormat;
 import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
 
 public class Logics_Group {	
 	// VARIABLES FOR COLOR/UI OUTPUT
@@ -68,7 +69,7 @@ public class Logics_Group {
     		print.flush();
 		    		
 			print.println("\n");
-			print.println(tabSpace + " " + "—".repeat(170));
+			print.println(tabSpace + "—".repeat(172));
         	print.flush();
         	
     		System.out.println(tabSpace);
@@ -128,7 +129,6 @@ public class Logics_Group {
         		print.flush();
     		    		
     			print.println("\n");
-    			print.println(tabSpace + "—".repeat(172));
             	print.flush();
     			}
 	    		catch(Exception e) {
@@ -186,17 +186,109 @@ public class Logics_Group {
             	print.println(tabSpace + "█".repeat(172));
             	
             	print.println("\n");
-    			print.println(tabSpace + " " + "—".repeat(170));
+    			print.println(tabSpace + "—".repeat(172));
         		print.flush();
         		
+        		Set <String> dupli = new HashSet<>();
+    			String groupPrintingHolder = "";
+            	int numRepHolder = 0;
+            	int numRep2Holder = 0;
+            	// FOR PRINTING THE GROUPS
+	            try {
+					FileReader fR = new FileReader(mths.fPathGrp.toString());
+					BufferedReader brAI = new BufferedReader(fR);
+					String LINE;
+					int numRep = 0;
+					int numRep2 = 0;
+			        int total = 0;
+			        
+			        print.println(b_Texts + " ".repeat(59) + "┌" + "─".repeat(34) + "┬" + "─".repeat(32) + "┐" + c_Reset);
+			        print.flush();
+	                while ((LINE = brAI.readLine()) != null) {
+	                	String[] DATA = LINE.split(";", -1);                
+	                	String groupPrinting = DATA.length > 6 ? DATA[6].trim() : "";
+	                	
+	                    if (groupPrinting.isEmpty() || "no group".equalsIgnoreCase(groupPrinting)) continue;
+	                    
+		                if (dupli.add(groupPrinting)) {
+		                    total++;
+	                    	if(total >= 10) {
+		                    	numRep++;
+		                    	if (total >= 100) {
+		                    		numRep++;
+		                    		numRep2++;
+		                    		numRepHolder = numRep;
+		                    		numRep2Holder = numRep2;
+		                    	}
+		                    }
+	                    	
+		                    if (total % 2 != 0) {
+		                    	System.out.print(" ".repeat(59) + b_verticalLine + "       " + c_Green + b_Texts + groupPrinting + " " + c_Reset);
+		                    	
+		                    }
+		                    
+		                    if (total % 2 == 0) {
+		                    	System.out.print(b_verticalLine + "       " + c_Green + b_Texts + groupPrinting + c_Reset + " ".repeat(25 - (groupPrinting.length() + numRep)) + b_verticalLine);
+		                    }
+		                    
+		                    if (brAI.ready()) 
+		                    	System.out.print(" ".repeat(26 - (groupPrinting.length() + numRep2)));
+		                    
+		                    if (total % 2 == 0) {
+		                    	System.out.println();
+		                    }
+		                    groupPrintingHolder = groupPrinting;
+			                }
+	                    } 
+	                	brAI.close();
+	                	System.out.print("");
+	                }
+	    	
+	            
+	            catch (IOException e) {
+	                e.printStackTrace();
+	                return;
+	            }
+	            
+	            finally {
+	            	if (dupli.size() % 2 == 0) {
+	            		if (dupli.size() == 2) {
+	                    	print.println(b_Texts + " ".repeat(59) + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+                    		print.flush();
+	            		}
+	            		
+	            		else if (dupli.size() > 2) {
+	                    	print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+                    		print.flush();
+	            		}
+	            	}
+	            	
+	            	if (dupli.size() % 2 != 0) {
+	            		if (dupli.size() <= 3) {
+	                    	System.out.print(" ".repeat(26 - (groupPrintingHolder.length() + numRep2Holder)) + b_verticalLine + "       " + c_Green + b_Texts + "GRP NAME " + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
+	                    	System.out.println();
+		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+	                		print.flush();
+	            		}
+	            		
+	            		else if (dupli.size() > 3) {
+	                    	System.out.print(" ".repeat(26 - (groupPrintingHolder.length() + numRep2Holder)) + b_verticalLine + "       " + c_Green + b_Texts + "GRP NAME " + c_Reset + " ".repeat(24 - ("GRP NAME".length() + numRepHolder)) + b_verticalLine);
+	                    	System.out.println();
+		            		print.println(b_Texts + " ".repeat(59) + "└" + "─".repeat(34) + "┴" + "─".repeat(32) + "┘" + c_Reset);
+	                		print.flush();
+	            		}
+
+	            	}
+	            }
+        		
 				System.out.println(" ".repeat(76) +  b_Texts + "========================================" + c_Reset);
-				System.out.println(tabSpace + " ".repeat(74) + b_Texts + "GET GROUPS AND THEIR ITEMS" + c_Reset);
+				System.out.println(tabSpace + " ".repeat(75) + b_Texts + "GET GROUP AND ITS ITEMS" + c_Reset);
 	    		String askItem = "Enter Group Name";
 	    		
-		        System.out.println(b_Texts + " ".repeat(69) + "┌" + "─".repeat(25) + "┬" + "─".repeat(24) + "┐" + c_Reset);
-		        System.out.println(" ".repeat(69) + b_verticalLine + " ".repeat(3) + c_Green + b_Texts + askItem + c_Reset + ";" + " ".repeat(5) + 
-							  b_verticalLine + " ".repeat(2) + "or Enter '" + c_Green + "." + c_Reset + "' to Exit"+ " ".repeat(2) + b_verticalLine + c_Reset); 
-		        System.out.println(b_Texts + " ".repeat(69) + "└" + "─".repeat(25) + "┴" + "─".repeat(24) + "┘"  + c_Reset);
+		        System.out.println(b_Texts + " ".repeat(69) + "┌" + "─".repeat(24) + "┬" + "─".repeat(25) + "┐" + c_Reset);
+		        System.out.println(" ".repeat(69) + b_verticalLine + " ".repeat(2) + c_Green + b_Texts + askItem + c_Reset + ";" + " ".repeat(5) + 
+							  b_verticalLine + " ".repeat(3) + "or Enter '" + c_Green + "." + c_Reset + "' to Exit"+ " ".repeat(2) + b_verticalLine + c_Reset); 
+		        System.out.println(b_Texts + " ".repeat(69) + "└" + "─".repeat(24) + "┴" + "─".repeat(25) + "┘"  + c_Reset);
 	    		System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
 	    		
 	    		
@@ -292,6 +384,7 @@ public class Logics_Group {
     		    		e.getStackTrace();
     		    	}
     			}
+				System.out.println(newLines + newLines);
     			repeatingChooseAgainGroup();
     		}
     		break;
@@ -413,6 +506,16 @@ public class Logics_Group {
 			break;
 		}
     }
+    
+    private static boolean boolContinueProcessRG;
+    public static void setBoolContinueProcessRG(boolean boolContinueProcessRG) {
+    	Logics_Group.boolContinueProcessRG = boolContinueProcessRG;
+    }
+    
+    public static boolean getBoolContinueProcessRG() {
+    	return boolContinueProcessRG;
+    }
+    private static String rGroup;
 
     public static void removeGroup() {
     	//METHODS
@@ -420,63 +523,99 @@ public class Logics_Group {
     	PrintWriter print = new PrintWriter(System.out);
     	
     	// VARIABLES
-    	final String dashBFormat = " ".repeat(38);
+    	final String dashBFormat = " ".repeat(23);
     	
     	while(true) {
-    		try {
-    			mths.writer = new FileWriter(mths.fPathGrp.toString(), true);
-    			FileReader fR = new FileReader(mths.fPathGrp.toString());
-    			BufferedReader br = new BufferedReader(fR);
-    			
-    			
+    		try {    			
     			print.println("\n");
     			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
-    	    	final String removeGroup = tabLine + dashBFormat + " " + """
-    	    			█████████╗ █████████╗████╗    ████╗ █████████╗ ███╗   ███╗█████████╗        ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "│ \n" +
+    	    	final String removeGroup = tabLine + dashBFormat + """
+    	    			█████████╗ █████████╗████╗    ████╗ █████████╗ ███╗   ███╗█████████╗        ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(17) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███╔═══███╗███╔═════╝█████╗  █████║███╔════███╗███║   ███║███╔═════╝       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "│ \n" +
+    	    			███╔═══███╗███╔═════╝█████╗  █████║███╔════███╗███║   ███║███╔═════╝       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(16) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			█████████╔╝███████╗  ███╔█████╔███║███║    ███║ ███╗ ███╔╝███████╗         ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "│ \n" +
+    	    			█████████╔╝███████╗  ███╔█████╔███║███║    ███║ ███╗ ███╔╝███████╗         ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(16) + "│ \n" +
     	    			tabLine + dashBFormat + """ 
-    	    			███╔═══███╗███╔═══╝  ███║╚███╔╝███║███║    ███║ ███║ ███║ ███╔═══╝         ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "│ \n" +
+    	    			███╔═══███╗███╔═══╝  ███║╚███╔╝███║███║    ███║ ███║ ███║ ███╔═══╝         ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(17) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███║   ███║█████████╗███║ ╚══╝ ███║╚█████████╔╝  ██████╔╝ █████████╗       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "│ \n" +
-    	    			tabLine + dashBFormat + " " + """
-    	    			╚══╝   ╚══╝╚════════╝╚══╝      ╚══╝ ╚════════╝   ╚═════╝  ╚════════╝        ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(39) + "│" + """
+    	    			███║   ███║█████████╗███║ ╚══╝ ███║╚█████████╔╝  ██████╔╝ █████████╗       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(23) + "│ \n" +
+    	    			tabLine + dashBFormat + """
+    	    			╚══╝   ╚══╝╚════════╝╚══╝      ╚══╝ ╚════════╝   ╚═════╝  ╚════════╝        ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(23) + "│" + """
     	    			""";
         		print.println(removeGroup);
         		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
             	print.println(tabSpace + "█".repeat(172));
         		print.flush();
     		    		
-    			print.println("\n");
-    			print.println(tabSpace + " " + "—".repeat(170));
-    			print.println(tabSpace + centerRepeat + " ".repeat(5) + b_Texts + "ROMOVE A GROUP" + c_Reset); 
-    			print.println(b_Texts + " ".repeat(49) + "—".repeat(92) + c_Reset);
-    			print.println( " ".repeat(49) + b_verticalLine + " ".repeat(24) + c_Green + b_Texts + "ENTER THE GROUP TO REMOVE" + c_Reset + " ".repeat(35) + b_verticalLine + c_Reset); 
-    			print.println(b_Texts + " ".repeat(49) + "—".repeat(92) + c_Reset);
-    			print.flush();
-    			
-    			br.close();
-    		}
-    		
-			
-			catch (InputMismatchException e) {
-				if ((e.getMessage() == null)) {
-					System.out.println(e + "INVALID INPUT: Entered String to a supposed Integer/Number");
-				}
-				mths.scan.nextLine();
-			}
-			catch(IOException e) {
-				if ((e.getMessage() == null)) {
-					System.out.println("FILE INPUT ERROR: Something went wrong with the File...");
-				}
-				mths.scan.nextLine();
-			}
-    		
-    		finally {
-    			repeatingChooseAgainGroup();
-    		}
+				System.out.println();
+				System.out.println(b_Texts + " ".repeat(62) + "┌" + "─".repeat(31) + "┬" + "─".repeat(30) + "┐" + c_Reset);
+				System.out.println(" ".repeat(62) + b_Texts + "│" + c_Reset + " ".repeat(2) + "Enter Name Remove ('" + c_Green + "Name" + c_Reset +
+								   "')" + ";" + " ".repeat(2) + b_Texts + "│" + c_Reset +
+								   " ".repeat(7) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(7) + "│" + c_Reset);
+				System.out.println(b_Texts + " ".repeat(62) + "└" + "─".repeat(31) + "┴" + "─".repeat(30) + "┘" + c_Reset);
+				
+		        System.out.print(" ".repeat(62) + c_Green + b_Texts + " —> " + c_Reset);						
+		        String removeByNameAndID = mths.scan.nextLine().trim();
+		        
+		        if (removeByNameAndID != ".") {
+		        	setBoolContinueProcessRG(true);
+		        	rGroup = removeByNameAndID;
+		        }
+		        
+		        if (removeByNameAndID.equals(".")) {
+		        	setBoolContinueProcessRG(false);
+		        	break;
+		        }
+	    	}
+	    	
+	    	catch(Exception e){
+	    		System.out.println(tabLine + "SOMETHING WENT WRONG IN REMOVE ITEM " + e.getMessage());
+	    		e.getStackTrace();
+	    	}
+	    	
+	    	finally {
+	    		if (getBoolContinueProcessRG()) {
+	    			try {				        
+						BufferedReader br1 = new BufferedReader(new FileReader(mths.fPathGrp.toString()));
+						File oldFile = new File (mths.fPathGrp.toString());
+						File newFile = new File ("temp.txt");
+						
+						FileWriter FW = new FileWriter("temp.txt", true);
+						BufferedWriter BW = new BufferedWriter(FW);
+						PrintWriter PW = new PrintWriter(BW);
+						
+				        String lineRead;
+				        List <String> itemNames = new ArrayList<>(); 
+				        
+				        while((lineRead = br1.readLine()) != null) {
+				        	String DATA [] = lineRead.split(";");
+				        	
+				        	if (!DATA[6].equalsIgnoreCase(rGroup)) {
+				        			itemNames.add(lineRead);
+				        	}
+				        }
+				        String joinedList = itemNames.stream().collect(Collectors.joining(System.lineSeparator()));
+				        PW.write(joinedList);
+				        PW.write("\n");
+				        
+				        PW.flush();
+				        PW.close();
+				        br1.close();
+				        
+				        oldFile.delete();
+				        File dump = new File ("src/InventoryGroups");
+				        newFile.renameTo(dump);
+	    			}
+	    	    	catch(Exception e){
+	    	    		System.out.println(tabLine + "SOMETHING WENT WRONG IN REMOVE ITEM " + e.getMessage());
+	    	    		e.getStackTrace();
+	    	    	}
+	    		}
+	    		System.out.println(newLines + newLines);
+	    		getGroup();
+				System.out.println(newLines + newLines);
+	    		repeatingChooseAgainGroup();
+	    	}
 		break;
     	}
     }
@@ -487,8 +626,7 @@ public class Logics_Group {
     	
     	while(true) {
     		try {
-    			System.out.println("\n");
-    			System.out.println(tabSpace + "—".repeat(172));
+    			System.out.println(tabSpace + b_Texts + "—".repeat(172));
     			System.out.println(tabSpace);
             	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 
