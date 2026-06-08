@@ -96,8 +96,6 @@ public class Logics_ManageAccount {
         	        """;
     		
         	print.println(manageAccount);
-        				
-			
         	print.println("\t " + "—".repeat(172));
         	print.println("\t " + "█".repeat(172));
         	Thread.sleep(1000);
@@ -176,7 +174,6 @@ public class Logics_ManageAccount {
 	        	Thread.sleep(1000);
 				print.flush();
 				Thread.sleep(750);
-				
 				print.flush();
 			}
 			

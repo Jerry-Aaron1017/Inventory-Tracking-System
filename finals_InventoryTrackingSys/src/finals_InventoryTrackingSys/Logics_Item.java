@@ -86,7 +86,7 @@ public class Logics_Item {
 	        System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Remove an Item" + c_Reset);
 	        System.out.println(" ".repeat(8) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back  " + " ".repeat(5) + c_Reset + b_verticalLine );
 	        System.out.println(tabSpace + " ".repeat(56) + b_Texts +  "└" + "─".repeat(28) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
-	        System.out.print(" ".repeat(65) + b_Texts + " —> " + c_Reset);
+	        System.out.print(" ".repeat(65) + c_Green + b_Texts + " —> " + c_Reset);
 	        String setItemDecision = mths.scan.nextLine().trim();
 	        logics_AllDecisions.setThirdDecision(setItemDecision);
     	}
@@ -362,21 +362,28 @@ public class Logics_Item {
 		}
     }
     
-
+    private static boolean boolContinueProcessSI;
+    
+    public static void setBoolContinueProcessSI(boolean boolContinueProcessSI) {
+    	Logics_Item.boolContinueProcessSI = boolContinueProcessSI;
+    }
+    
+    public static boolean getBboolContinueProcessSI() {
+    	return boolContinueProcessSI;
+    }
+    
+    private static String gSItem;
+    
     private static void getSingleItem() {
     	// METHODS // OBJECTS
     	Logics_Item mths = new Logics_Item();
     	PrintWriter print = new PrintWriter(System.out);
     	
     	//VARIABLES // UI
-    	final String rep20 = " ".repeat(20);
     	int numRepItem = 27;
     	
     	while(true) {
     		try {
-				FileReader fR = new FileReader(mths.fPath.toString());
-				BufferedReader brIL2 = new BufferedReader(fR);
-				String LINE2;
 
 	    		print.println("\n");
 	    		print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
@@ -394,7 +401,7 @@ public class Logics_Item {
 		    			╚════════╝╚════════╝╚══╝   ╚═══╝ ╚═══════╝╚════════╝╚════════╝       ╚════════╝    ╚══╝    ╚════════╝╚══╝      ╚══╝""" + " ".repeat(27) + "│" + """
 		    			""";
 	    		print.println(addingItem);
-	    		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
+	    		print.println(tabSpace + b_Texts + "└" + "─".repeat(170) + "┘" + c_Reset);
 	        	print.println(tabSpace + "█".repeat(172));
 	        	
     			print.println("\n");
@@ -402,61 +409,25 @@ public class Logics_Item {
 	    		print.flush();
 				
 				System.out.println(" ".repeat(76) +  b_Texts + "========================================" + c_Reset);
-				System.out.println(tabSpace + " ".repeat(81) + b_Texts + "Single Item".toUpperCase() + c_Reset);
-	    		String askItem = "Enter Name of Item: ";
-	    		System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + c_Reset);
-		        System.out.println(" ".repeat(67) + b_verticalLine + " ".repeat(18) + b_Texts + askItem + " ".repeat(18) + b_verticalLine +  c_Reset);
-		        System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + c_Reset);
-	    		System.out.print(" ".repeat(68) + b_Texts + " —> " + c_Reset);
+	    		String askItem = "Enter Item's Name";
+		        System.out.println("\n");
+		        System.out.println(tabSpace + centerRepeat + " ".repeat(5) + b_Texts + "SINGLE ITEM" + c_Reset); 
+		        System.out.println(b_Texts + " ".repeat(69) + "┌" + "─".repeat(25) + "┬" + "─".repeat(24) + "┐" + c_Reset);
+		        System.out.println( " ".repeat(69) + b_verticalLine + " ".repeat(3) + c_Green + b_Texts + askItem + c_Reset + ";" + " ".repeat(4) + 
+							  b_verticalLine + " ".repeat(2) + "or Enter '" + c_Green + "." + c_Reset + "' to Exit"+ " ".repeat(2) + b_verticalLine + c_Reset); 
+		        System.out.println(b_Texts + " ".repeat(69) + "└" + "─".repeat(25) + "┴" + "─".repeat(24) + "┘"  + c_Reset);
+	    		System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
 	    		String itemHolder = mths.scan.nextLine().trim();
 	    		
-	    		print.println("\n\n");
-	    		print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+	    		if (itemHolder != ".") {
+	    			setBoolContinueProcessSI(true);
+	    			gSItem = itemHolder;
+	    		}
 	    		
-	    		String [] label = {"Items", "Quantity", "Price", "Total Amount", "Group or Category", "Date of Expiration"};
-				String blockForCategories = tabLine + rep20 + b_Texts
-							+ label[0] + " ".repeat(27 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
-							+ label[1] + " ".repeat(14 - (label[1].length())) + b_verticalLine + " ".repeat(8) // QUANTITY
-							+ label[2] + " ".repeat(14 - (label[2].length())) + b_verticalLine + " ".repeat(5) // PRICE
-							+ label[3] + " ".repeat(17 - (label[3].length())) + b_verticalLine + " ".repeat(18) // PRICE
-							+ label[4] + " ".repeat(29 - (label[3].length())) + b_verticalLine + // GROUP OR CATEGORY
-							c_Reset;
-				print.println(blockForCategories);
-				print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
-				print.flush();
-						
-    			while((LINE2 = brIL2.readLine()) != null) {
-    				String DATA [] = LINE2.split(";");
-    				if ((DATA [3].equals ("none") == false) && DATA [3].equalsIgnoreCase(itemHolder)){
-    					
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) {
-		    				System.out.print(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(40 - DATA[3].length()) + DATA [3] + b_verticalSpacesLine);
-		    			}
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) {
-		    				System.out.print(DATA[4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) {
-		    				double data4 = (double) Double.parseDouble(DATA [5]);
-		    				String STR5 = mths.currency.format(data4);
-		    				System.out.print(STR5 + " ".repeat(20 - STR5.length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) {
-		    				System.out.print(DATA [6] + " ".repeat(20 - DATA[6].length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) {
-		    				System.out.println(DATA [7] + " ".repeat(50 - DATA[7].length()) + b_verticalSpacesLine);
-		    			}
-    				}
-    				
-    				else {
-    					System.out.println(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(40 - "Item Not Found".length()) + "Item Not Found" + b_verticalLine);
-    				}
-    			}
-    			System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
-    			brIL2.close();
+	    		if(itemHolder.equalsIgnoreCase(".")) {
+	    			setBoolContinueProcessSI(false);
+	    			break;
+	    		}
     		}
     		
 	    	catch(Exception e){
@@ -464,9 +435,84 @@ public class Logics_Item {
 	    	}
     		
     		finally {
+    			if (getBboolContinueProcessSI()) {
+    				try {
+    					FileReader fR = new FileReader(mths.fPath.toString());
+    					BufferedReader brIL2 = new BufferedReader(fR);
+    					String LINE2;
+    					
+			    		print.println("\n\n");
+						print.println(tabSpace + b_Texts + "┌" + "─".repeat(38) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(32) + "┬" + "─".repeat(29) + "┐" + c_Reset);
+						
+						String [] label = {"Items and #ID", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
+						String blockForCategories = tabLine + " ".repeat(25 - (label[0].length())) + b_Texts
+								+ label[0] + " ".repeat(25 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
+								+ label[1] + " ".repeat(14 - (label[1].length())) + b_verticalLine + " ".repeat(8) // QUANTITY
+								+ label[2] + " ".repeat(14 - (label[2].length())) + b_verticalLine + " ".repeat(5) // PRICE
+								+ label[3] + " ".repeat(17 - (label[3].length())) + b_verticalLine + " ".repeat(8) // PRICE
+								+ label[4] + " ".repeat(24 - (label[4].length())) + b_verticalLine + " ".repeat(3) // GROUP OR CATEGORY
+								+ label[5] + " ".repeat(53 - (label[5].length())) + b_verticalLine + // EXPIRATION DATE
+								c_Reset;
+						print.println(blockForCategories);
+						print.println(tabSpace + b_Texts + "├" + "─".repeat(38) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(32) + "┼" + "─".repeat(29) + "┤" + c_Reset);
+						print.flush();
+								
+		    			while((LINE2 = brIL2.readLine()) != null) {
+		    				String DATA [] = LINE2.split(";");
+							String date [] = LINE2.split(Pattern.quote("\\"));
+							String ID [] = LINE2.split("_");
+							
+		    				if ((DATA [3].equals ("none") == false) && DATA [3].equalsIgnoreCase(gSItem)){
+				    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM NAME
+				    				System.out.print(tabSpace + b_verticalLine + " ".repeat(28 - DATA[3].length()) + DATA [3] + " ".repeat(2) + "#" + ID[1] + " ".repeat(5) + b_verticalSpacesLine);
+				    			}
+				    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM QUANTITY
+				    				System.out.print(DATA [4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
+				    			}
+				    			
+				    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM PRICE
+				    				double data4 = (double) Double.parseDouble(DATA [5]);
+				    				String STR5 = mths.currency.format(data4);
+				    				System.out.print(STR5 + " ".repeat(20 - STR5.length()) + b_verticalSpacesLine);
+				    			}
+				    			
+				    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM TOTAL AMOUNT
+				    				double data42 = (double) Double.parseDouble(DATA[4]);
+				    				double data52 = (double) Double.parseDouble(DATA[5]);
+				    				double dataHolderTA = data42 * data52;
+				    				String STRTA = mths.currency.format(dataHolderTA);
+				    				System.out.print(STRTA + " ".repeat(20 - STRTA.length()) + b_verticalSpacesLine);
+				    			}
+				    			
+				    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM GROUP
+				    				System.out.print(DATA [6] + " ".repeat(30 - DATA[6].length()) + b_verticalSpacesLine);
+				    			}
+				    			
+				    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM EXPIRATION DATE
+				    				if (date[1].equals("0") && date[2].equals("0") && date[3].equals("0")) {
+				    					System.out.println("NO DATE" + " ".repeat(27 - "NO DATE".length()) + c_Reset + b_verticalSpacesLine);
+				    				}
+				    				
+				    				else {
+					    				String dateStatement = (date[1] + "/" + date[2] + "/" + date[3]);
+					    				System.out.println(dateStatement + " ".repeat(27 - dateStatement.length()) + c_Reset + b_verticalSpacesLine);
+				    				}
+				    			}
+		    				}
+		    			}
+						System.out.println(tabSpace + b_Texts + "└" + "─".repeat(38) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(32) + "┴" + "─".repeat(29) + "┘"+ c_Reset);
+		    			brIL2.close();
+    				}
+    				
+    		    	catch(Exception e){
+    		    		System.out.println(tabLine + "SOMETHING WENT WRONG IN Single Item " + e.getMessage());
+    		    		e.getStackTrace();
+    		    	}
+		
+    			}
 	    		repeatingChooseAgainItem();
 	    	}
-    	break;
+    		break;
     	}
 	}
     
@@ -972,6 +1018,17 @@ public class Logics_Item {
 		}
 	}
     
+    private static boolean boolContinueProcess;
+    
+    public static void setBoolContinueProcess(boolean boolContinueProcess) {
+    	Logics_Item.boolContinueProcess = boolContinueProcess;
+    }
+    
+    public static boolean getBoolContinueProcess() {
+    	return boolContinueProcess;
+    }
+    
+    private static String rNID;
     public static void removeItem() {
     	//MEHODS
     	Logics_Item mths = new Logics_Item();
@@ -979,6 +1036,7 @@ public class Logics_Item {
     	    	
 		// VARIABLE
     	final String dashBFormat = " ".repeat(23);
+    	
     	
     	while(true) {
 	    	try {
@@ -1003,48 +1061,25 @@ public class Logics_Item {
 	        	print.flush();
 	        	
 				System.out.println();
-				System.out.println(b_Texts + " ".repeat(60) + "┌" + "─".repeat(8) + "┬" + "─".repeat(32) + "┬" + "─".repeat(24) + "┐" + c_Reset);
-				System.out.println(" ".repeat(60) + b_Texts + "│" + c_Reset + " Enter: │" + c_Green + " ".repeat(1) + " Item Name To Be Removed" + c_Reset + 
-								   ";" + " ".repeat(9) + b_Texts + "│" + c_Reset +
-								   " ".repeat(4) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(4) + "│" + c_Reset);
-				System.out.println(b_Texts + " ".repeat(60) + "└" + "─".repeat(8) + "┴" + "─".repeat(32) + "┴" + "─".repeat(24) + "┘" + c_Reset);
+				System.out.println(b_Texts + " ".repeat(57) + "┌" + "─".repeat(46) + "┬" + "─".repeat(22) + "┐" + c_Reset);
+				System.out.println(" ".repeat(57) + b_Texts + "│" + c_Reset + " ".repeat(2) + "Enter Name Remove ('" + c_Green + "Name" +
+								   c_Reset + "' + '" + c_Green + "_"  + c_Reset + "' '" + c_Green + "ID No." + c_Reset + "')" + ";" + " ".repeat(2) + b_Texts + "│" + c_Reset +
+								   " ".repeat(2) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(4) + "│" + c_Reset);
+				System.out.println(b_Texts + " ".repeat(57) + "└" + "─".repeat(46) + "┴" + "─".repeat(22) + "┘" + c_Reset);
 				
-		        System.out.print(" ".repeat(68) + c_Green + b_Texts + " —> " + c_Reset);						
+		        System.out.print(" ".repeat(58) + c_Green + b_Texts + " —> " + c_Reset);						
 		        String removeByNameAndID = mths.scan.nextLine().trim();
-		        String removeData [] = removeByNameAndID.split(" ");
 		        
-				BufferedReader br1 = new BufferedReader(new FileReader(mths.fPath.toString()));
-				File oldFile = new File (mths.fPath.toString());
-				File newFile = new File ("temp.txt");
-				
-				FileWriter FW = new FileWriter("temp.txt", true);
-				BufferedWriter BW = new BufferedWriter(FW);
-				PrintWriter PW = new PrintWriter(BW);
-				
-		        String lineRead;
-		        List <String> itemNames = new ArrayList<>(); 
-		        
-		        while((lineRead = br1.readLine()) != null) {
-		        	String DATA [] = lineRead.split(";");
-		        	String DATA1 [] = lineRead.split("_");
-		        	
-		        	if (!DATA[3].equalsIgnoreCase(removeData[0])) {
-		        		if(!DATA1[1].equals(removeData[1]) || DATA1[1].equals(removeData[1])) {
-		        			itemNames.add(lineRead);
-		        		}
-		        	}
+		        if (removeByNameAndID != ".") {
+		        	setBoolContinueProcess(true);
+		        	rNID = removeByNameAndID;
 		        }
-		        String joinedList = itemNames.stream().collect(Collectors.joining(System.lineSeparator()));
-		        PW.write(joinedList);
-		        PW.write("\n");
 		        
-		        PW.flush();
-		        PW.close();
-		        br1.close();
+		        if (removeByNameAndID.equals(".")) {
+		        	setBoolContinueProcess(false);
+		        	break;
+		        }
 		        
-		        oldFile.delete();
-		        File dump = new File ("src/InventoryData");
-		        newFile.renameTo(dump);
 	        	
 	    	}
 	    	
@@ -1054,6 +1089,48 @@ public class Logics_Item {
 	    	}
 	    	
 	    	finally {
+	    		if (getBoolContinueProcess()) {
+	    			try {
+	    				String removeData [] = rNID.split("_");
+				        
+						BufferedReader br1 = new BufferedReader(new FileReader(mths.fPath.toString()));
+						File oldFile = new File (mths.fPath.toString());
+						File newFile = new File ("temp.txt");
+						
+						FileWriter FW = new FileWriter("temp.txt", true);
+						BufferedWriter BW = new BufferedWriter(FW);
+						PrintWriter PW = new PrintWriter(BW);
+						
+				        String lineRead;
+				        List <String> itemNames = new ArrayList<>(); 
+				        
+				        while((lineRead = br1.readLine()) != null) {
+				        	String DATA [] = lineRead.split(";");
+				        	String DATA1 [] = lineRead.split("_");
+				        	
+				        	if (!DATA[3].equalsIgnoreCase(removeData[0])) {
+				        		if(!DATA1[1].equals(removeData[1]) || DATA1[1].equals(removeData[1])) {
+				        			itemNames.add(lineRead);
+				        		}
+				        	}
+				        }
+				        String joinedList = itemNames.stream().collect(Collectors.joining(System.lineSeparator()));
+				        PW.write(joinedList);
+				        PW.write("\n");
+				        
+				        PW.flush();
+				        PW.close();
+				        br1.close();
+				        
+				        oldFile.delete();
+				        File dump = new File ("src/InventoryData");
+				        newFile.renameTo(dump);
+	    			}
+	    	    	catch(Exception e){
+	    	    		System.out.println(tabLine + "SOMETHING WENT WRONG IN REMOVE ITEM " + e.getMessage());
+	    	    		e.getStackTrace();
+	    	    	}
+	    		}
 	    		getItemList();
 	    		repeatingChooseAgainItem();
 	    	}
@@ -1068,11 +1145,11 @@ public class Logics_Item {
 		while(true) {
 			try {
 				// Internal Decision to repeat or to choose other Action
-				System.out.println("\n\n");
-				System.out.println(tabSpace + b_Texts + "—".repeat(170));		        
-	        	System.out.println(" ".repeat(75) +  b_Texts + "========================================" + c_Reset);
+				System.out.println(newLines + newLines);
+				System.out.println(tabSpace + b_Texts + "—".repeat(172));		        
+	        	System.out.println(" ".repeat(73) +  b_Texts + "=============================================" + c_Reset);
 
-		    	System.out.println(tabSpace + " ".repeat(79) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM"  + c_Reset);
+		    	System.out.println(tabSpace + " ".repeat(69) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM"  + c_Reset);
 	            System.out.println(tabSpace + " ".repeat(56) + b_Texts + "┌" + "─".repeat(28) + "┬" + "─".repeat(29) + "┐" + c_Reset);
 
 		    	System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green + b_Texts + " Show an Item" + c_Reset);
@@ -1081,7 +1158,7 @@ public class Logics_Item {
 		        System.out.print(" ".repeat(64) + " " + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Remove an Item" + c_Reset);
 		        System.out.println(" ".repeat(8) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back  " + " ".repeat(5) + c_Reset + b_verticalLine );
 		        System.out.println(tabSpace + " ".repeat(56) + b_Texts +  "└" + "─".repeat(28) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
-		        System.out.print(subCR55 + b_Texts + " —> " + c_Reset);
+		        System.out.print(" ".repeat(64) + c_Green + b_Texts + " —> " + c_Reset);
 		        String numOrStr = mths.scan.nextLine().trim();
 		        
 		        if (numOrStr.equalsIgnoreCase("Show an Item") || numOrStr.equalsIgnoreCase("Show") || numOrStr.equals("1")) {
