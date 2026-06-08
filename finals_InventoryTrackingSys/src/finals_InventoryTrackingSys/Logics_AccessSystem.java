@@ -68,7 +68,7 @@ public class Logics_AccessSystem {
 				
 				// WHAT TO ACCESS, ASKED TO THE USER
 	        	System.out.println("\n");
-	        	System.out.println(tabSpace + " " + "_".repeat(170));
+	        	System.out.println(tabSpace + "_".repeat(172));
 	        	System.out.println(tabSpace);
 	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);
@@ -156,7 +156,7 @@ public class Logics_AccessSystem {
 				
 				// WHAT TO ACCESS, ASKED TO THE USER
 	        	System.out.println("\n");
-	        	System.out.println(tabSpace + " " + "_".repeat(170));
+	        	System.out.println(tabSpace + "_".repeat(172));
 	        	System.out.println(tabSpace);
 	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);
@@ -247,7 +247,7 @@ public class Logics_AccessSystem {
     	while(true) {
     		try {
 	        	System.out.println("\n");
-	        	System.out.println(tabSpace + " " + "_".repeat(170));
+	        	System.out.println(tabSpace + "_".repeat(172));
 	        	System.out.println(tabSpace);
 	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);

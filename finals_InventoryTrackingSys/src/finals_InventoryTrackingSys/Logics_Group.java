@@ -22,9 +22,9 @@ public class Logics_Group {
 	final static String newLines = ("\n\n\n\n\n");
 	final static String tab = "\t";
 	final static String tabSpace = "\t ";
-	final static String tabLine = "\t | ";
-	final static String b_verticalLine = b_Texts + "|" + c_Reset;
-	final static String b_verticalSpacesLine = b_Texts + " | " + c_Reset;
+	final static String tabLine = "\t │ ";
+	final static String b_verticalLine = b_Texts + "│" + c_Reset;
+	final static String b_verticalSpacesLine = b_Texts + " │ " + c_Reset;
         
     // METHODS
 	private final Scanner scan = new Scanner(System.in);
@@ -48,22 +48,22 @@ public class Logics_Group {
     	
 		try {
 			print.println("\n");
-			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
 	    	final String group = tabLine + dashBFormat + " " + """
-	    			 ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(58) + "| \n" +
+	    			 ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(58) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(57) + "| \n" +
+	    			███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(57) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(57) + "| \n" +
+	    			███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(57) + "│ \n" +
 	    			tabLine + dashBFormat + """ 
-	    			███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(58) + "| \n" +
+	    			███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(58) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(64) + "| \n" +
+	    			╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(64) + "│ \n" +
 	    			tabLine + dashBFormat + " " + """
-	    			 ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(64) + "|" + """
+	    			 ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(64) + "│" + """
 	    			""";
     		print.println(group);
-    		print.println(tabSpace + "—".repeat(172));
+    		print.println(tabSpace + b_Texts + "└" + "─".repeat(170) + "┘" + c_Reset);
         	print.println(tabSpace + "█".repeat(172));
     		print.flush();
 		    		
@@ -75,17 +75,17 @@ public class Logics_Group {
         	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 
 	    	System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "Access Group to".toUpperCase() + c_Reset);
-            System.out.println(tabSpace + minorCR43 + b_Texts +  "—".repeat(86) + "" + c_Reset);
+            System.out.println(tabSpace + " ".repeat(56)  + b_Texts + "┌" + "─".repeat(28) + "┬" + "─".repeat(29) + "┐"  + "" + c_Reset);
 
-	    	System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Group List" + c_Reset);
-	        System.out.println(" ".repeat(19) + b_verticalLine + " ".repeat(14) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Add a Group  " + " ".repeat(10) + b_verticalLine + c_Reset);
-	        System.out.println(tabSpace + minorCR43 + b_Texts + "" +  "—".repeat(86) + c_Reset);
+	    	System.out.print(" ".repeat(65) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green +  b_Texts + " Show Group List" + c_Reset);
+	        System.out.println(" ".repeat(7) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Add a Group  " + " ".repeat(10) + c_Reset + b_verticalLine );
+	        System.out.println(tabSpace + " ".repeat(56)  + b_Texts + "" +  "├" + "─".repeat(28) + "┼" + "─".repeat(29) + "┤" + c_Reset);
 	        
-	        System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Remove a Group" + c_Reset);
-	        System.out.println(" ".repeat(20) + b_verticalLine + " ".repeat(14) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Exit and Go Back   " + " ".repeat(4) + b_verticalLine + c_Reset);
-	        System.out.println(tabSpace + minorCR43 + b_Texts + "" +  "—".repeat(86) + "" + c_Reset);
+	        System.out.print(" ".repeat(65) + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Remove a Group" + c_Reset);
+	        System.out.println(" ".repeat(8) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back   " + " ".repeat(4) + c_Reset + b_verticalLine);
+	        System.out.println(tabSpace + " ".repeat(56)  + b_Texts +  "└" + "─".repeat(28) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
 	        
-	        System.out.print(subCR53 + b_Texts + " —> " + c_Reset);
+	        System.out.print(" ".repeat(65) + b_Texts + " —> " + c_Reset);
 	        String setGroupDecision = mths.scan.nextLine().trim();
 	        logics_AllDecisions.setFourthDecision(setGroupDecision);
 	       
@@ -108,27 +108,27 @@ public class Logics_Group {
     	while(true) {
     		try {
     			print.println("\n");
-    			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+    			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
     	    	final String group = tabLine + dashBFormat + " " + """
-    	    			 ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(58) + "| \n" +
+    	    			 ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(58) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(57) + "| \n" +
+    	    			███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(57) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(57) + "| \n" +
+    	    			███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(57) + "│ \n" +
     	    			tabLine + dashBFormat + """ 
-    	    			███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(58) + "| \n" +
+    	    			███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(58) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(64) + "| \n" +
+    	    			╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(64) + "│ \n" +
     	    			tabLine + dashBFormat + " " + """
-    	    			 ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(64) + "|" + """
+    	    			 ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(64) + "│" + """
     	    			""";
         		print.println(group);
-        		print.println(tabSpace + "—".repeat(172));
+        		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
             	print.println(tabSpace + "█".repeat(172));
         		print.flush();
     		    		
     			print.println("\n");
-    			print.println(tabSpace + " " + "—".repeat(170));
+    			print.println(tabSpace + "—".repeat(172));
             	print.flush();
     			}
 	    		catch(Exception e) {
@@ -141,7 +141,20 @@ public class Logics_Group {
 		break;
     	}
 	}
-
+	
+    private static boolean boolContinueProcessgetGrp;
+    
+    public static void setBoolContinueProcessgetGrp(boolean boolContinueProcessgetGrp) {
+    	Logics_Group.boolContinueProcessgetGrp = boolContinueProcessgetGrp;
+    }
+    
+    public static boolean getBoolContinueProcessgetGrp() {
+    	return boolContinueProcessgetGrp;
+    }
+    
+    private static String gGrp;
+	
+	
     public static void getGroup() {
     	//METHODS
     	Logics_Group mths = new Logics_Group();
@@ -153,101 +166,51 @@ public class Logics_Group {
     	
     	while(true) {
     		try {
-	    		FileReader fR = new FileReader(mths.fPath.toString());
-				BufferedReader brIL2 = new BufferedReader(fR);
-				String LINE1;
-
     			print.println("\n");
-    			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+    			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
     	    	final String groupList = tabLine + dashBFormat + " " + """
-    	    			 ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗        ███╗      █████████╗█████████╗███████████╗ """ + " ".repeat(33) + "| \n" +
+    	    			 ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗        ███╗      █████████╗█████████╗███████████╗ """ + " ".repeat(33) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗       ███║         ███╔══╝███╔═════╝    ███╔═══╝ """ + " ".repeat(33) + "| \n" +
+    	    			███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗       ███║         ███╔══╝███╔═════╝    ███╔═══╝ """ + " ".repeat(33) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝       ███║         ███║   █████████╗    ███║     """ + " ".repeat(37) + "| \n" +
+    	    			███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝       ███║         ███║   █████████╗    ███║     """ + " ".repeat(37) + "│ \n" +
     	    			tabLine + dashBFormat + """ 
-    	    			███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝        ███║         ███║   ╚═════███║    ███║     """ + " ".repeat(37) + "| \n" +
+    	    			███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝        ███║         ███║   ╚═════███║    ███║     """ + " ".repeat(37) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║              █████████╗█████████╗█████████║    ███║     """ + " ".repeat(37) + "| \n" +
+    	    			╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║              █████████╗█████████╗█████████║    ███║     """ + " ".repeat(37) + "│ \n" +
     	    			tabLine + dashBFormat + " " + """
-    	    			 ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝              ╚════════╝╚════════╝╚════════╝    ╚══╝     """ + " ".repeat(37) + "|" + """
+    	    			 ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝              ╚════════╝╚════════╝╚════════╝    ╚══╝     """ + " ".repeat(37) + "│" + """
     	    			""";
         		print.println(groupList);
-        		print.println(tabSpace + "—".repeat(172));
+        		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
             	print.println(tabSpace + "█".repeat(172));
+            	
+            	print.println("\n");
+    			print.println(tabSpace + " " + "—".repeat(170));
         		print.flush();
         		
 				System.out.println(" ".repeat(76) +  b_Texts + "========================================" + c_Reset);
-				System.out.println(tabSpace + " ".repeat(74) + b_Texts + "GET GROUPS AND THEIR ITEMS".toUpperCase() + c_Reset);
-	    		String askItem = "Enter Name of Group: ";
-	    		System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + c_Reset);
-		        System.out.println(" ".repeat(67) + b_verticalLine + " ".repeat(18) + b_Texts + askItem + " ".repeat(17) + b_verticalLine +  c_Reset);
-		        System.out.println(tabSpace + " ".repeat(58) + b_Texts +  "—".repeat(58) + c_Reset);
-	    		System.out.print(" ".repeat(68) + b_Texts + " —> " + c_Reset);
-	    		String itemHolder = mths.scan.nextLine();
+				System.out.println(tabSpace + " ".repeat(74) + b_Texts + "GET GROUPS AND THEIR ITEMS" + c_Reset);
+	    		String askItem = "Enter Group Name";
 	    		
-	    		print.println("\n\n");
-	    		print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
+		        System.out.println(b_Texts + " ".repeat(69) + "┌" + "─".repeat(25) + "┬" + "─".repeat(24) + "┐" + c_Reset);
+		        System.out.println(" ".repeat(69) + b_verticalLine + " ".repeat(3) + c_Green + b_Texts + askItem + c_Reset + ";" + " ".repeat(5) + 
+							  b_verticalLine + " ".repeat(2) + "or Enter '" + c_Green + "." + c_Reset + "' to Exit"+ " ".repeat(2) + b_verticalLine + c_Reset); 
+		        System.out.println(b_Texts + " ".repeat(69) + "└" + "─".repeat(25) + "┴" + "─".repeat(24) + "┘"  + c_Reset);
+	    		System.out.print(" ".repeat(69) + c_Green + b_Texts + " —> " + c_Reset);
 	    		
-				String [] label = {"Items", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
-				String blockForCategories = tabLine + " ".repeat(21 - (label[0].length())) + b_Texts
-						+ label[0] + " ".repeat(21 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
-						+ label[1] + " ".repeat(14 - (label[1].length())) + b_verticalLine + " ".repeat(8) // QUANTITY
-						+ label[2] + " ".repeat(14 - (label[2].length())) + b_verticalLine + " ".repeat(5) // PRICE
-						+ label[3] + " ".repeat(17 - (label[3].length())) + b_verticalLine + " ".repeat(8) // PRICE
-						+ label[4] + " ".repeat(24 - (label[4].length())) + b_verticalLine + " ".repeat(3) // GROUP OR CATEGORY
-						+ label[5] + " ".repeat(53 - (label[5].length())) + b_verticalLine + // EXPIRATION DATE
-						c_Reset;
-				print.println(blockForCategories);
-				print.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
-				print.flush();
-						
-    			while((LINE1 = brIL2.readLine()) != null) {
-    				String DATA [] = LINE1.split(";");
-    				String date [] = LINE1.split(Pattern.quote("\\"));
-    				
-    				if ((DATA [3].equals ("none") == false) && DATA [6].equalsIgnoreCase(itemHolder)){
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM NAME
-		    				System.out.print(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(30 - DATA[3].length()) + DATA [3] + b_verticalSpacesLine);
-		    			}
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM QUANTITY
-		    				System.out.print(DATA [4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM PRICE
-		    				double data4 = (double) Double.parseDouble(DATA [5]);
-		    				String STR5 = mths.currency.format(data4);
-		    				System.out.print(STR5 + " ".repeat(20 - STR5.length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM TOTAL AMOUNT
-		    				double data42 = (double) Double.parseDouble(DATA[4]);
-		    				double data52 = (double) Double.parseDouble(DATA[5]);
-		    				double dataHolderTA = data42 * data52;
-		    				String STRTA = mths.currency.format(dataHolderTA);
-		    				System.out.print(STRTA + " ".repeat(20 - STRTA.length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM GROUP
-		    				System.out.print(DATA [6] + " ".repeat(30 - DATA[6].length()) + b_verticalSpacesLine);
-		    			}
-		    			
-		    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM EXPIRATION DATE
-		    				if (date[1].equals("0") && date[2].equals("0") && date[3].equals("0")) {
-		    					System.out.println("NO DATE" + " ".repeat(27 - "NO DATE".length()) + c_Reset + b_verticalSpacesLine);
-		    				}
-		    				
-		    				else {
-			    				String dateStatement = (date[1] + "/" + date[2] + "/" + date[3]);
-			    				
-			    				System.out.println(dateStatement + " ".repeat(27 - dateStatement.length()) + c_Reset + b_verticalSpacesLine);
-		    				}
-		    			}
-    				}
-    			}
-    			System.out.println(tabSpace + b_Texts + "—".repeat(172) + c_Reset);
-    			System.out.println("\n\n");
-    			brIL2.close();
+	    		
+	    		String groupHolder = mths.scan.nextLine();
+	    		
+	    		if (groupHolder != ".") {
+	    			setBoolContinueProcessgetGrp(true);
+	    			gGrp = groupHolder;
+	    		}
+	    		
+	    		if(groupHolder.equalsIgnoreCase(".")) {
+	    			setBoolContinueProcessgetGrp(false);
+	    			break;
+	    		}
     		}
     		
     		catch(Exception e) {
@@ -255,9 +218,83 @@ public class Logics_Group {
     		}
     		
     		finally {
+    			if (getBoolContinueProcessgetGrp()) {
+    				try {
+    		    		FileReader fR = new FileReader(mths.fPath.toString());
+    					BufferedReader brIL2 = new BufferedReader(fR);
+    					String LINE1;
+    					
+    		    		print.println("\n\n");
+						print.println(tabSpace + b_Texts + "┌" + "─".repeat(38) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(22) + "┬" + "─".repeat(32) + "┬" + "─".repeat(29) + "┐" + c_Reset);
+						
+						String [] label = {"Items and #ID", "Quantity", "Price", "Total Amount", "Group or Category", "Expiration (" + c_Green + "MM" + c_Reset + "/" + c_Green + "DD" + c_Reset + "/" + c_Green + "YYYY" + c_Reset + ")"};
+						String blockForCategories = tabLine + " ".repeat(25 - (label[0].length())) + b_Texts
+								+ label[0] + " ".repeat(25 - (label[0].length())) + b_verticalLine + " ".repeat(8) // ITEMS
+								+ label[1] + " ".repeat(14 - (label[1].length())) + b_verticalLine + " ".repeat(8) // QUANTITY
+								+ label[2] + " ".repeat(14 - (label[2].length())) + b_verticalLine + " ".repeat(5) // PRICE
+								+ label[3] + " ".repeat(17 - (label[3].length())) + b_verticalLine + " ".repeat(8) // PRICE
+								+ label[4] + " ".repeat(24 - (label[4].length())) + b_verticalLine + " ".repeat(3) // GROUP OR CATEGORY
+								+ label[5] + " ".repeat(53 - (label[5].length())) + b_verticalLine + // EXPIRATION DATE
+								c_Reset;
+						print.println(blockForCategories);
+						print.println(tabSpace + b_Texts + "├" + "─".repeat(38) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(22) + "┼" + "─".repeat(32) + "┼" + "─".repeat(29) + "┤" + c_Reset);
+						print.flush();
+    							
+    	    			while((LINE1 = brIL2.readLine()) != null) {
+    	    				String DATA [] = LINE1.split(";");
+    	    				String date [] = LINE1.split(Pattern.quote("\\"));
+    	    				
+    	    				if ((DATA [3].equals ("none") == false) && DATA [6].equalsIgnoreCase(gGrp)){
+    			    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM NAME
+    			    				System.out.print(tabSpace + b_verticalLine + " ".repeat(7) + " ".repeat(30 - DATA[3].length()) + DATA [3] + b_verticalSpacesLine);
+    			    			}
+    			    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM QUANTITY
+    			    				System.out.print(DATA [4] + " ".repeat(20 - DATA[4].length()) + b_verticalSpacesLine);
+    			    			}
+    			    			
+    			    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM PRICE
+    			    				double data4 = (double) Double.parseDouble(DATA [5]);
+    			    				String STR5 = mths.currency.format(data4);
+    			    				System.out.print(STR5 + " ".repeat(20 - STR5.length()) + b_verticalSpacesLine);
+    			    			}
+    			    			
+    			    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM TOTAL AMOUNT
+    			    				double data42 = (double) Double.parseDouble(DATA[4]);
+    			    				double data52 = (double) Double.parseDouble(DATA[5]);
+    			    				double dataHolderTA = data42 * data52;
+    			    				String STRTA = mths.currency.format(dataHolderTA);
+    			    				System.out.print(STRTA + " ".repeat(20 - STRTA.length()) + b_verticalSpacesLine);
+    			    			}
+    			    			
+    			    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM GROUP
+    			    				System.out.print(DATA [6] + " ".repeat(30 - DATA[6].length()) + b_verticalSpacesLine);
+    			    			}
+    			    			
+    			    			for (int numHolder = 0; numHolder < 1; numHolder++) { // ITEM EXPIRATION DATE
+    			    				if (date[1].equals("0") && date[2].equals("0") && date[3].equals("0")) {
+    			    					System.out.println("NO DATE" + " ".repeat(27 - "NO DATE".length()) + c_Reset + b_verticalSpacesLine);
+    			    				}
+    			    				
+    			    				else {
+    				    				String dateStatement = (date[1] + "/" + date[2] + "/" + date[3]);
+    				    				
+    				    				System.out.println(dateStatement + " ".repeat(27 - dateStatement.length()) + c_Reset + b_verticalSpacesLine);
+    			    				}
+    			    			}
+    	    				}
+    	    			}
+						System.out.println(tabSpace + b_Texts + "└" + "─".repeat(38) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(22) + "┴" + "─".repeat(32) + "┴" + "─".repeat(29) + "┘"+ c_Reset);
+    	    			brIL2.close();
+    				}
+    				
+    		    	catch(Exception e){
+    		    		System.out.println(tabLine + "SOMETHING WENT WRONG IN GroupList " + e.getMessage());
+    		    		e.getStackTrace();
+    		    	}
+    			}
     			repeatingChooseAgainGroup();
     		}
-		break;
+    		break;
     	}
     }
     
@@ -287,17 +324,17 @@ public class Logics_Group {
 			print.println("\n");
 			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
 	    	final String addItem = tabLine + dashBFormat + " " + """
-	    			 █████████╗ ██████████╗ ██████████╗         ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "| \n" +
+	    			 █████████╗ ██████████╗ ██████████╗         ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███╔════███╗███╔════███╗███╔════███╗       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "| \n" +
+	    			███╔════███╗███╔════███╗███╔════███╗       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███████████║███║    ███║███║    ███║       ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "| \n" +
+	    			███████████║███║    ███║███║    ███║       ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "│ \n" +
 	    			tabLine + dashBFormat + """ 
-	    			███╔════███║███║    ███║███║    ███║       ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "| \n" +
+	    			███╔════███║███║    ███║███║    ███║       ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			███║    ███║██████████╔╝██████████╔╝       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "| \n" +
+	    			███║    ███║██████████╔╝██████████╔╝       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "│ \n" +
 	    			tabLine + dashBFormat + """
-	    			╚══╝    ╚══╝╚═══════╝   ╚═══════╝           ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(39) + "|" + """
+	    			╚══╝    ╚══╝╚═══════╝   ╚═══════╝           ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(39) + "│" + """
 	    			""";
     		print.println(addItem);
     		print.println(tabSpace + "—".repeat(172));
@@ -393,22 +430,22 @@ public class Logics_Group {
     			
     			
     			print.println("\n");
-    			print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+    			print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
     	    	final String removeGroup = tabLine + dashBFormat + " " + """
-    	    			█████████╗ █████████╗████╗    ████╗ █████████╗ ███╗   ███╗█████████╗        ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "| \n" +
+    	    			█████████╗ █████████╗████╗    ████╗ █████████╗ ███╗   ███╗█████████╗        ████████╗█████████╗  █████████╗ ███╗   ███╗█████████╗  """ + " ".repeat(34) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███╔═══███╗███╔═════╝█████╗  █████║███╔════███╗███║   ███║███╔═════╝       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "| \n" +
+    	    			███╔═══███╗███╔═════╝█████╗  █████║███╔════███╗███║   ███║███╔═════╝       ███╔═════╝███╔═══███╗███╔════███╗███║   ███║███    ███╗ """ + " ".repeat(33) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			█████████╔╝███████╗  ███╔█████╔███║███║    ███║ ███╗ ███╔╝███████╗         ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "| \n" +
+    	    			█████████╔╝███████╗  ███╔█████╔███║███║    ███║ ███╗ ███╔╝███████╗         ███║ ████╗█████████╔╝███║    ███║███║   ███║█████████╔╝ """ + " ".repeat(33) + "│ \n" +
     	    			tabLine + dashBFormat + """ 
-    	    			███╔═══███╗███╔═══╝  ███║╚███╔╝███║███║    ███║ ███║ ███║ ███╔═══╝         ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "| \n" +
+    	    			███╔═══███╗███╔═══╝  ███║╚███╔╝███║███║    ███║ ███║ ███║ ███╔═══╝         ███║  ███║███╔═══███╗███║    ███║███║   ███║███╔═════╝  """ + " ".repeat(34) + "│ \n" +
     	    			tabLine + dashBFormat + """
-    	    			███║   ███║█████████╗███║ ╚══╝ ███║╚█████████╔╝  ██████╔╝ █████████╗       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "| \n" +
+    	    			███║   ███║█████████╗███║ ╚══╝ ███║╚█████████╔╝  ██████╔╝ █████████╗       ╚████████║███║   ███║╚█████████╔╝ ████████╔╝███║        """ + " ".repeat(40) + "│ \n" +
     	    			tabLine + dashBFormat + " " + """
-    	    			╚══╝   ╚══╝╚════════╝╚══╝      ╚══╝ ╚════════╝   ╚═════╝  ╚════════╝        ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(39) + "|" + """
+    	    			╚══╝   ╚══╝╚════════╝╚══╝      ╚══╝ ╚════════╝   ╚═════╝  ╚════════╝        ╚═══════╝╚══╝   ╚══╝ ╚════════╝  ╚═══════╝ ╚══╝        """ + " ".repeat(39) + "│" + """
     	    			""";
         		print.println(removeGroup);
-        		print.println(tabSpace + "—".repeat(172));
+        		print.println(tabSpace + "└" + "─".repeat(170) + "┘");
             	print.println(tabSpace + "█".repeat(172));
         		print.flush();
     		    		
@@ -450,21 +487,24 @@ public class Logics_Group {
     	
     	while(true) {
     		try {
+    			System.out.println("\n");
+    			System.out.println(tabSpace + "—".repeat(172));
     			System.out.println(tabSpace);
             	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 
     	    	System.out.println(tabSpace + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
-                System.out.println(tabSpace + minorCR43 + b_Texts +  "—".repeat(86) + "" + c_Reset);
+                System.out.println(tabSpace + " ".repeat(56)  + b_Texts + "┌" + "─".repeat(28) + "┬" + "─".repeat(29) + "┐"  + "" + c_Reset);
 
-    	    	System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "1" + c_Reset + "]" + b_Texts + " Show Group List " + c_Reset);
-    	        System.out.println(" ".repeat(12) + b_verticalLine + " ".repeat(14) + "[" + b_Texts + "2" + c_Reset + "]" + b_Texts + " Add a Group  " + " ".repeat(10) + b_verticalLine + c_Reset);
-    	        System.out.println(tabSpace + minorCR43 + b_Texts + "" +  "—".repeat(86) + c_Reset);
+    	    	System.out.print(" ".repeat(65) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green +  b_Texts + " Show Group List" + c_Reset);
+    	        System.out.println(" ".repeat(7) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Add a Group  " + " ".repeat(10) + c_Reset + b_verticalLine );
+    	        System.out.println(tabSpace + " ".repeat(56)  + b_Texts + "" +  "├" + "─".repeat(28) + "┼" + "─".repeat(29) + "┤" + c_Reset);
     	        
-    	        System.out.print(subCR53 + b_verticalLine + "  [" + b_Texts + "3" + c_Reset + "]" + b_Texts + " Remove a Group" + c_Reset);
-    	        System.out.println(" ".repeat(20) + b_verticalLine + " ".repeat(14) + "[" + b_Texts + "4" + c_Reset + "]" + b_Texts + " Exit and Go Back   " + " ".repeat(4) + b_verticalLine + c_Reset);
-    	        System.out.println(tabSpace + minorCR43 + b_Texts + "" +  "—".repeat(86) + "" + c_Reset);
+    	        System.out.print(" ".repeat(65) + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Remove a Group" + c_Reset);
+    	        System.out.println(" ".repeat(8) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back   " + " ".repeat(4) + c_Reset + b_verticalLine);
+    	        System.out.println(tabSpace + " ".repeat(56)  + b_Texts +  "└" + "─".repeat(28) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
     	        
-    	        System.out.print(subCR53 + b_Texts + " —> " + c_Reset);    		  
+    	        System.out.print(" ".repeat(65) + b_Texts + " —> " + c_Reset);
+    	        
 		        String numOrStr = mths.scan.nextLine().trim();
 		        System.out.println(newLines);
 
