@@ -162,7 +162,7 @@ public class Logics_AllDecisions implements InventoryVars{
 	    		}
 				
 				else if (secondChoice.equalsIgnoreCase("Add a Group or Category") || secondChoice.equals("4")) {
-					Logics_Group.setNewGroup();
+					Logics_Inventory.setNewGroupInventory();
 					break;
 	    		}
 				
