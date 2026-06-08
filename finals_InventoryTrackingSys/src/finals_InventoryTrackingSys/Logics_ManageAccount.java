@@ -9,24 +9,11 @@ public class Logics_ManageAccount {
 	static String c_Red = "\u001B[31m";
     static String c_Green = "\u001B[32m";
     static String b_Texts = "\u001B[1m";
-    static String u_Texts = "\u001B[4m";
     static String c_Reset = "\u001B[0m";
     
     // VARS FOR UI FORMAT
-    final static String counterFormat = " ".repeat(53);
-    final static String halfCF = " ".repeat(27);
-    final static String repetition54 = " ".repeat(54);
-	final static String repetition56 = " ".repeat(56);
 	final static String centerRepeat = " ".repeat(75);
-	final static String centerRepeat72 = " ".repeat(72);
-	final static String centerRepeat73 = " ".repeat(73);
-	final static String subCR65 = " ".repeat(65);
-	final static String subCR57 = " ".repeat(57);
-	final static String subCR55 = " ".repeat(55);
-	final static String subCR54 = " ".repeat(54);
-	final static String subCR52 = " ".repeat(52);
 	final static String subCR53 = " ".repeat(53);
-	final static String subCR50 = " ".repeat(50);
 	final static String minorCR48 = " ".repeat(48);      // MINOR CENTER REPEAT
 	final static String minorCR47 = " ".repeat(47);
 	final static String minorCR45 = " ".repeat(45);
@@ -36,16 +23,10 @@ public class Logics_ManageAccount {
 	
 	final static String tab = "\t";
 	final static String tabSpace = "\t ";
-	final static String tabLine = "\t | ";
+	final static String tabLine = "\t │ ";
 	
-	final static String b_verticalLine = b_Texts + "|" + c_Reset;
-	final static String b_verticalSpacesLine = b_Texts + " | " + c_Reset;
-	
-	// VARIABLE FOR DECISIONS
-	String firstChoice;
-	static String secondChoice;
-    static String thirdChoice;
-    static String fourthChoice;
+	final static String b_verticalLine = b_Texts + "│" + c_Reset;
+	final static String b_verticalSpacesLine = b_Texts + " │ " + c_Reset;
     
     // VARIABLES FOR DATA HOLDER IN ACCOUNT
     static boolean passwordHolder;
@@ -58,10 +39,10 @@ public class Logics_ManageAccount {
     private static boolean continueAccessSystem;
     
     // METHODS
-	Scanner scan = new Scanner(System.in);
+	final Scanner scan = new Scanner(System.in);
 	
 	// FILE DECLARATIONS
-	Path fPath = Path.of("src", "InventoryAccounts");
+	private final Path fPathAcc = Path.of("src", "InventoryAccounts");
 	FileWriter writer;
 	FileReader fReader;
 	
@@ -216,7 +197,7 @@ public class Logics_ManageAccount {
     	
 		while(true) {
 			try {
-				mths.writer = new FileWriter(mths.fPath.toString(), true);
+				mths.writer = new FileWriter(mths.fPathAcc.toString(), true);
 				
 				System.out.println(newLines5);
 				System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
@@ -338,7 +319,7 @@ public class Logics_ManageAccount {
 
 		while(true) {
 	    	try {
-    			FileReader fR = new FileReader(mths.fPath.toString());
+    			FileReader fR = new FileReader(mths.fPathAcc.toString());
     			BufferedReader br1 = new BufferedReader(fR);
     			String Lines = "";
 
@@ -508,7 +489,7 @@ public class Logics_ManageAccount {
 	        	
 	        	//Logic_Inventory METHOD
 	        	Logics_ManageAccount mths = new Logics_ManageAccount();
-	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
+	        	mths.writer = new FileWriter(mths.fPathAcc.toString(), true);
 	        	
 	        	// UI Format: 
 	        	int countFormat = 46;
@@ -610,7 +591,7 @@ public class Logics_ManageAccount {
 	        	
 	        	//Logic_Inventory METHOD
 	        	Logics_ManageAccount mths = new Logics_ManageAccount();
-	        	mths.writer = new FileWriter(mths.fPath.toString(), true);
+	        	mths.writer = new FileWriter(mths.fPathAcc.toString(), true);
 	        	
 	        	// UI Format: 
 	        	int countFormat = 14;
@@ -869,6 +850,7 @@ public class Logics_ManageAccount {
 
     	while(true) {
 			try {			
+				System.out.println(tabSpace + b_Texts + "—".repeat(172));
 				print.println(tabSpace);	
 	        	print.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	        	print.println(tabSpace  + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
