@@ -44,13 +44,13 @@ public class Main {
 	                    	break;
 	            			
 	                    case DEFAULT:
-	                    	System.out.println("\t | EXITING SYSTEM");
+	                    	Logics_AccessSystem.firstDecisionDuplicate();
 	                    	// MAKE A METHOD PROMPT THAT ASKS THE USER TO CONFIRM EXITING AND ENDING THE PROGRAM
-	            			break;
+	                    	break;
 	            			
 	                    default:
 	            			System.out.println("\t | INVALID INPUT");
-	            			break;
+	            			continue;
 	                }
 	                
 	                if (Logics_AllDecisions.returnCons().toString().equalsIgnoreCase("exit")) {

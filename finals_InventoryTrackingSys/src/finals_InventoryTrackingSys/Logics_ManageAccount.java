@@ -3,6 +3,7 @@ package finals_InventoryTrackingSys;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Logics_ManageAccount {	
 	// VARIABLES FOR COLOR/UI OUTPUT
@@ -18,6 +19,7 @@ public class Logics_ManageAccount {
 	final static String minorCR47 = " ".repeat(47);
 	final static String minorCR45 = " ".repeat(45);
 	final static String minorCR43 = " ".repeat(43);
+	final static String minorCR44 = " ".repeat(44);
 	
 	final static String newLines5 = ("\n\n\n\n\n");
 	
@@ -59,27 +61,27 @@ public class Logics_ManageAccount {
         	int CF1 = 9;
         	int CF2 = 12;
         	print.println("\n");
-        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+        	print.println("\t " + b_Texts + "┌" + "─".repeat(170) + "┐" + c_Reset);
         	String manageAccount = 
-        			"\t | " + " ".repeat(countFormat) + """
-        			███╗    ████╗ █████████╗ █████╗  ███╗ █████████╗  ████████╗████████╗        █████████╗  ████████╗ ████████╗ ████████╗ ███╗   ███╗█████╗  ███╗█████████╗ """ + " ".repeat(CF1) + "| \n"  
-        	        + "\t | " + " ".repeat(countFormat) + """
-        			█████╗  █████║███╔════███╗██████╗ ███║███╔════███╗███╔═════╝███╔════╝       ███╔════███╗███╔═════╝███╔═════╝███╔═══███╗███║   ███║██████╗ ███║   ███╔══╝ """ + " ".repeat(CF1) + "| \n" 
-        			+ "\t | " + " ".repeat(countFormat) + """
-        	        ███╔█████╔███║███████████║███╔███╗███║███████████║███║ ████╗██████╗         ███████████║███║      ███║      ███║   ███║███║   ███║███╔███╗███║   ███║    """ + " ".repeat(CF2) + "| \n" 
-        	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ███║╚███╔╝███║███╔════███║███║╚██████║███╔════███║███║  ███║███╔══╝         ███╔════███║███║      ███║      ███║   ███║███║   ███║███║╚██████║   ███║    """ + " ".repeat(CF2) + "| \n" 
-        	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ███║ ╚══╝ ███║███║    ███║███║ ╚═████║███║    ███║╚████████║████████╗       ███║    ███║╚████████╗╚████████╗╚████████╔╝ ████████╔╝███║ ╚═████║   ███║    """ + " ".repeat(CF2) + "| \n" 
-        	        + "\t | " +  " ".repeat(countFormat) + """
-        	        ╚══╝      ╚══╝╚══╝    ╚══╝╚══╝   ╚═══╝╚══╝    ╚══╝ ╚═══════╝╚═══════╝       ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝ ╚═══════╝  ╚═══════╝ ╚══╝   ╚═══╝   ╚══╝    """ + " ".repeat(CF2) + "|" +
+        			"\t │ " + " ".repeat(countFormat) + """
+        			███╗     ████╗ █████████╗ █████╗  ███╗ █████████╗  ████████╗████████╗        █████████╗  ████████╗ ████████╗ ████████╗ ███╗   ███╗█████╗  ███╗█████████╗ """ + " ".repeat(CF1) + "│ \n"  
+        	        + "\t │ " + " ".repeat(countFormat) + """
+        			█████╗  █████║███╔════███╗██████╗ ███║███╔════███╗███╔═════╝███╔════╝       ███╔════███╗███╔═════╝███╔═════╝███╔═══███╗███║   ███║██████╗ ███║   ███╔══╝ """ + " ".repeat(CF1) + "│ \n" 
+        			+ "\t │ " + " ".repeat(countFormat) + """
+        	        ███╔█████╔███║███████████║███╔███╗███║███████████║███║ ████╗██████╗         ███████████║███║      ███║      ███║   ███║███║   ███║███╔███╗███║   ███║    """ + " ".repeat(CF2) + "│ \n" 
+        	        + "\t │ " +  " ".repeat(countFormat) + """
+        	        ███║╚███╔╝███║███╔════███║███║╚██████║███╔════███║███║  ███║███╔══╝         ███╔════███║███║      ███║      ███║   ███║███║   ███║███║╚██████║   ███║    """ + " ".repeat(CF2) + "│ \n" 
+        	        + "\t │ " +  " ".repeat(countFormat) + """
+        	        ███║ ╚══╝ ███║███║    ███║███║ ╚═████║███║    ███║╚████████║████████╗       ███║    ███║╚████████╗╚████████╗╚████████╔╝ ████████╔╝███║ ╚═████║   ███║    """ + " ".repeat(CF2) + "│ \n" 
+        	        + "\t │ " +  " ".repeat(countFormat) + """
+        	        ╚══╝      ╚══╝╚══╝    ╚══╝╚══╝   ╚═══╝╚══╝    ╚══╝ ╚═══════╝╚═══════╝       ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝ ╚═══════╝  ╚═══════╝ ╚══╝   ╚═══╝   ╚══╝    """ + " ".repeat(CF2) + "│" +
         	        """
         	        """;
     		
         	print.println(manageAccount);
-        	print.println("\t " + "—".repeat(172));
+        	print.println("\t " + "└" + "─".repeat(170) + "┘");
         	print.println("\t " + "█".repeat(172));
-        	Thread.sleep(1000);
+        	Thread.sleep(250);
         	print.flush();
 			
 			// WHAT TO ACCESS, ASKED TO THE USER
@@ -90,25 +92,25 @@ public class Logics_ManageAccount {
         	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
             System.out.println(tabSpace + centerRepeat + " ".repeat(3) + b_Texts + "CHOOSE TO ACCESS" + "   " + c_Reset);
 			
-			String fillerLine = (tabSpace + minorCR43 + b_Texts +  "—".repeat(86) + "" + c_Reset);
-			String line10Option = (tabSpace + " ".repeat(44) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + b_Texts + " Change Password" + c_Reset + " ".repeat(19));   // ENTERS USERNAME THEN VERIFIES, ASKS WHAT CHANGE PASS WILL BE
-			String line11Option = (b_verticalLine + " ".repeat(10) + "  [" + c_Green + b_Texts + "2" + c_Reset + "]" + b_Texts + " Create New Account" + c_Reset + " ".repeat(7) + b_verticalLine); // createAccount();
-			String line12Option = (tabSpace + " ".repeat(44) + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + b_Texts + " Delete an Account" + c_Reset + " ".repeat(17));
-			String line13Option = (b_verticalLine + " ".repeat(10) + "  [" + c_Green + b_Texts + "4" + c_Reset + "]" + b_Texts + " Retry Entering Account" + c_Reset + " ".repeat(3) + b_verticalLine); //PAPUNTANG ACCSYST	
-			String line14Option = (" ".repeat(53) + b_verticalLine + " ".repeat(28) + "  [" + c_Green + b_Texts + "5" + c_Reset + "]" + b_Texts + " Exit and Go Back" + c_Reset + " ".repeat(32) + b_verticalLine);
-			String setterLine = (subCR53 + b_Texts + " —> " + c_Reset);
+			String fillerLine1 = (tabSpace + " ".repeat(54) + b_Texts + "┌" + "─".repeat(30) + "┬" + "─".repeat(29) + "┐" + "" + c_Reset);
+			String fillerLine2 = (tabSpace + " ".repeat(54) + b_Texts + "├" + "─".repeat(30) + "┼" + "─".repeat(29) + "┤"+ c_Reset);
+			String fillerLine3 = (tabSpace + " ".repeat(54) + b_Texts + "└" + "─".repeat(30) + "┴" + "─".repeat(29) + "┘" + "" + c_Reset);
 			
-			print.println(fillerLine);
+			String line10Option = (tabSpace + " ".repeat(54) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green + b_Texts + " Change Password" + c_Reset + " ".repeat(9));   // ENTERS USERNAME THEN VERIFIES, ASKS WHAT CHANGE PASS WILL BE
+			String line11Option = (b_verticalLine + " ".repeat(0) + "  [" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Create New Account" + c_Reset + " ".repeat(5) + b_verticalLine); // createAccount();
+			String line12Option = (tabSpace + " ".repeat(54) + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Delete an Account" + c_Reset + " ".repeat(7));
+			String line13Option = (b_verticalLine + " ".repeat(0) + "  [" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Exit and Go Back" + c_Reset + " ".repeat(7) + b_verticalLine); //PAPUNTANG ACCSYST	
+			String setterLine = (" ".repeat(59) + b_Texts + " —> " + c_Reset);
+			
+			print.println(fillerLine1);
 			print.print(line10Option);
 			print.println(line11Option);
-			print.println(fillerLine);
+			print.println(fillerLine2);
 
 			print.print(line12Option);
 			print.println(line13Option);
-			print.println(fillerLine);
 
-			print.println(line14Option);
-			print.println(fillerLine);
+			print.println(fillerLine3);
 			print.print(setterLine);
 			
 			print.flush();
@@ -171,8 +173,40 @@ public class Logics_ManageAccount {
 	
 	// 
 	public static void forgottenPassword() {
+		// Method
+    	PrintWriter print = new PrintWriter(System.out);
+    	
 		while(true) {
 			try {
+	        	// UI Format: 
+	        	int countFormat = 8;
+	        	int CF1 = 9;
+	        	int CF2 = 12;
+	        	print.println("\n");
+	        	print.println("\t " + b_Texts + "—".repeat(172) + c_Reset);
+	        	String changePassword = 
+	        			"\t | " + " ".repeat(countFormat) + " " + """
+	        			 ████████╗████████╗        █████████╗  ████████╗ ████████╗ ████████╗ ███╗   ███╗█████╗  ███╗█████████╗ """ + " ".repeat(CF1) + "| \n"  
+	        	        + "\t | " + " ".repeat(countFormat) + """
+	        			███╔═════╝███╔════╝       ███╔════███╗███╔═════╝███╔═════╝███╔═══███╗███║   ███║██████╗ ███║   ███╔══╝ """ + " ".repeat(CF1) + "| \n" 
+	        			+ "\t | " + " ".repeat(countFormat) + """
+	        	        ███║      ██████╗         ███████████║███║      ███║      ███║   ███║███║   ███║███╔███╗███║   ███║    """ + " ".repeat(CF2) + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormat) + """
+	        	        ███║      ███╔══╝         ███╔════███║███║      ███║      ███║   ███║███║   ███║███║╚██████║   ███║    """ + " ".repeat(CF2) + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormat) + """
+	        	        ╚████████╗████████╗       ███║    ███║╚████████╗╚████████╗╚████████╔╝ ████████╔╝███║ ╚═████║   ███║    """ + " ".repeat(CF2) + "| \n" 
+	        	        + "\t | " +  " ".repeat(countFormat) + " " + """
+	        	         ╚═══════╝╚═══════╝       ╚══╝    ╚══╝ ╚═══════╝ ╚═══════╝ ╚═══════╝  ╚═══════╝ ╚══╝   ╚═══╝   ╚══╝    """ + " ".repeat(CF2) + "|" +
+	        	        """
+	        	        """;
+	    		
+	        	print.println(changePassword);
+	        	print.println("\t " + "—".repeat(172));
+	        	print.println("\t " + "█".repeat(172));
+				print.flush();
+				
+				
+				
 				
 			}
 			
@@ -186,6 +220,15 @@ public class Logics_ManageAccount {
 			break;
 		}
 	}
+	private static boolean setContinueCA;
+	
+	public static void setContinueAccessSystemCA (boolean setContinueCA) {
+		Logics_ManageAccount.setContinueCA = setContinueCA;
+	}
+	
+	public static boolean getContinueAccessSystemCA() {
+		return setContinueCA;
+	}
 	
 	// OPTION IN ACCESS SYSTEM and WHEN RETRYING MORE THAN 3
 	public static void createAccount() {
@@ -198,7 +241,6 @@ public class Logics_ManageAccount {
 		while(true) {
 			try {
 				mths.writer = new FileWriter(mths.fPathAcc.toString(), true);
-				
 				System.out.println(newLines5);
 				System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
 	            System.out.println(tabSpace + centerRepeat + " ".repeat(1) +  b_Texts + "CREATE YOUR PROFILE" + "   " + c_Reset);
@@ -212,10 +254,10 @@ public class Logics_ManageAccount {
 	            String passwordDescription1 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
 	            		                    + c_Reset + " ".repeat(18) + b_verticalLine);
 	            String passwordDescription2 = (tabSpace + minorCR45 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
-	            		   + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
-						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
-						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
-						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
+					            		    + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
+										    + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
+										    + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
+										    + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(11) + b_verticalLine);
 	            
 	            String setterLine = (tabSpace + minorCR45 + c_Green + b_Texts +  " —> " + c_Reset);
 	            String fillerLine = (tab + minorCR45 + b_Texts +  "—".repeat(84) + c_Reset); 
@@ -248,18 +290,18 @@ public class Logics_ManageAccount {
 	            }
 	            Logics_ManageAccount.confirmationByAdmin();
 	            
-	            if (Logics_ManageAccount.getConfirmation()) {
+	            if (Logics_ManageAccount.getContinueAccessSystemCA()) {
 		            mths.writer.write("Account" + ";");
 					mths.writer.write(userName + ";");
 					mths.writer.write(passWord + ";none;0;0;0;no group;no date;");
 					mths.writer.write("\n");
 					mths.writer.flush();
 					mths.writer.close();
+					Logics_AccessSystem.firstDecisionDuplicate();
 					break;
 	            }
 	            
-	            else if (Logics_ManageAccount.getConfirmation() == false) {
-	            	
+	            else if (Logics_ManageAccount.getContinueAccessSystemCA() == false) {
 	            }
 			}
 			
@@ -271,36 +313,67 @@ public class Logics_ManageAccount {
 	
 	// 
 	public static void confirmationByAdmin() {
-		System.out.println("UNDER CONSTRUCTION -> Creation of Account Confirmation by Administrator");
-		
+		PrintWriter print = new PrintWriter(System.out);
+		Logics_ManageAccount mths = new Logics_ManageAccount();
 		while(true) {
 			try {
-				
+				System.out.println("\n");
+	        	System.out.println(tabSpace + " " + "_".repeat(170));
+	        	System.out.println(tabSpace);
+	        	
+	        	System.out.println(centerRepeat +  b_Texts + "========================================" + c_Reset);
+	            System.out.println(tabSpace + " ".repeat(67) +  b_Texts + "ADMIN CONFIRMATION" + "   " + c_Reset);
+	            
+	            String firstLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "USERNAME" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String secondtLineOption = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(36) + b_Texts + "PASSWORD" + c_Reset + " ".repeat(38) + b_verticalLine);
+	            String usernameDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(23) + "Username must only contain " + b_Texts + c_Green + "letters" 
+	            		   						+ c_Reset + " ".repeat(25) + b_verticalLine);
+	            String passwordDescription1 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(17) + "Password must contain " + b_Texts + c_Green + "8 or more characters of" 
+	            		                       + c_Reset + " ".repeat(20) + b_verticalLine);
+	            String passwordDescription2 = (tabSpace + minorCR44 + b_verticalLine + " ".repeat(11) + b_Texts + c_Green +  "letters" + c_Reset + ", " + b_Texts  
+	            		   + c_Green + "numbers" + c_Reset + "(" + b_Texts  + c_Green + "0-9" + c_Reset + "),"  + " and " + b_Texts + c_Green + "symbols" + c_Reset + "("
+						   + b_Texts  + c_Green + "@" + c_Reset + ", " + b_Texts  + c_Green + "$" + c_Reset + ", " + b_Texts  + c_Green +"!" + c_Reset + ", " 
+						   + b_Texts  + c_Green + "%" + c_Reset + ", " + b_Texts  + c_Green + "*" + c_Reset + ", " + b_Texts  + c_Green + "?" + c_Reset + ", or " 
+						   + b_Texts  + c_Green + "&" + c_Reset + ")" + " ".repeat(13) + b_verticalLine);
+
+	            String setterLine = (tabSpace + minorCR45 + c_Green + b_Texts +  " —> " + c_Reset);
+	            String fillerLine = (tab + minorCR45 + b_Texts + "─".repeat(84) + c_Reset); 
+	            String fillerLine1 = (tab + minorCR45 + b_Texts + "┌" + "─".repeat(82) + "┐" + c_Reset); 
+	            String fillerLine2 = (tab + minorCR45 + b_Texts + "└" + "─".repeat(82) + "┘" + c_Reset); 
+	            
+	            System.out.println(fillerLine1);
+				System.out.println(firstLineOption);
+				System.out.println(usernameDescription1);
+				System.out.println(fillerLine2);
+				System.out.print(setterLine);
+	            Logics_ProfileUser.userName = mths.scan.nextLine().trim();
+				System.out.print(fillerLine);
+	            Logics_ProfileUser.usernameVerification();
+	            
+				System.out.println("\n\n\n");
+	            if(Logics_ProfileUser.userNameHolder){
+		            System.out.println(fillerLine1);
+		            System.out.println(secondtLineOption);
+		            System.out.println(passwordDescription1);
+		            System.out.println(passwordDescription2);
+		            System.out.println(fillerLine2);
+		            System.out.print(setterLine);
+		            Logics_ProfileUser.userPassword = mths.scan.nextLine().trim();
+		            
+		            print.println(fillerLine);
+		            print.flush();
+		            Logics_ProfileUser.passwordVerification();
+	            }
+	            
+	            Logics_ManageAccount.accountChecker();
+	            Logics_ManageAccount.setContinueAccessSystemCA(true);
+	            break;
 			}
 			
 			catch (Exception e){
 				e.getMessage();
 			}
 		}
-		
-		// ADMIN THAT CONFIRMS THE ACCOUNT TO BE CREATED OR REMOVED MUST BE CONFIRMS AS "AccountAdministrator"
-		// To create another AdministratorAccount, it must be confirmed by another Administrator, consenting on adding a Supervisor or Manager, a account of a high-level position
-	}
-	
-	// 
-	public static void accountCheckerByAdmin() {
-		System.out.println("UNDER CONSTRUCTION -> Checks the Database for the \"AdministratorAccount\" same with accountChecker but with additional verification of an existing AdminAccount");
-		
-		while(true) {
-			try {
-				
-			}
-			
-			catch (Exception e){
-				e.getMessage();
-			}
-		}
-		
 		// ADMIN THAT CONFIRMS THE ACCOUNT TO BE CREATED OR REMOVED MUST BE CONFIRMS AS "AccountAdministrator"
 		// To create another AdministratorAccount, it must be confirmed by another Administrator, consenting on adding a Supervisor or Manager, a account of a high-level position
 	}
@@ -428,6 +501,27 @@ public class Logics_ManageAccount {
 		}
 	}
 	
+	private static boolean boolContinueProcessrAcc;
+	private static boolean boolContinueProcessrAccPass;
+	
+    public static void setBoolContinueProcessrAcc(boolean boolContinueProcessrAcc) {
+    	Logics_ManageAccount.boolContinueProcessrAcc = boolContinueProcessrAcc;
+    }
+    
+    public static boolean getBoolContinueProcessrAcc() {
+    	return boolContinueProcessrAcc;
+    }
+    
+    public static void setBoolContinueProcessrAccPass(boolean boolContinueProcessrAccPass) {
+    	Logics_ManageAccount.boolContinueProcessrAccPass = boolContinueProcessrAccPass;
+    }
+    
+    public static boolean getBoolContinueProcessrAccPass() {
+    	return boolContinueProcessrAccPass;
+    }
+    
+    private static String rAccName;
+    private static String rAccPass;
 	
 	public static void removeAccount() {
     	//MEHODS
@@ -464,9 +558,45 @@ public class Logics_ManageAccount {
 	        	print.flush();
 	        	
 	        	// SHOWS ALL ACCOUNTS
-	        	
-	        	
-	        	
+				System.out.println();
+				System.out.println(b_Texts + " ".repeat(57) + "┌" + "─".repeat(46) + "┬" + "─".repeat(22) + "┐" + c_Reset);
+				System.out.println(" ".repeat(57) + b_Texts + "│" + c_Reset + " ".repeat(2) + "Enter Username ('" + c_Green + "Name" +
+								   c_Reset + "' + '" + c_Green + "_"  + c_Reset + "' '" + c_Green + "ID No." + c_Reset + "')" + ";" + " ".repeat(2) + b_Texts + "│" + c_Reset +
+								   " ".repeat(2) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(4) + "│" + c_Reset);
+				System.out.println(b_Texts + " ".repeat(57) + "└" + "─".repeat(46) + "┴" + "─".repeat(22) + "┘" + c_Reset);
+				
+		        System.out.print(" ".repeat(58) + c_Green + b_Texts + " —> " + c_Reset);						
+		        String removeByNameAndID1 = mths.scan.nextLine().trim();
+		        
+		        if (removeByNameAndID1 != ".") {
+		        	setBoolContinueProcessrAcc(true);
+		        	rAccName = removeByNameAndID1;
+		        }
+		        
+		        if (removeByNameAndID1.equals(".")) {
+		        	setBoolContinueProcessrAcc(false);
+		        	break;
+		        }
+		        
+				System.out.println();
+				System.out.println(b_Texts + " ".repeat(57) + "┌" + "─".repeat(46) + "┬" + "─".repeat(22) + "┐" + c_Reset);
+				System.out.println(" ".repeat(57) + b_Texts + "│" + c_Reset + " ".repeat(2) + "Enter Password ('" + c_Green + "Name" +
+								   c_Reset + "' + '" + c_Green + "_"  + c_Reset + "' '" + c_Green + "ID No." + c_Reset + "')" + ";" + " ".repeat(2) + b_Texts + "│" + c_Reset +
+								   " ".repeat(2) + " or '" + c_Green + "." + c_Reset + "' to Exit " +  b_Texts + " ".repeat(4) + "│" + c_Reset);
+				System.out.println(b_Texts + " ".repeat(57) + "└" + "─".repeat(46) + "┴" + "─".repeat(22) + "┘" + c_Reset);
+				
+		        System.out.print(" ".repeat(58) + c_Green + b_Texts + " —> " + c_Reset);						
+		        String removeByNameAndID2 = mths.scan.nextLine().trim();
+		        
+		        if (removeByNameAndID2 != ".") {
+		        	setBoolContinueProcessrAccPass(true);
+		        	rAccPass = removeByNameAndID2;
+		        }
+		        
+		        if (removeByNameAndID2.equals(".")) {
+		        	setBoolContinueProcessrAccPass(false);
+		        	break;
+		        }
 	    	}
 	    	
 	    	catch(Exception e){
@@ -474,11 +604,49 @@ public class Logics_ManageAccount {
 	    	}
 	    	
 	    	finally {
-	    		repeatingChooseManageAccount();
-	    	}
-    	break;
+	    		if (getBoolContinueProcessrAcc() && getBoolContinueProcessrAccPass()) {
+	    			try {				        
+						BufferedReader br1 = new BufferedReader(new FileReader(mths.fPathAcc.toString()));
+						File oldFile = new File (mths.fPathAcc.toString());
+						File newFile = new File ("temp.txt");
+						
+						FileWriter FW = new FileWriter("temp.txt", true);
+						BufferedWriter BW = new BufferedWriter(FW);
+						PrintWriter PW = new PrintWriter(BW);
+						
+				        String lineRead;
+				        List <String> itemNames = new ArrayList<>(); 
+				        
+				        while((lineRead = br1.readLine()) != null) {
+				        	String DATA [] = lineRead.split(";");
+				        	
+				        	if (!DATA[1].equals(rAccName) && !DATA[2].equals(rAccPass)) {
+				        			itemNames.add(lineRead);
+				        	}
+				        }
+				        String joinedList = itemNames.stream().collect(Collectors.joining(System.lineSeparator()));
+				        PW.write(joinedList);
+				        PW.write("\n");
+				        
+				        PW.flush();
+				        PW.close();
+				        br1.close();
+				        
+				        oldFile.delete();
+				        File dump = new File ("src/InventoryData");
+				        newFile.renameTo(dump);
+	    			}
+	    	    	catch(Exception e){
+	    	    		System.out.println(tabLine + "SOMETHING WENT WRONG IN REMOVE ITEM " + e.getMessage());
+	    	    		e.getStackTrace();
+	    	    	}
+	    		}
+    		}
+    		repeatingChooseManageAccount();
+    		break;
     	}
 	}
+	
 	
 	// Duplicate BReAAAAAAAAAADCRUMBS
 	public static void retryEnteringAcccount() {
@@ -856,25 +1024,25 @@ public class Logics_ManageAccount {
 	        	print.println(tabSpace  + " ".repeat(72) + b_Texts + "CHOOSE AGAIN OR EXIT THE PROGRAM" + c_Reset);
 
 				
-				String fillerLine = (tabSpace + minorCR43 + b_Texts +  "—".repeat(86) + "" + c_Reset);
-				String line10Option = (tabSpace + " ".repeat(44) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + b_Texts + " Change Password" + c_Reset + " ".repeat(19));   // ENTERS USERNAME THEN VERIFIES, ASKS WHAT CHANGE PASS WILL BE
-				String line11Option = (b_verticalLine + " ".repeat(10) + "  [" + c_Green + b_Texts + "2" + c_Reset + "]" + b_Texts + " Create New Account" + c_Reset + " ".repeat(7) + b_verticalLine); // createAccount();
-				String line12Option = (tabSpace + " ".repeat(44) + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + b_Texts + " Delete an Account" + c_Reset + " ".repeat(17));
-				String line13Option = (b_verticalLine + " ".repeat(10) + "  [" + c_Green + b_Texts + "4" + c_Reset + "]" + b_Texts + " Retry Entering Account" + c_Reset + " ".repeat(3) + b_verticalLine); //PAPUNTANG ACCSYST	
-				String line14Option = (" ".repeat(53) + b_verticalLine + " ".repeat(28) + "  [" + c_Green + b_Texts + "5" + c_Reset + "]" + b_Texts + " Exit and Go Back" + c_Reset + " ".repeat(32) + b_verticalLine);
-				String setterLine = (subCR53 + b_Texts + " —> " + c_Reset);
+				String fillerLine1 = (tabSpace + " ".repeat(54) + b_Texts + "┌" + "─".repeat(30) + "┬" + "─".repeat(29) + "┐" + "" + c_Reset);
+				String fillerLine2 = (tabSpace + " ".repeat(54) + b_Texts + "├" + "─".repeat(30) + "┼" + "─".repeat(29) + "┤"+ c_Reset);
+				String fillerLine4 = (tabSpace + " ".repeat(54) + b_Texts + "└" + "─".repeat(60) + "┘" + "" + c_Reset);
 				
-				print.println(fillerLine);
+				String line10Option = (tabSpace + " ".repeat(54) + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset + "]" + c_Green + b_Texts + " Change Password" + c_Reset + " ".repeat(9));   // ENTERS USERNAME THEN VERIFIES, ASKS WHAT CHANGE PASS WILL BE
+				String line11Option = (b_verticalLine + " ".repeat(0) + "  [" + c_Green + b_Texts + "2" + c_Reset + "]" + c_Green + b_Texts + " Create New Account" + c_Reset + " ".repeat(5) + b_verticalLine); // createAccount();
+				String line12Option = (tabSpace + " ".repeat(54) + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset + "]" + c_Green + b_Texts + " Delete an Account" + c_Reset + " ".repeat(7));
+				String line13Option = (b_verticalLine + " ".repeat(0) + "  [" + c_Green + b_Texts + "4" + c_Reset + "]" + c_Green + b_Texts + " Retry Entering Account" + c_Reset + " ".repeat(1) + b_verticalLine); //PAPUNTANG ACCSYST	
+				String setterLine = (" ".repeat(59) + c_Green + b_Texts + " —> " + c_Reset);
+				
+				print.println(fillerLine1);
 				print.print(line10Option);
 				print.println(line11Option);
-				print.println(fillerLine);
-	
+				print.println(fillerLine2);
+
 				print.print(line12Option);
 				print.println(line13Option);
-				print.println(fillerLine);
-	
-				print.println(line14Option);
-				print.println(fillerLine);
+				print.println(fillerLine4);
+
 				print.print(setterLine);
 				
 				print.flush();
@@ -920,5 +1088,4 @@ public class Logics_ManageAccount {
 			}
 		}
 	}
-	
 }

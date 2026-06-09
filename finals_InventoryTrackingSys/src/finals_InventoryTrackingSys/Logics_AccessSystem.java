@@ -76,9 +76,9 @@ public class Logics_AccessSystem {
 	            String line11Option = (tabSpace + subCR54 + b_verticalLine + "  [" + c_Green + b_Texts + "1" + c_Reset +  "] " + c_Green + b_Texts + "Inventory " + c_Reset);
 	            String line12Option = ( tabSpace + " ".repeat(12) + b_verticalLine + " ".repeat(2) + "[" + c_Green + b_Texts + "2" + c_Reset +  "] " + c_Green + b_Texts + "Item" + c_Reset + " ".repeat(19) + b_verticalLine);
 	            
-	            String line131Option = (tab + subCR54 + b_Texts +  " ┌" + "─".repeat(30) + "┬" + "─".repeat(29) + "┐" + c_Reset);
-	            String line132Option = (tab + subCR54 + b_Texts +  " ├" + "─".repeat(30) + "┼" + "─".repeat(29) + "┤" + c_Reset);
-	            String line133Option = (tab + subCR54 + b_Texts +  " └" + "─".repeat(30) + "┴" + "─".repeat(29) + "┘" + c_Reset);
+	            String line131Option = (tab + subCR54 + b_Texts + " ┌" + "─".repeat(30) + "┬" + "─".repeat(29) + "┐" + c_Reset);
+	            String line132Option = (tab + subCR54 + b_Texts + " ├" + "─".repeat(30) + "┼" + "─".repeat(29) + "┤" + c_Reset);
+	            String line133Option = (tab + subCR54 + b_Texts + " └" + "─".repeat(30) + "┴" + "─".repeat(29) + "┘" + c_Reset);
 	            
 	            
 	            String line14Option = (tabSpace + subCR54 + b_verticalLine + "  [" + c_Green + b_Texts + "3" + c_Reset +  "] " + c_Green + b_Texts + "Group or Category " + c_Reset);
@@ -324,5 +324,4 @@ public class Logics_AccessSystem {
     		}
     	}
     }
-    
 }

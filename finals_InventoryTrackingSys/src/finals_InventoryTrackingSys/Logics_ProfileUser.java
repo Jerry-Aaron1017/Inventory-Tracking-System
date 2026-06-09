@@ -1,11 +1,7 @@
 package finals_InventoryTrackingSys;
 
 import java.io.*;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.PrintWriter;
 import java.nio.file.*;
-import java.nio.file.Paths;
 import java.text.*;
 import java.util.*;
 import java.util.regex.*;
@@ -20,25 +16,10 @@ public class Logics_ProfileUser {
     static String c_Reset = "\u001B[0m";
     
     // VARS FOR UI FORMAT
-    final static String counterFormat = " ".repeat(53);
-    final static String halfCF = " ".repeat(27);
-    final static String repetition54 = " ".repeat(54);
-	final static String repetition56 = " ".repeat(56);
 	final static String centerRepeat = " ".repeat(75);
-	final static String centerRepeat72 = " ".repeat(72);
-	final static String centerRepeat73 = " ".repeat(73);
-	final static String subCR65 = " ".repeat(65);
-	final static String subCR57 = " ".repeat(57);
 	final static String subCR55 = " ".repeat(55);
-	final static String subCR54 = " ".repeat(54);
-	final static String subCR52 = " ".repeat(52);
-	final static String subCR53 = " ".repeat(53);
-	final static String subCR50 = " ".repeat(50);
-	final static String minorCR48 = " ".repeat(48);      // MINOR CENTER REPEAT
-	final static String minorCR47 = " ".repeat(47);
 	final static String minorCR45 = " ".repeat(45);
 	final static String minorCR44 = " ".repeat(44);
-	final static String minorCR43 = " ".repeat(43);
 	
 	final static String newLines5 = ("\n\n\n\n\n");
 	

@@ -307,13 +307,7 @@ public class Logics_AllDecisions implements InventoryVars{
 					break;
 				}
 				
-				else if (fifthChoice.equals("4") || fifthChoice.equalsIgnoreCase("Use Other") || fifthChoice.equalsIgnoreCase("Use Other Account") || fifthChoice.equalsIgnoreCase("Retry")) {
-					Logics_ManageAccount.retryEnteringAcccount(); 
-					//>>verification >> >> if passes>> continue to system
-					break;
-				}
-				
-				else if (fifthChoice.equals("5") || fifthChoice.equalsIgnoreCase("Exit") || fifthChoice.equalsIgnoreCase("Exit and Go Back") || fifthChoice.equalsIgnoreCase("Go Back")) {
+				else if (fifthChoice.equals("4") || fifthChoice.equalsIgnoreCase("Exit") || fifthChoice.equalsIgnoreCase("Exit and Go Back") || fifthChoice.equalsIgnoreCase("Go Back")) {
 					Logics_AccessSystem.firstDecisionDuplicate();
 					break;
 				}
@@ -333,5 +327,4 @@ public class Logics_AllDecisions implements InventoryVars{
     		System.out.println(newLines);
     	}
     }
-	
 }
